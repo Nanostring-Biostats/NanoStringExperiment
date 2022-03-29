@@ -10,8 +10,8 @@ setClassUnion("matrixOrNULL", c("formula", "NULL"))
 #' Class definition for the base NanoString experiment
 #' 
 #' 
-#' @import Biobase
 #' @import SummarizedExperiment
+#' @importFrom Biobase AnnotatedDataFrame MIAME
 #' 
 .NanoStringExperiment <- setClass("NanoStringExperiment",
     contains = c("SummarizedExperiment"),

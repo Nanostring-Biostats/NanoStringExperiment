@@ -3,7 +3,7 @@
 #' Access version of NanoStringExperiment package used to generate object
 #' 
 #' @export
-setMethod("classVersion", "NanoStringExperiment",
+setMethod("classVersion", signature = "NanoStringExperiment",
     function(object) object@.__classVersion__)
 
 
@@ -15,7 +15,17 @@ setMethod("classVersion", "NanoStringExperiment",
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @export
-assayData <- function(object) assays(object)
+setGeneric("assayData", signature = "object",
+    function(object) standardGeneric("assayData"))
+
+#' Access assays
+#' 
+#' It is recommended to use the SummarizedExperiment method assays instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @export
+setMethod("assayData", signature = "NanoStringExperiment",
+    function(object) assays(object))
 
 #' Access assay data
 #' 
@@ -23,7 +33,17 @@ assayData <- function(object) assays(object)
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @export
-assayDataElement <- function(object, elt) assays(object)[[elt]]
+setGeneric("assayDataElement", signature = "object",
+    function(object, elt) standardGeneric("assayDataElement"))
+
+#' Access assay data
+#' 
+#' It is recommended to use the SummarizedExperiment method assays instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @export
+setMethod("assayDataElement", signature = "NanoStringExperiment",
+    function(object, elt) assays(object)[[elt]])
 
 #' Replace or add new assay data
 #' 
@@ -31,8 +51,22 @@ assayDataElement <- function(object, elt) assays(object)[[elt]]
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @export
-`assayDataElement<-` <- 
-    function(object, elt, ..., value) assays(object)[[elt]] <- value
+setGeneric("assayDataElement<-", 
+    signature = c("object", "value"),
+    function(object, elt, ..., value) standardGeneric("assayDataElement<-"))
+
+#' Replace or add new assay data
+#' 
+#' It is recommended to use the SummarizedExperiment method assays instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @export
+setReplaceMethod("assayDataElement", 
+    signature = c("NanoStringExperiment", "ANY"),
+    function(object, elt, ..., value) {
+        assays(object)[[elt]] <- value
+        return(object)
+    })
 
 #' Access assay names
 #' 
@@ -40,7 +74,18 @@ assayDataElement <- function(object, elt) assays(object)[[elt]]
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @export
-assayDataElementNames <- function(object) assayNames(object)
+setGeneric("assayDataElementNames", signature = "object",
+    function(object) standardGeneric("assayDataElementNames"))
+
+#' Access assay names
+#' 
+#' It is recommended to use the SummarizedExperiment method assayNames instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @export
+setMethod("assayDataElementNames", signature = "NanoStringExperiment",
+    function(object) assayNames(object))
+
 
 #' Access exprs data
 #' 
@@ -48,7 +93,17 @@ assayDataElementNames <- function(object) assayNames(object)
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @export
-exprs <- function(object) assays(object)[["exprs"]]
+setGeneric("exprs", signature = "object",
+    function(object) standardGeneric("exprs"))
+
+#' Access exprs data
+#' 
+#' It is recommended to use the SummarizedExperiment method assays instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @export
+setMethod("exprs", signature = "NanoStringExperiment",
+    function(object) assays(object)[["exprs"]])
 
 #' Replace exprs data
 #' 
@@ -56,9 +111,170 @@ exprs <- function(object) assays(object)[["exprs"]]
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @export
-`exprs<-` <- function(object, ..., value) assays(object)[["exprs"]] <- value
+setGeneric("exprs<-", signature = "object",
+    function(object, ..., value) standardGeneric("exprs<-"))
 
-# Column Data (Formerly Sample Data) ------------------------------------------
+#' Replace exprs data
+#' 
+#' It is recommended to use the SummarizedExperiment method assays instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @export
+setReplaceMethod("exprs", signature = "NanoStringExperiment",
+    function(object, ..., value) {
+        assays(object)[["exprs"]] <- value
+        return(object)
+    })
+
+# Column Metadata (Formerly Sample Data) --------------------------------------
+#' Access sample metadata
+#' 
+#' It is recommended to use the SummarizedExperiment method colData instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @export
+setGeneric("sData", signature = "object",
+           function(object) standardGeneric("sData"))
+
+#' Access sample metadata
+#' 
+#' It is recommended to use the SummarizedExperiment method colData instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @export
+setMethod("sData", signature = "NanoStringExperiment",
+          function(object) colData(testExp))
+
+#' Access sample metadata varible names
+#' 
+#' It is recommended to use the SummarizedExperiment method colData instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @export
+setGeneric("svarLabels", signature = "object",
+           function(object) standardGeneric("svarLabels"))
+
+#' Access sample metadata varible names
+#' 
+#' It is recommended to use the SummarizedExperiment method colData instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @export
+setMethod("svarLabels", signature = "NanoStringExperiment",
+          function(object) colnames(colData(testExp)))
+
+#' Access sample phenotypic metadata
+#' 
+#' It is recommended to use the SummarizedExperiment method colData instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @export
+setGeneric("phenoData", signature = "object",
+           function(object) standardGeneric("phenoData"))
+
+#' Access sample phenotypic metadata
+#' 
+#' It is recommended to use the SummarizedExperiment method colData instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @importFrom Biobase AnnotatedDataFrame
+#' 
+#' @export
+setMethod("phenoData", signature = "NanoStringExperiment",
+    function(object) {
+        Biobase::AnnotatedDataFrame(
+            data.frame(colData(object)[, metadata(object)$phenotypeCols]))
+    })
+
+#' Access sample protocol metadata
+#' 
+#' It is recommended to use the SummarizedExperiment method colData instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @export
+setGeneric("protocolData", signature = "object",
+           function(object) standardGeneric("protocolData"))
+
+#' Access sample protocol metadata
+#' 
+#' It is recommended to use the SummarizedExperiment method colData instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @importFrom Biobase AnnotatedDataFrame
+#' 
+#' @export
+setMethod("protocolData", signature = "NanoStringExperiment",
+    function(object) {
+        Biobase::AnnotatedDataFrame(
+            data.frame(colData(object)[, metadata(object)$protocolCols]))
+    })
+
+#' Access sample phenotypic metadata
+#' 
+#' It is recommended to use the SummarizedExperiment method colData instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @export
+setGeneric("pData", signature = "object",
+           function(object) standardGeneric("pData"))
+
+#' Access sample phenotypic metadata
+#' 
+#' It is recommended to use the SummarizedExperiment method colData instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @importFrom Biobase AnnotatedDataFrame
+#' 
+#' @export
+setMethod("pData", signature = "NanoStringExperiment",
+    function(object) {
+        ifelse(!"phenoCols" %in% names(metadata(object)),
+            return(colData(object)),
+            return(colData(object)[, metadata(object)$phenoCols]))
+    })
+
+#' Access sample phenotypic metadata
+#' 
+#' It is recommended to use the SummarizedExperiment method colData instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @importFrom Biobase pData
+#' 
+#' @export
+setMethod("pData", signature = "AnnotatedDataFrame",
+    function(object) {
+        Biobase::pData(object)
+    })
+
+#' Access sample phenotypic metadata variable names
+#' 
+#' It is recommended to use the SummarizedExperiment method colData instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @export
+setGeneric("varLabels", signature = "object",
+           function(object) standardGeneric("varLabels"))
+
+#' Access sample phenotypic metadata variable names
+#' 
+#' It is recommended to use the SummarizedExperiment method colData instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @export
+setMethod("varLabels", signature = "NanoStringExperiment",
+    function(object) {
+        ifelse(is.null(metadata(object)[["phenoCols"]]), 
+            colnames(colData(object)),
+            metadata(object)$phenoCols)
+    })
 
 
-# Row Data (Formerly Feature Data) --------------------------------------------
+
+
+
+# Row Metadata (Formerly Feature Data) ----------------------------------------
+#fData
+
+
+# Experiment Metadata ---------------------------------------------------------
+#fData
