@@ -313,36 +313,6 @@ setMethod("varLabels", signature = "NanoStringExperiment",
 #' It is recommended to use the SummarizedExperiment method colData instead.
 #' This is a convenience method for backwards compatibility.
 #' 
-#' @importMethodsFrom Biobase varLabels
-#' 
-#' @export
-setMethod("varLabels", signature = "DataFrame",
-    function(object) colnames(object))
-
-#' Access sample phenotypic metadata variables
-#' 
-#' It is recommended to use the SummarizedExperiment method colData instead.
-#' This is a convenience method for backwards compatibility.
-#' 
-#' @importMethodsFrom Biobase varLabels<-
-#' 
-#' @export
-setReplaceMethod("varLabels", signature = "NanoStringExperiment",
-    function(object, value) {
-        if(is.null(metadata(object)[["phenotypeCols"]])) {
-            colnames(colData(object)) <- value
-        } else {
-            colnames(colData(object)[, 
-                metadata(object)[["phenotypeCols"]]]) <- value
-        }
-        return(object)
-    })
-
-#' Access metadata variables
-#' 
-#' It is recommended to use the SummarizedExperiment method colData instead.
-#' This is a convenience method for backwards compatibility.
-#' 
 #' @importMethodsFrom Biobase varLabels<-
 #' 
 #' @export
