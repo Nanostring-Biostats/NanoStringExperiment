@@ -7,6 +7,6 @@
 \S4method{protocolData}{NanoStringExperiment,ANY}(object) <- value
 }
 \description{
-It is recommended to use the SummarizedExperiment method colData instead.
+It is recommended to use the SummarizedExperiment colData instead.
 This is a convenience method for backwards compatibility.
 }

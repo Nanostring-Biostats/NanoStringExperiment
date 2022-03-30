@@ -19,10 +19,6 @@ setClassUnion("matrixOrNULL", c("formula", "NULL"))
     contains = c("SummarizedExperiment"),
     slots = c(
         assayData = "matrixOrNULL",
-        phenoData = "AnnotatedDataFrame",
-        protocolData = "AnnotatedDataFrame",
-        featureData = "AnnotatedDataFrame",
-        experimentData = "MIAME",
         annotation = "character",
         dimLabels = "character",
         signatures = "ANY",
@@ -53,6 +49,9 @@ function(object) {
     }
 })
 
+#' @importFrom Biobase annotatedDataFrameFrom
+#' @importFrom Biobase MIAME
+#' 
 #' @export
 setGeneric("NanoStringExperiment",
 function(assayData,
@@ -70,6 +69,9 @@ function(assayData,
 signature = "assayData"
 )
 
+#' @importFrom Biobase annotatedDataFrameFrom
+#' @importFrom Biobase MIAME
+#' 
 #' @export
 setMethod("NanoStringExperiment", "missing",
 function(assayData,
@@ -93,6 +95,9 @@ function(assayData,
         design = design)
 })
 
+#' @importFrom Biobase annotatedDataFrameFrom
+#' @importFrom Biobase MIAME
+#' 
 #' @export
 setMethod("NanoStringExperiment", "matrix",
 function(assayData,
@@ -119,8 +124,7 @@ function(assayData,
         assays = list(exprs = assayData),
         colData = allColData,
         rowData = featureData@data,
-        metadata = experimentData@other,
-        ...)
+        metadata = experimentData@other)
     .NanoStringExperiment(se,
         annotation = annotation,
         dimLabels = dimLabels,

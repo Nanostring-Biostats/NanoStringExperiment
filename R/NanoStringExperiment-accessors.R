@@ -6,12 +6,23 @@
 setMethod("classVersion", signature = "NanoStringExperiment",
     function(object) object@.__classVersion__)
 
+#' Access variables used for feature and sample identifiers
+#' 
+#' It is recommended to use the SummarizedExperiment assays instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @importMethodsFrom Biobase dimLabels
+#' 
+#' @export
+setMethod("classVersion", signature = "NanoStringExperiment",
+    function(object) object@dimLabels)
+
 
 # Assay Data ------------------------------------------------------------------
 
 #' Access assays
 #' 
-#' It is recommended to use the SummarizedExperiment method assays instead.
+#' It is recommended to use the SummarizedExperiment assays instead.
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase assayData
@@ -22,7 +33,7 @@ setMethod("assayData", signature = "NanoStringExperiment",
 
 #' Access assay data
 #' 
-#' It is recommended to use the SummarizedExperiment method assays instead.
+#' It is recommended to use the SummarizedExperiment assays instead.
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @export
@@ -31,7 +42,7 @@ setGeneric("assayDataElement", signature = "object",
 
 #' Access assay data
 #' 
-#' It is recommended to use the SummarizedExperiment method assays instead.
+#' It is recommended to use the SummarizedExperiment assays instead.
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @export
@@ -46,7 +57,7 @@ setMethod("assayDataElement", signature = "NanoStringExperiment",
 
 #' Replace or add new assay data
 #' 
-#' It is recommended to use the SummarizedExperiment method assays instead.
+#' It is recommended to use the SummarizedExperiment assays instead.
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @export
@@ -56,7 +67,7 @@ setGeneric("assayDataElement<-",
 
 #' Replace or add new assay data
 #' 
-#' It is recommended to use the SummarizedExperiment method assays instead.
+#' It is recommended to use the SummarizedExperiment assays instead.
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @export
@@ -69,7 +80,7 @@ setReplaceMethod("assayDataElement",
 
 #' Access assay names
 #' 
-#' It is recommended to use the SummarizedExperiment method assayNames instead.
+#' It is recommended to use the SummarizedExperiment assayNames instead.
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @export
@@ -78,7 +89,7 @@ setGeneric("assayDataElementNames", signature = "object",
 
 #' Access assay names
 #' 
-#' It is recommended to use the SummarizedExperiment method assayNames instead.
+#' It is recommended to use the SummarizedExperiment assayNames instead.
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @export
@@ -87,7 +98,7 @@ setMethod("assayDataElementNames", signature = "NanoStringExperiment",
 
 #' Access exprs data
 #' 
-#' It is recommended to use the SummarizedExperiment method assays instead.
+#' It is recommended to use the SummarizedExperiment assays instead.
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase exprs
@@ -98,7 +109,7 @@ setMethod("exprs", signature = "NanoStringExperiment",
 
 #' Replace exprs data
 #' 
-#' It is recommended to use the SummarizedExperiment method assays instead.
+#' It is recommended to use the SummarizedExperiment assays instead.
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase exprs<-
@@ -113,43 +124,43 @@ setReplaceMethod("exprs", signature = "NanoStringExperiment",
 # Column Metadata (Formerly Sample Data) --------------------------------------
 #' Access sample metadata
 #' 
-#' It is recommended to use the SummarizedExperiment method colData instead.
+#' It is recommended to use the SummarizedExperiment colData instead.
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @export
 setGeneric("sData", signature = "object",
-           function(object) standardGeneric("sData"))
+    function(object) standardGeneric("sData"))
 
 #' Access sample metadata
 #' 
-#' It is recommended to use the SummarizedExperiment method colData instead.
+#' It is recommended to use the SummarizedExperiment colData instead.
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @export
 setMethod("sData", signature = "NanoStringExperiment",
-          function(object) colData(testExp))
+    function(object) colData(object))
 
 #' Access sample metadata varible names
 #' 
-#' It is recommended to use the SummarizedExperiment method colData instead.
+#' It is recommended to use the SummarizedExperiment colData instead.
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @export
 setGeneric("svarLabels", signature = "object",
-           function(object) standardGeneric("svarLabels"))
+    function(object) standardGeneric("svarLabels"))
 
 #' Access sample metadata varible names
 #' 
-#' It is recommended to use the SummarizedExperiment method colData instead.
+#' It is recommended to use the SummarizedExperiment colData instead.
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @export
 setMethod("svarLabels", signature = "NanoStringExperiment",
-          function(object) colnames(colData(testExp)))
+    function(object) colnames(colData(object)))
 
 #' Access sample phenotypic metadata
 #' 
-#' It is recommended to use the SummarizedExperiment method colData instead.
+#' It is recommended to use the SummarizedExperiment colData instead.
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase phenoData
@@ -164,7 +175,7 @@ setMethod("phenoData", signature = "NanoStringExperiment",
 
 #' Replace sample phenotypic metadata
 #' 
-#' It is recommended to use the SummarizedExperiment method colData instead.
+#' It is recommended to use the SummarizedExperiment colData instead.
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase phenoData<-
@@ -180,7 +191,7 @@ setReplaceMethod("phenoData", signature = "NanoStringExperiment",
 
 #' Replace sample phenotypic metadata
 #' 
-#' It is recommended to use the SummarizedExperiment method colData instead.
+#' It is recommended to use the SummarizedExperiment colData instead.
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase phenoData<-
@@ -194,7 +205,7 @@ setReplaceMethod("phenoData", signature = "DataFrame",
 
 #' Access sample protocol metadata
 #' 
-#' It is recommended to use the SummarizedExperiment method colData instead.
+#' It is recommended to use the SummarizedExperiment colData instead.
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase protocolData
@@ -209,7 +220,7 @@ setMethod("protocolData", signature = "NanoStringExperiment",
 
 #' Replace sample protocol metadata
 #' 
-#' It is recommended to use the SummarizedExperiment method colData instead.
+#' It is recommended to use the SummarizedExperiment colData instead.
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase protocolData<-
@@ -225,7 +236,7 @@ setReplaceMethod("protocolData", signature = "NanoStringExperiment",
 
 #' Replace sample protocol metadata
 #' 
-#' It is recommended to use the SummarizedExperiment method colData instead.
+#' It is recommended to use the SummarizedExperiment colData instead.
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase protocolData<-
@@ -239,7 +250,7 @@ setReplaceMethod("protocolData", signature = "DataFrame",
 
 #' Access sample phenotypic metadata
 #' 
-#' It is recommended to use the SummarizedExperiment method colData instead.
+#' It is recommended to use the SummarizedExperiment colData instead.
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase pData
@@ -254,7 +265,7 @@ setMethod("pData", signature = "NanoStringExperiment",
 
 #' Access sample phenotypic metadata
 #' 
-#' It is recommended to use the SummarizedExperiment method colData instead.
+#' It is recommended to use the SummarizedExperiment colData instead.
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase pData
@@ -265,7 +276,7 @@ setMethod("pData", signature = "DataFrame",
 
 #' Replace sample phenotypic metadata
 #' 
-#' It is recommended to use the SummarizedExperiment method colData instead.
+#' It is recommended to use the SummarizedExperiment colData instead.
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase pData<-
@@ -281,7 +292,7 @@ setReplaceMethod("pData", signature = "NanoStringExperiment",
 
 #' Replace sample phenotypic metadata
 #' 
-#' It is recommended to use the SummarizedExperiment method colData instead.
+#' It is recommended to use the SummarizedExperiment colData instead.
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase pData<-
@@ -295,7 +306,7 @@ setReplaceMethod("pData", signature = "DataFrame",
 
 #' Access sample phenotypic metadata variables
 #' 
-#' It is recommended to use the SummarizedExperiment method colData instead.
+#' It is recommended to use the SummarizedExperiment colData instead.
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase varLabels
@@ -310,7 +321,7 @@ setMethod("varLabels", signature = "NanoStringExperiment",
 
 #' Access metadata variables
 #' 
-#' It is recommended to use the SummarizedExperiment method colData instead.
+#' It is recommended to use the SummarizedExperiment colData instead.
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase varLabels
@@ -319,9 +330,9 @@ setMethod("varLabels", signature = "NanoStringExperiment",
 setMethod("varLabels", signature = "DataFrame",
     function(object) colnames(object))
 
-#' Access sample phenotypic metadata variables
+#' Replace sample phenotypic metadata variables
 #' 
-#' It is recommended to use the SummarizedExperiment method colData instead.
+#' It is recommended to use the SummarizedExperiment colData instead.
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase varLabels<-
@@ -339,13 +350,122 @@ setReplaceMethod("varLabels", signature = "NanoStringExperiment",
     })
 
 # Row Metadata (Formerly Feature Data) ----------------------------------------
-#fData
-#featureData
-#featureData()[[]]
-#fvarLabels
+
+#' Access feature metadata
+#' 
+#' It is recommended to use the SummarizedExperiment rowData instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @importMethodsFrom Biobase fData
+#' 
+#' @export
+setMethod("fData", signature = "NanoStringExperiment",
+    function(object) rowData(object))
+
+#' Replace feature metadata
+#' 
+#' It is recommended to use the SummarizedExperiment rowData instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @importMethodsFrom Biobase fData<-
+#' 
+#' @export
+setReplaceMethod("fData", signature = "NanoStringExperiment",
+    function(object, value) {
+        rowData(object) <- value
+        return(object)
+    })
+
+#' Access feature metadata variables
+#' 
+#' It is recommended to use the SummarizedExperiment rowData instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @importMethodsFrom Biobase fvarLabels
+#' 
+#' @export
+setMethod("fvarLabels", signature = "NanoStringExperiment",
+    function(object) colnames(rowData(object)))
+
+#' Replace feature metadata variables
+#' 
+#' It is recommended to use the SummarizedExperiment rowData instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @importMethodsFrom Biobase fvarLabels<-
+#' 
+#' @export
+setReplaceMethod("fvarLabels", signature = "NanoStringExperiment",
+    function(object, value) {
+        colnames(rowData(object)) <- value
+        return(object)
+    })
+
+#' Access feature metadata
+#' 
+#' It is recommended to use the SummarizedExperiment rowData instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @importMethodsFrom Biobase featureData
+#' 
+#' @export
+setMethod("featureData", signature = "NanoStringExperiment",
+    function(object) rowData(object))
+
+#' Replace feature metadata
+#' 
+#' It is recommended to use the SummarizedExperiment rowData instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @importMethodsFrom Biobase featureData<-
+#' 
+#' @export
+setReplaceMethod("featureData", signature = "NanoStringExperiment",
+    function(object, value) {
+        rowData(object) <- value
+        return(object)
+    })
+
+#' Replace feature metadata
+#' 
+#' It is recommended to use the SummarizedExperiment rowData instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @importMethodsFrom Biobase featureData<-
+#' 
+#' @export
+setReplaceMethod("featureData", signature = "DataFrame",
+    function(object, value) {
+        object <- value
+        return(object)
+    })
+
 
 # Experiment Metadata ---------------------------------------------------------
-#experimentData
+#' Access experiment metadata
+#' 
+#' It is recommended to use the SummarizedExperiment metadata instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @importMethodsFrom Biobase experimentData
+#' 
+#' @export
+setMethod("experimentData", signature = "NanoStringExperiment",
+    function(object) metadata(object))
+
+#' Replace experiment metadata
+#' 
+#' It is recommended to use the SummarizedExperiment metadata instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @importMethodsFrom Biobase experimentData<-
+#' 
+#' @export
+setReplaceMethod("experimentData", signature = "NanoStringExperiment",
+    function(object, value) {
+        metadata(object) <- value
+        return(object)
+    })
 
 # Other 
 #assayDataApply

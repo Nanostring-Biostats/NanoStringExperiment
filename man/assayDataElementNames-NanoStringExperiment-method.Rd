@@ -7,6 +7,6 @@
 \S4method{assayDataElementNames}{NanoStringExperiment}(object)
 }
 \description{
-It is recommended to use the SummarizedExperiment method assayNames instead.
+It is recommended to use the SummarizedExperiment assayNames instead.
 This is a convenience method for backwards compatibility.
 }

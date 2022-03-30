@@ -2,11 +2,11 @@
 % Please edit documentation in R/NanoStringExperiment-accessors.R
 \name{varLabels<-,NanoStringExperiment-method}
 \alias{varLabels<-,NanoStringExperiment-method}
-\title{Access sample phenotypic metadata variables}
+\title{Replace sample phenotypic metadata variables}
 \usage{
 \S4method{varLabels}{NanoStringExperiment}(object) <- value
 }
 \description{
-It is recommended to use the SummarizedExperiment method colData instead.
+It is recommended to use the SummarizedExperiment colData instead.
 This is a convenience method for backwards compatibility.
 }
