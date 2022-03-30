@@ -2,7 +2,7 @@
 % Please edit documentation in R/NanoStringExperiment-accessors.R
 \name{varLabels,NanoStringExperiment-method}
 \alias{varLabels,NanoStringExperiment-method}
-\title{Access sample phenotypic metadata variable names}
+\title{Access sample phenotypic metadata variables}
 \usage{
 \S4method{varLabels}{NanoStringExperiment}(object)
 }
