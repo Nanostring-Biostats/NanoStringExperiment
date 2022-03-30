@@ -1,7 +1,6 @@
 # Other 
 #munge
 #summary
-#setQCFlags
 #esBy
 
 #' Apply across an assay
