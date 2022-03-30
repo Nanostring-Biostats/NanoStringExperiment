@@ -8,15 +8,89 @@ setMethod("classVersion", signature = "NanoStringExperiment",
 
 #' Access variables used for feature and sample identifiers
 #' 
-#' It is recommended to use the SummarizedExperiment assays instead.
-#' This is a convenience method for backwards compatibility.
+#' Shows variables used for rownames in rowData and colData.
 #' 
 #' @importMethodsFrom Biobase dimLabels
 #' 
 #' @export
-setMethod("classVersion", signature = "NanoStringExperiment",
+setMethod("dimLabels", signature = "NanoStringExperiment",
     function(object) object@dimLabels)
 
+#' Replace variables used for feature and sample identifiers
+#' 
+#' Replaces rownames in rowData and colData with specified variable columns.
+#' 
+#' @importMethodsFrom Biobase dimLabels<-
+#' 
+#' @export
+setReplaceMethod("dimLabels", signature = "NanoStringExperiment",
+    function(object, value) {
+        object@dimLabels <- value
+        dimnames(object)[[1L]] <- rowData(object)[, dimLabels(object)[[1L]]]
+        dimnames(object)[[2L]] <- colData(object)[, dimLabels(object)[[2L]]]
+        return(object)
+    })
+
+#' Replace variables used for feature and sample identifiers
+#' 
+#' Replaces rownames in rowData and colData with specified variable columns.
+#' 
+#' @importMethodsFrom Biobase dimLabels<-
+#' 
+#' @export
+setReplaceMethod("dimLabels", signature = "NanoStringExperiment",
+    function(object, value) {
+        object@dimLabels <- value
+        dimnames(object)[[1L]] <- rowData(object)[, dimLabels(object)[[1L]]]
+        dimnames(object)[[2L]] <- colData(object)[, dimLabels(object)[[2L]]]
+        return(object)
+    })
+
+#' Access feature identifiers
+#' 
+#' Shows variables used for rownames in rowData.
+#' 
+#' @importMethodsFrom Biobase featureNames
+#' 
+#' @export
+setMethod("featureNames", signature = "NanoStringExperiment",
+    function(object) dimnames(object)[[1L]])
+
+#' Replace feature identifiers
+#' 
+#' Replace variables used for rownames in rowData.
+#' 
+#' @importMethodsFrom Biobase featureNames<-
+#' 
+#' @export
+setReplaceMethod("featureNames", signature = "NanoStringExperiment",
+    function(object, value) {
+        dimnames(object)[[1L]] <- value
+        return(object)
+    })
+
+#' Access sample identifiers
+#' 
+#' Shows variables used for rownames in colData.
+#' 
+#' @importMethodsFrom Biobase sampleNames
+#' 
+#' @export
+setMethod("sampleNames", signature = "NanoStringExperiment",
+    function(object) dimnames(object)[[2L]])
+
+#' Replace sample identifiers
+#' 
+#' Replace variables used for rownames in colData.
+#' 
+#' @importMethodsFrom Biobase sampleNames<-
+#' 
+#' @export
+setReplaceMethod("sampleNames", signature = "NanoStringExperiment",
+    function(object, value) {
+        dimnames(object)[[2L]] <- value
+        return(object)
+    })
 
 # Assay Data ------------------------------------------------------------------
 
@@ -467,13 +541,13 @@ setReplaceMethod("experimentData", signature = "NanoStringExperiment",
         return(object)
     })
 
-# Other 
-#assayDataApply
-#esApply
-#munge
-#dimLabels
-#dimLabels<-
-#sampleNames
-#sampleNames<-
-#featureNames
-#featureNames<-
+#' Access experiment annotations
+#' 
+#' Access annotations associated with the experiment
+#' 
+#' @importMethodsFrom BiocGenerics annotation
+#' 
+#' @export
+setMethod("annotation", signature="NanoStringExperiment",
+    function(object) object@annotation)
+
