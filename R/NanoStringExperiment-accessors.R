@@ -86,7 +86,6 @@ setGeneric("assayDataElementNames", signature = "object",
 setMethod("assayDataElementNames", signature = "NanoStringExperiment",
     function(object) assayNames(object))
 
-
 #' Access exprs data
 #' 
 #' It is recommended to use the SummarizedExperiment method assays instead.
@@ -177,13 +176,45 @@ setGeneric("phenoData", signature = "object",
 #' It is recommended to use the SummarizedExperiment method colData instead.
 #' This is a convenience method for backwards compatibility.
 #' 
-#' @importFrom Biobase AnnotatedDataFrame
-#' 
 #' @export
 setMethod("phenoData", signature = "NanoStringExperiment",
     function(object) {
-        Biobase::AnnotatedDataFrame(
-            data.frame(colData(object)[, metadata(object)$phenotypeCols]))
+        ifelse(!"phenotypeCols" %in% names(metadata(object)),
+            return(colData(object)),
+            return(colData(object)[, metadata(object)$phenotypeCols]))
+    })
+
+#' Replace sample phenotypic metadata
+#' 
+#' It is recommended to use the SummarizedExperiment method colData instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @export
+setGeneric("phenoData<-", signature = "object",
+    function(object, ..., value) standardGeneric("phenoData<-"))
+
+#' Replace sample phenotypic metadata
+#' 
+#' It is recommended to use the SummarizedExperiment method colData instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @export
+setReplaceMethod("phenoData", signature = "NanoStringExperiment",
+    function(object, ..., value) {
+        colData(object) <- value
+        return(object)
+    })
+
+#' Replace sample phenotypic metadata
+#' 
+#' It is recommended to use the SummarizedExperiment method colData instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @export
+setReplaceMethod("phenoData", signature = "DataFrame",
+    function(object, ..., value) {
+        object <- value
+        return(object)
     })
 
 #' Access sample protocol metadata
@@ -200,13 +231,45 @@ setGeneric("protocolData", signature = "object",
 #' It is recommended to use the SummarizedExperiment method colData instead.
 #' This is a convenience method for backwards compatibility.
 #' 
-#' @importFrom Biobase AnnotatedDataFrame
-#' 
 #' @export
 setMethod("protocolData", signature = "NanoStringExperiment",
     function(object) {
-        Biobase::AnnotatedDataFrame(
-            data.frame(colData(object)[, metadata(object)$protocolCols]))
+        ifelse(!"protocolCols" %in% names(metadata(object)),
+            return(colData(object)),
+            return(colData(object)[, metadata(object)$protocolCols]))
+    })
+
+#' Replace sample protocol metadata
+#' 
+#' It is recommended to use the SummarizedExperiment method colData instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @export
+setGeneric("protocolData<-", signature = "object",
+    function(object, ..., value) standardGeneric("protocolData<-"))
+
+#' Replace sample protocol metadata
+#' 
+#' It is recommended to use the SummarizedExperiment method colData instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @export
+setReplaceMethod("protocolData", signature = "NanoStringExperiment",
+    function(object, ..., value) {
+        colData(object) <- value
+        return(object)
+    })
+
+#' Replace sample protocol metadata
+#' 
+#' It is recommended to use the SummarizedExperiment method colData instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @export
+setReplaceMethod("protocolData", signature = "DataFrame",
+    function(object, ..., value) {
+        object <- value
+        return(object)
     })
 
 #' Access sample phenotypic metadata
@@ -223,14 +286,12 @@ setGeneric("pData", signature = "object",
 #' It is recommended to use the SummarizedExperiment method colData instead.
 #' This is a convenience method for backwards compatibility.
 #' 
-#' @importFrom Biobase AnnotatedDataFrame
-#' 
 #' @export
 setMethod("pData", signature = "NanoStringExperiment",
     function(object) {
-        ifelse(!"phenoCols" %in% names(metadata(object)),
+        ifelse(!"phenotypeCols" %in% names(metadata(object)),
             return(colData(object)),
-            return(colData(object)[, metadata(object)$phenoCols]))
+            return(colData(object)[, metadata(object)$phenotypeCols]))
     })
 
 #' Access sample phenotypic metadata
@@ -238,12 +299,43 @@ setMethod("pData", signature = "NanoStringExperiment",
 #' It is recommended to use the SummarizedExperiment method colData instead.
 #' This is a convenience method for backwards compatibility.
 #' 
-#' @importFrom Biobase pData
+#' @export
+setMethod("pData", signature = "DataFrame",
+    function(object) {
+        object
+    })
+
+#' Replace sample phenotypic metadata
+#' 
+#' It is recommended to use the SummarizedExperiment method colData instead.
+#' This is a convenience method for backwards compatibility.
 #' 
 #' @export
-setMethod("pData", signature = "AnnotatedDataFrame",
-    function(object) {
-        Biobase::pData(object)
+setGeneric("pData<-", signature = "object",
+    function(object, ..., value) standardGeneric("pData<-"))
+
+#' Replace sample phenotypic metadata
+#' 
+#' It is recommended to use the SummarizedExperiment method colData instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @export
+setReplaceMethod("pData", signature = "NanoStringExperiment",
+    function(object, ..., value) {
+        colData(object) <- value
+        return(object)
+    })
+
+#' Replace sample phenotypic metadata
+#' 
+#' It is recommended to use the SummarizedExperiment method colData instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @export
+setReplaceMethod("pData", signature = "DataFrame",
+    function(object, ..., value) {
+        object <- value
+        return(object)
     })
 
 #' Access sample phenotypic metadata variable names
@@ -263,18 +355,31 @@ setGeneric("varLabels", signature = "object",
 #' @export
 setMethod("varLabels", signature = "NanoStringExperiment",
     function(object) {
-        ifelse(is.null(metadata(object)[["phenoCols"]]), 
-            colnames(colData(object)),
-            metadata(object)$phenoCols)
+        ifelse(is.null(metadata(object)[["phenotypeCols"]]), 
+            return(colnames(colData(object))),
+            return(metadata(object)[["phenotypeCols"]]))
     })
 
 
-
+#svarLabels
 
 
 # Row Metadata (Formerly Feature Data) ----------------------------------------
 #fData
-
+#featureData
+#featureData()[[]]
+#fvarLabels
 
 # Experiment Metadata ---------------------------------------------------------
-#fData
+#experimentData
+
+# Other 
+#assayDataApply
+#esApply
+#munge
+#dimLabels
+#dimLabels<-
+#sampleNames
+#sampleNames<-
+#featureNames
+#featureNames<-

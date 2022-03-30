@@ -1,5 +1,6 @@
 setClassUnion("formulaOrNULL", c("formula", "NULL"))
 setClassUnion("matrixOrNULL", c("formula", "NULL"))
+#setClassUnion("SignatureSetOrNULL", c("SignatureSet", "NULL"))
 #setClassUnion("listOrSimpleList", c("list", "SimpleList"))
 #setClassUnion("RectangularishOrNULL", c("data.frame", "matrix", "AnnotatedDataFrame", "NULL"))
 #setClassUnion("MIAMEOrNULL", c("MIAME", "NULL"))
@@ -13,6 +14,7 @@ setClassUnion("matrixOrNULL", c("formula", "NULL"))
 #' @import SummarizedExperiment
 #' @importFrom Biobase AnnotatedDataFrame MIAME
 #' 
+#' @export
 .NanoStringExperiment <- setClass("NanoStringExperiment",
     contains = c("SummarizedExperiment"),
     slots = c(
@@ -23,18 +25,19 @@ setClassUnion("matrixOrNULL", c("formula", "NULL"))
         experimentData = "MIAME",
         annotation = "character",
         dimLabels = "character",
-        signatures = "SignatureSet",
+        signatures = "ANY",
         design = "formulaOrNULL",
         .__classVersion__ = "character"),
     prototype = prototype(
         new("SummarizedExperiment"),
         .__classVersion__ = 
             paste(packageVersion("NanoStringExperiment"), collapse="."),
-        signatures = SignatureSet(),
+        signatures = NULL,
         design = NULL)
 )
 
 # Show method
+#' @export
 setMethod("show", signature = "NanoStringExperiment",
 function(object) {
     methods::callNextMethod(object)
@@ -50,6 +53,7 @@ function(object) {
     }
 })
 
+#' @export
 setGeneric("NanoStringExperiment",
 function(assayData,
          phenoData = Biobase::annotatedDataFrameFrom(assayData, byrow = FALSE),
@@ -58,7 +62,7 @@ function(assayData,
          experimentData = Biobase::MIAME(),
          annotation=character(),
          dimLabels = character(),
-         signatures = SignatureSet(),
+         signatures = NULL,
          design = NULL,
          ...) {
     standardGeneric("NanoStringExperiment")
@@ -66,6 +70,7 @@ function(assayData,
 signature = "assayData"
 )
 
+#' @export
 setMethod("NanoStringExperiment", "missing",
 function(assayData,
          phenoData = 
@@ -77,7 +82,7 @@ function(assayData,
          experimentData = Biobase::MIAME(),
          annotation = character(),
          dimLabels = character(),
-         signatures = SignatureSet(),
+         signatures = NULL,
          design = NULL,
          ...) {
     se <- SummarizedExperiment()
@@ -88,6 +93,7 @@ function(assayData,
         design = design)
 })
 
+#' @export
 setMethod("NanoStringExperiment", "matrix",
 function(assayData,
          phenoData = 
@@ -99,7 +105,7 @@ function(assayData,
          experimentData = Biobase::MIAME(),
          annotation = character(),
          dimLabels = character(),
-         signatures = SignatureSet(),
+         signatures = NULL,
          design = NULL,
          ...) {
     allColData <- cbind(phenoData@data, protocolData@data)
