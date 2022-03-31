@@ -115,7 +115,7 @@ setMethod("munge", "NanoStringExperiment",
             }
             else {
                 df <- lapply(assayDataElts, function(elt) {
-                    assay(data, elt)
+                    as.vector(assay(data, elt))
                 })
                 names(df) <- assayDataElts
                 df <- DataFrame(
@@ -199,12 +199,14 @@ setMethod("munge", "NanoStringExperiment",
             }
         }
         if (!all(vars %in% colnames(df))) {
+            print(all(vars %in% colnames(df)))
+            print(unlist(colnames(df)))
+            print(vars)
             stop("\"mapping\" contains undefined variables")
         }
         rownames(df) <- NULL
         df
 })
-
 
 copyRowNames <- function(df, key) {
     rn <- DataFrame(rownames(df))
