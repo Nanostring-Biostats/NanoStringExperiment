@@ -33,7 +33,7 @@ setMethod("esApply", signature = "NanoStringExperiment",
         return(apply(exprsAssay, MARGIN, FUN, ...))
     })
 
-#' Apply across assay by groupings
+#' Apply across NanoStringExperiment object by groupings
 #' 
 #' Group samples or features by variable and apply a function
 #' 
@@ -41,7 +41,7 @@ setMethod("esApply", signature = "NanoStringExperiment",
 setGeneric("esBy", signature = "X", 
     function(X, GROUP, FUN, ...) standardGeneric("esBy"))
 
-#' Apply across assay by groupings
+#' Apply across NanoStringExperiment object by groupings
 #' 
 #' Group samples or features by variable and apply a function
 #' 
@@ -50,19 +50,29 @@ setMethod("esBy", "NanoStringExperiment",
     function(X, GROUP, FUN, ..., simplify = TRUE) {
         featureNames <- colnames(rowData(X))
         sampleNames <- colnames(colData(X))
-        choices <- c(structure(rep.int("featureData", length(featureNames)), names = featureNames), 
-            structure(rep.int("sampleData", length(sampleNames)), names = sampleNames))
-        GROUP <- choices[match.arg(GROUP, names(choices))]
-        values <- ifelse(GROUP == "sampleData", colData(X)[, names(GROUP)], rowData(X)[, names(GROUP)])
-        
+        choices <- c(structure(rep.int("featureData", length(featureNames)), 
+            names = featureNames), structure(rep.int("sampleData", 
+            length(sampleNames)), names = sampleNames))
+        dataIn <- choices[match.arg(GROUP, names(choices))][[1L]]
+        if (dataIn == "sampleData") {
+            values <- colData(X)[, GROUP]
+            names(values) <- dimnames(X)[[2L]]
+        } else { 
+            values <- rowData(X)[, GROUP]
+            names(values) <- dimnames(X)[[1L]]
+        }
         keys <- sort(unique(values), na.last = TRUE)
         names(keys) <- as.character(keys)
-        sapply(keys, function(k) {
-            if (is.na(k)) 
+        simplify2array(lapply(keys, function(k) {
+            if (is.na(k)) {
                 keep <- which(is.na(values))
-            else keep <- which(!is.na(values) & values == k)
-            if (GROUP == "featureData") 
+            } else {
+                keep <- which(!is.na(values) & values == k)
+            }
+            if (dataIn == "featureData") {
                 FUN(X[keep, ], ...)
-            else FUN(X[, keep], ...)
-        }, simplify = simplify)
+            } else {
+                FUN(X[, keep], ...)
+            }
+        }))
     })
