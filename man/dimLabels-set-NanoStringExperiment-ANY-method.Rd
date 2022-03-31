@@ -5,11 +5,14 @@
 \title{Replace variables used for feature and sample identifiers}
 \usage{
 \S4method{dimLabels}{NanoStringExperiment,ANY}(object) <- value
-
-\S4method{dimLabels}{NanoStringExperiment,ANY}(object) <- value
 }
 \description{
 Replaces rownames in rowData and colData with specified variable columns.
+}
+\examples{
+datadir <- system.file("data", package="NanoStringExperiment")
+testExp <- readRDS(file.path(datadir, "testExp.rds"))
+colData(testExp)[["testNames"]] <- paste0(dimnames(testExp)[[2]], "a")
+dimLabels(testExp) <- c(dimLabels(testExp)[[1]], "testNames")
 
-Replaces rownames in rowData and colData with specified variable columns.
 }

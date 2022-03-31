@@ -9,3 +9,9 @@
 \description{
 Access version of NanoStringExperiment package used to generate object
 }
+\examples{
+datadir <- system.file("data", package="NanoStringExperiment")
+testExp <- readRDS(file.path(datadir, "testExp.rds"))
+classVersion(testExp)
+
+}

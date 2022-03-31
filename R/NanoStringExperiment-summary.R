@@ -1,8 +1,3 @@
-#' Make NanoStringExperiment into list
-#' 
-#' Puts assays, feature and sample metadata, signatures, and design into list
-#' 
-#' @export
 setAs("NanoStringExperiment", "list", 
     function(from) {
         c(as.list(assays(from)), as.list(rowData(from)), as.list(colData(from)), 
@@ -77,7 +72,7 @@ setMethod("summary", "NanoStringExperiment",
 #' 
 #' Create summary statistics from list
 #' 
-#' @ImportFrom BiocGenerics sd
+#' @importFrom BiocGenerics sd
 #' 
 .marginalSummary <- function(x, log2scale = TRUE) {
     if (anyNA(x)) 

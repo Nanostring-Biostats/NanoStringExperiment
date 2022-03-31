@@ -2,6 +2,11 @@
 #' 
 #' Access version of NanoStringExperiment package used to generate object
 #' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' classVersion(testExp)
+#' 
 #' @export
 setMethod("classVersion", signature = "NanoStringExperiment",
     function(object) object@.__classVersion__)
@@ -11,6 +16,11 @@ setMethod("classVersion", signature = "NanoStringExperiment",
 #' Shows variables used for rownames in rowData and colData.
 #' 
 #' @importMethodsFrom Biobase dimLabels
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' dimLabels(testExp)
 #' 
 #' @export
 setMethod("dimLabels", signature = "NanoStringExperiment",
@@ -22,20 +32,11 @@ setMethod("dimLabels", signature = "NanoStringExperiment",
 #' 
 #' @importMethodsFrom Biobase dimLabels<-
 #' 
-#' @export
-setReplaceMethod("dimLabels", signature = "NanoStringExperiment",
-    function(object, value) {
-        object@dimLabels <- value
-        dimnames(object)[[1L]] <- rowData(object)[, dimLabels(object)[[1L]]]
-        dimnames(object)[[2L]] <- colData(object)[, dimLabels(object)[[2L]]]
-        return(object)
-    })
-
-#' Replace variables used for feature and sample identifiers
-#' 
-#' Replaces rownames in rowData and colData with specified variable columns.
-#' 
-#' @importMethodsFrom Biobase dimLabels<-
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' colData(testExp)[["testNames"]] <- paste0(dimnames(testExp)[[2]], "a")
+#' dimLabels(testExp) <- c(dimLabels(testExp)[[1]], "testNames")
 #' 
 #' @export
 setReplaceMethod("dimLabels", signature = "NanoStringExperiment",
