@@ -8,6 +8,11 @@ setAs("NanoStringExperiment", "list",
 #' 
 #' Coercion method for NanoStringExperiment in list format
 #' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' as.list(testExp)
+#' 
 #' @export
 setMethod("as.list", "NanoStringExperiment", 
     function(x, ...) as(x, "list"))
@@ -15,6 +20,11 @@ setMethod("as.list", "NanoStringExperiment",
 #' Evaluate expression on NanoStringExperiment list
 #' 
 #' Performs expression within NanoStringExperiment list
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' with(testExp, table(CodeClass))
 #' 
 #' @export
 setMethod("with", "NanoStringExperiment", 
@@ -24,6 +34,11 @@ setMethod("with", "NanoStringExperiment",
 #' Summarize assay data
 #' 
 #' Get chosen summary statistics for a selected assay
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' summary(testExp)
 #' 
 #' @export
 setMethod("summary", "NanoStringExperiment", 

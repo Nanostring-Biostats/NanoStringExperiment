@@ -9,3 +9,9 @@ signatureSubset(object)
 \description{
 Method to subset to features in signatures slot
 }
+\examples{
+datadir <- system.file("data", package="NanoStringExperiment")
+testExp <- readRDS(file.path(datadir, "testExp.rds"))
+signatureSubset(testExp)
+
+}

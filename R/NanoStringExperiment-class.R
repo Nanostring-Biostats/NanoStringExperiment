@@ -5,7 +5,6 @@ setClassUnion("matrixOrNULL", c("formula", "NULL"))
 #' 
 #' Class definition for the base NanoString experiment
 #' 
-#' 
 #' @import SummarizedExperiment
 #' @importFrom Biobase AnnotatedDataFrame MIAME
 #' 

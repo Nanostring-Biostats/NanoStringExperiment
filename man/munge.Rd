@@ -10,3 +10,9 @@ munge(data, ...)
 Convert assay DataFrame into long format and append
 labels and meta to the new DataFrame
 }
+\examples{
+datadir <- system.file("data", package="NanoStringExperiment")
+testExp <- readRDS(file.path(datadir, "testExp.rds"))
+head(munge(testExp, mapping = ~`cell_line` + exprs))
+
+}

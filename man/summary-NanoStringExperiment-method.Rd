@@ -17,3 +17,9 @@
 \description{
 Get chosen summary statistics for a selected assay
 }
+\examples{
+datadir <- system.file("data", package="NanoStringExperiment")
+testExp <- readRDS(file.path(datadir, "testExp.rds"))
+summary(testExp)
+
+}

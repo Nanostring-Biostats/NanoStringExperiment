@@ -9,3 +9,9 @@ endogenousSubset(object)
 \description{
 Method to subset to features with CodeClass Endogenous
 }
+\examples{
+datadir <- system.file("data", package="NanoStringExperiment")
+testExp <- readRDS(file.path(datadir, "testExp.rds"))
+endogenousSubset(testExp)
+
+}

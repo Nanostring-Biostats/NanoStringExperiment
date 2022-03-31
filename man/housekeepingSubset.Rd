@@ -9,3 +9,9 @@ housekeepingSubset(object)
 \description{
 Method to subset to features with CodeClass Housekeeping
 }
+\examples{
+datadir <- system.file("data", package="NanoStringExperiment")
+testExp <- readRDS(file.path(datadir, "testExp.rds"))
+housekeepingSubset(testExp)
+
+}

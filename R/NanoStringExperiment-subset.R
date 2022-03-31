@@ -2,6 +2,11 @@
 #' 
 #' Method to subset to features with CodeClass Endogenous
 #' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' endogenousSubset(testExp)
+#' 
 #' @export
 setGeneric("endogenousSubset", signature = "object", 
     function(object) standardGeneric("endogenousSubset"))
@@ -9,6 +14,11 @@ setGeneric("endogenousSubset", signature = "object",
 #' Subset to endogenous features
 #' 
 #' Method to subset to features with CodeClass Endogenous
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' endogenousSubset(testExp)
 #' 
 #' @export
 setMethod("endogenousSubset", "NanoStringExperiment", 
@@ -18,6 +28,11 @@ setMethod("endogenousSubset", "NanoStringExperiment",
 #' 
 #' Method to subset to features with CodeClass Housekeeping
 #' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' housekeepingSubset(testExp)
+#' 
 #' @export
 setGeneric("housekeepingSubset", signature = "object", 
     function(object) standardGeneric("housekeepingSubset"))
@@ -25,6 +40,11 @@ setGeneric("housekeepingSubset", signature = "object",
 #' Subset to housekeeping features
 #' 
 #' Method to subset to features with CodeClass Housekeeping
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' housekeepingSubset(testExp)
 #' 
 #' @export
 setMethod("housekeepingSubset", "NanoStringExperiment", 
@@ -34,6 +54,11 @@ setMethod("housekeepingSubset", "NanoStringExperiment",
 #' 
 #' Method to subset to features with CodeClass Negative
 #' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' negativeControlSubset(testExp)
+#' 
 #' @export
 setGeneric("negativeControlSubset", signature = "object", 
     function(object) standardGeneric("negativeControlSubset"))
@@ -41,6 +66,11 @@ setGeneric("negativeControlSubset", signature = "object",
 #' Subset to negative control features
 #' 
 #' Method to subset to features with CodeClass Negative
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' negativeControlSubset(testExp)
 #' 
 #' @export
 setMethod("negativeControlSubset", "NanoStringExperiment", 
@@ -50,6 +80,11 @@ setMethod("negativeControlSubset", "NanoStringExperiment",
 #' 
 #' Method to subset to features with CodeClass Positive
 #' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' positiveControlSubset(testExp)
+#' 
 #' @export
 setGeneric("positiveControlSubset", signature = "object", 
     function(object) standardGeneric("positiveControlSubset"))
@@ -57,6 +92,11 @@ setGeneric("positiveControlSubset", signature = "object",
 #' Subset to positive control features
 #' 
 #' Method to subset to features with CodeClass Positive
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' positiveControlSubset(testExp)
 #' 
 #' @export
 setMethod("positiveControlSubset", "NanoStringExperiment", 
@@ -66,6 +106,11 @@ setMethod("positiveControlSubset", "NanoStringExperiment",
 #' 
 #' Method to subset to features with CodeClass IsControl
 #' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' controlSubset(testExp)
+#' 
 #' @export
 setGeneric("controlSubset", signature = "object", 
     function(object) standardGeneric("controlSubset"))
@@ -73,6 +118,11 @@ setGeneric("controlSubset", signature = "object",
 #' Subset to IsControl features
 #' 
 #' Method to subset to features with CodeClass IsControl
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' controlSubset(testExp)
 #' 
 #' @export
 setMethod("controlSubset", "NanoStringExperiment", 
@@ -82,6 +132,11 @@ setMethod("controlSubset", "NanoStringExperiment",
 #' 
 #' Method to subset to features not CodeClass IsControl
 #' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' nonControlSubset(testExp)
+#' 
 #' @export
 setGeneric("nonControlSubset", signature = "object", 
     function(object) standardGeneric("nonControlSubset"))
@@ -89,6 +144,11 @@ setGeneric("nonControlSubset", signature = "object",
 #' Subset to non-IsControl features
 #' 
 #' Method to subset to features not CodeClass IsControl
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' nonControlSubset(testExp)
 #' 
 #' @export
 setMethod("nonControlSubset", "NanoStringExperiment", 
@@ -98,6 +158,11 @@ setMethod("nonControlSubset", "NanoStringExperiment",
 #' 
 #' Method to subset to features in signatures slot
 #' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' signatureSubset(testExp)
+#' 
 #' @export
 setGeneric("signatureSubset", signature = "object", 
     function(object) standardGeneric("signatureSubset"))
@@ -105,6 +170,11 @@ setGeneric("signatureSubset", signature = "object",
 #' Subset to signature features
 #' 
 #' Method to subset to features in signatures slot
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' signatureSubset(testExp)
 #' 
 #' @export
 setMethod("signatureSubset", "NanoStringExperiment", 

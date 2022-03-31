@@ -27,9 +27,9 @@ The NanoStringExperiment class was inherited from the SummarizedExperiment
 class. It was designed to encapsulate data and corresponding methods for data 
 generated from NanoString platforms. This class serves as an intermediary 
 class between SummarizedExperiment and NanoString platform-specific classes 
-such as the NanoStringGeoMxSet class from the the GeomxTools package. This 
+such as the NanoStringGeoMxSet class from the GeomxTools package. This 
 package is meant to congregate common structures and methods to be used for 
-extension to platform-specific packages.
+extension to NanoString platform-specific packages.
 
 
 There are numerous functions that NanoStringExperiment inherited from the 
@@ -132,6 +132,10 @@ head(esBy(demoExperiment,
             }))
 
 head(summary(demoExperiment, MARGIN = 2, GROUP = "cell_line"))
+
+with(demoExperiment, table(CodeClass))
+
+head(munge(demoExperiment, mapping = ~`cell_line` + GeneMatrix))
 ```
 
 ## About this session

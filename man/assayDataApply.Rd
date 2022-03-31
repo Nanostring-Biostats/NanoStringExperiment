@@ -15,3 +15,13 @@ to selected assay
 Apply function row (feature) or column (sample)-wise
 to selected assay
 }
+\examples{
+datadir <- system.file("data", package="NanoStringExperiment")
+testExp <- readRDS(file.path(datadir, "testExp.rds"))
+assayDataApply(testExp, 1, mean)
+
+datadir <- system.file("data", package="NanoStringExperiment")
+testExp <- readRDS(file.path(datadir, "testExp.rds"))
+assayDataApply(testExp, 1, mean, elt="exprs")
+
+}

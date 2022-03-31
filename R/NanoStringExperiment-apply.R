@@ -3,6 +3,11 @@
 #' Apply function row (feature) or column (sample)-wise
 #' to selected assay
 #' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' assayDataApply(testExp, 1, mean)
+#' 
 #' @export
 setGeneric("assayDataApply", signature = "X", 
     function(X, MARGIN, FUN, ...) standardGeneric("assayDataApply"))
@@ -11,6 +16,11 @@ setGeneric("assayDataApply", signature = "X",
 #' 
 #' Apply function row (feature) or column (sample)-wise
 #' to selected assay
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' assayDataApply(testExp, 1, mean, elt="exprs")
 #' 
 #' @export
 setGeneric("assayDataApply", signature = "X", 
@@ -26,6 +36,11 @@ setGeneric("assayDataApply", signature = "X",
 #' 
 #' @importMethodsFrom Biobase esApply
 #' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' esApply(testExp, 1, mean)
+#' 
 #' @export
 setMethod("esApply", signature = "NanoStringExperiment",
     function(X, MARGIN, FUN, ...) {
@@ -37,6 +52,15 @@ setMethod("esApply", signature = "NanoStringExperiment",
 #' 
 #' Group samples or features by variable and apply a function
 #' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' esBy(testExp, 
+#'     GROUP = "cell_line", 
+#'     FUN = function(x) { 
+#'         assayDataApply(x, MARGIN = 1, FUN = mean, elt = "exprs") 
+#'     })
+#' 
 #' @export
 setGeneric("esBy", signature = "X", 
     function(X, GROUP, FUN, ...) standardGeneric("esBy"))
@@ -44,6 +68,12 @@ setGeneric("esBy", signature = "X",
 #' Apply across NanoStringExperiment object by groupings
 #' 
 #' Group samples or features by variable and apply a function
+#' 
+#' esBy(testExp, 
+#'     GROUP = "cell_line", 
+#'     FUN = function(x) { 
+#'         assayDataApply(x, MARGIN = 1, FUN = mean, elt = "exprs") 
+#'     })
 #' 
 #' @export
 setMethod("esBy", "NanoStringExperiment", 

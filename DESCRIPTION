@@ -6,9 +6,14 @@ Authors@R:
     c(person("Nicole", "Ortogero", email = "nortogero@nanostring.com", 
         role = c("cre", "aut")))
 Description: 
-    Base experiment class holding common NanoString Experiment functions 
-    and data structure methods.Extends SummarizedExperiment for data produced 
-    with NanoString Technologies instruments.
+    The NanoStringExperiment class was inherited from the SummarizedExperiment 
+    class. It was designed to encapsulate data and corresponding methods for 
+    data generated from NanoString platforms. This class serves as an 
+    intermediary class between SummarizedExperiment and NanoString 
+    platform-specific classes such as the NanoStringGeoMxSet class from the
+    GeomxTools package. This package is meant to congregate common structures 
+    and methods to be used for extension to NanoString platform-specific 
+    packages.
 License: MIT
 Encoding: UTF-8
 RoxygenNote: 7.1.2

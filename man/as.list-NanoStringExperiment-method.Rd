@@ -9,3 +9,9 @@
 \description{
 Coercion method for NanoStringExperiment in list format
 }
+\examples{
+datadir <- system.file("data", package="NanoStringExperiment")
+testExp <- readRDS(file.path(datadir, "testExp.rds"))
+as.list(testExp)
+
+}

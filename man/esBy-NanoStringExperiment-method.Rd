@@ -9,3 +9,10 @@
 \description{
 Group samples or features by variable and apply a function
 }
+\details{
+esBy(testExp, 
+    GROUP = "cell_line", 
+    FUN = function(x) { 
+        assayDataApply(x, MARGIN = 1, FUN = mean, elt = "exprs") 
+    })
+}

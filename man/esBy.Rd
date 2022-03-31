@@ -9,3 +9,13 @@ esBy(X, GROUP, FUN, ...)
 \description{
 Group samples or features by variable and apply a function
 }
+\examples{
+datadir <- system.file("data", package="NanoStringExperiment")
+testExp <- readRDS(file.path(datadir, "testExp.rds"))
+esBy(testExp, 
+    GROUP = "cell_line", 
+    FUN = function(x) { 
+        assayDataApply(x, MARGIN = 1, FUN = mean, elt = "exprs") 
+    })
+
+}

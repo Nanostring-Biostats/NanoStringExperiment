@@ -9,3 +9,9 @@ positiveControlSubset(object)
 \description{
 Method to subset to features with CodeClass Positive
 }
+\examples{
+datadir <- system.file("data", package="NanoStringExperiment")
+testExp <- readRDS(file.path(datadir, "testExp.rds"))
+positiveControlSubset(testExp)
+
+}

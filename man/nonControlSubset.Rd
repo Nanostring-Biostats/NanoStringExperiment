@@ -9,3 +9,9 @@ nonControlSubset(object)
 \description{
 Method to subset to features not CodeClass IsControl
 }
+\examples{
+datadir <- system.file("data", package="NanoStringExperiment")
+testExp <- readRDS(file.path(datadir, "testExp.rds"))
+nonControlSubset(testExp)
+
+}

@@ -9,3 +9,9 @@
 \description{
 Performs expression within NanoStringExperiment list
 }
+\examples{
+datadir <- system.file("data", package="NanoStringExperiment")
+testExp <- readRDS(file.path(datadir, "testExp.rds"))
+with(testExp, table(CodeClass))
+
+}
