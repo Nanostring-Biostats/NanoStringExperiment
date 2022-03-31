@@ -1,3 +1,3 @@
- # NanoString Experiment 0.0.1
+ # NanoString Experiment 0.99.0
 
 * Initial dev version

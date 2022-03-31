@@ -1,7 +1,7 @@
 Package: NanoStringExperiment
 Type: Package
 Title: Base NanoString Experiment Class
-Version: 0.0.1
+Version: 0.99.0
 Authors@R: 
     c(person("Nicole", "Ortogero", email = "nortogero@nanostring.com", 
         role = c("cre", "aut")))
@@ -18,7 +18,7 @@ Depends:
 Imports: 
     Biobase, 
     BiocGenerics,
-    Stats
+    stats
 Suggests: 
     knitr,
     rmarkdown
