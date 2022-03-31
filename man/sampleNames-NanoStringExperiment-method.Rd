@@ -9,3 +9,9 @@
 \description{
 Shows variables used for rownames in colData.
 }
+\examples{
+datadir <- system.file("data", package="NanoStringExperiment")
+testExp <- readRDS(file.path(datadir, "testExp.rds"))
+sampleNames(testExp)
+
+}

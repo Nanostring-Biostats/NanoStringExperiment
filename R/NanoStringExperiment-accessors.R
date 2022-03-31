@@ -53,6 +53,11 @@ setReplaceMethod("dimLabels", signature = "NanoStringExperiment",
 #' 
 #' @importMethodsFrom Biobase featureNames
 #' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' featureNames(testExp)
+#' 
 #' @export
 setMethod("featureNames", signature = "NanoStringExperiment",
     function(object) dimnames(object)[[1L]])
@@ -62,6 +67,12 @@ setMethod("featureNames", signature = "NanoStringExperiment",
 #' Replace variables used for rownames in rowData.
 #' 
 #' @importMethodsFrom Biobase featureNames<-
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' rowData(testExp)[["testNames"]] <- paste0(dimnames(testExp)[[1]], "a")
+#' featureNames(testExp) <- rowData(testExp)[["testNames"]]
 #' 
 #' @export
 setReplaceMethod("featureNames", signature = "NanoStringExperiment",
@@ -76,6 +87,11 @@ setReplaceMethod("featureNames", signature = "NanoStringExperiment",
 #' 
 #' @importMethodsFrom Biobase sampleNames
 #' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' sampleNames(testExp)
+#' 
 #' @export
 setMethod("sampleNames", signature = "NanoStringExperiment",
     function(object) dimnames(object)[[2L]])
@@ -85,6 +101,12 @@ setMethod("sampleNames", signature = "NanoStringExperiment",
 #' Replace variables used for rownames in colData.
 #' 
 #' @importMethodsFrom Biobase sampleNames<-
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' colData(testExp)[["testNames"]] <- paste0(dimnames(testExp)[[2]], "a")
+#' sampleNames(testExp) <- colData(testExp)[["testNames"]]
 #' 
 #' @export
 setReplaceMethod("sampleNames", signature = "NanoStringExperiment",
@@ -102,6 +124,11 @@ setReplaceMethod("sampleNames", signature = "NanoStringExperiment",
 #' 
 #' @importMethodsFrom Biobase assayData
 #' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' assayData(testExp)
+#' 
 #' @export
 setMethod("assayData", signature = "NanoStringExperiment",
     function(object) assays(object))
@@ -111,6 +138,11 @@ setMethod("assayData", signature = "NanoStringExperiment",
 #' It is recommended to use the SummarizedExperiment assays instead.
 #' This is a convenience method for backwards compatibility.
 #' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' assayDataElement(testExp, "exprs")
+#' 
 #' @export
 setGeneric("assayDataElement", signature = "object",
     function(object, elt) standardGeneric("assayDataElement"))
@@ -119,6 +151,11 @@ setGeneric("assayDataElement", signature = "object",
 #' 
 #' It is recommended to use the SummarizedExperiment assays instead.
 #' This is a convenience method for backwards compatibility.
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' assayDataElement(testExp, "exprs")
 #' 
 #' @export
 setMethod("assayDataElement", signature = "NanoStringExperiment",
@@ -135,6 +172,12 @@ setMethod("assayDataElement", signature = "NanoStringExperiment",
 #' It is recommended to use the SummarizedExperiment assays instead.
 #' This is a convenience method for backwards compatibility.
 #' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' assayDataElement(testExp, "exprsShift") <- 
+#'     assayDataElement(testExp, "exprs") + 1
+#' 
 #' @export
 setGeneric("assayDataElement<-", 
     signature = c("object", "value"),
@@ -144,6 +187,12 @@ setGeneric("assayDataElement<-",
 #' 
 #' It is recommended to use the SummarizedExperiment assays instead.
 #' This is a convenience method for backwards compatibility.
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' assayDataElement(testExp, "exprsShift") <- 
+#'     assayDataElement(testExp, "exprs") + 1
 #' 
 #' @export
 setReplaceMethod("assayDataElement", 
@@ -158,6 +207,11 @@ setReplaceMethod("assayDataElement",
 #' It is recommended to use the SummarizedExperiment assayNames instead.
 #' This is a convenience method for backwards compatibility.
 #' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' assayDataElementNames(testExp)
+#' 
 #' @export
 setGeneric("assayDataElementNames", signature = "object",
     function(object) standardGeneric("assayDataElementNames"))
@@ -166,6 +220,11 @@ setGeneric("assayDataElementNames", signature = "object",
 #' 
 #' It is recommended to use the SummarizedExperiment assayNames instead.
 #' This is a convenience method for backwards compatibility.
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' assayDataElementNames(testExp)
 #' 
 #' @export
 setMethod("assayDataElementNames", signature = "NanoStringExperiment",
@@ -178,6 +237,11 @@ setMethod("assayDataElementNames", signature = "NanoStringExperiment",
 #' 
 #' @importMethodsFrom Biobase exprs
 #' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' exprs(testExp)
+#' 
 #' @export
 setMethod("exprs", signature = "NanoStringExperiment",
     function(object) assays(object)[["exprs"]])
@@ -188,6 +252,11 @@ setMethod("exprs", signature = "NanoStringExperiment",
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase exprs<-
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' exprs(testExp) <- exprs(testExp) + 1
 #' 
 #' @export
 setReplaceMethod("exprs", signature = "NanoStringExperiment",
@@ -202,6 +271,11 @@ setReplaceMethod("exprs", signature = "NanoStringExperiment",
 #' It is recommended to use the SummarizedExperiment colData instead.
 #' This is a convenience method for backwards compatibility.
 #' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' sData(testExp)
+#' 
 #' @export
 setGeneric("sData", signature = "object",
     function(object) standardGeneric("sData"))
@@ -210,6 +284,11 @@ setGeneric("sData", signature = "object",
 #' 
 #' It is recommended to use the SummarizedExperiment colData instead.
 #' This is a convenience method for backwards compatibility.
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' sData(testExp)
 #' 
 #' @export
 setMethod("sData", signature = "NanoStringExperiment",
@@ -220,6 +299,11 @@ setMethod("sData", signature = "NanoStringExperiment",
 #' It is recommended to use the SummarizedExperiment colData instead.
 #' This is a convenience method for backwards compatibility.
 #' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' svarLabels(testExp)
+#' 
 #' @export
 setGeneric("svarLabels", signature = "object",
     function(object) standardGeneric("svarLabels"))
@@ -228,6 +312,11 @@ setGeneric("svarLabels", signature = "object",
 #' 
 #' It is recommended to use the SummarizedExperiment colData instead.
 #' This is a convenience method for backwards compatibility.
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' svarLabels(testExp)
 #' 
 #' @export
 setMethod("svarLabels", signature = "NanoStringExperiment",
@@ -239,6 +328,11 @@ setMethod("svarLabels", signature = "NanoStringExperiment",
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase phenoData
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' phenoData(testExp)
 #' 
 #' @export
 setMethod("phenoData", signature = "NanoStringExperiment",
@@ -254,6 +348,11 @@ setMethod("phenoData", signature = "NanoStringExperiment",
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase phenoData<-
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' phenoData(testExp) <- phenoData(testExp)[, 1:2]
 #' 
 #' @export
 setReplaceMethod("phenoData", signature = "NanoStringExperiment",
@@ -271,6 +370,11 @@ setReplaceMethod("phenoData", signature = "NanoStringExperiment",
 #' 
 #' @importMethodsFrom Biobase phenoData<-
 #' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' phenoData(testExp) <- phenoData(testExp)[, 1:2]
+#' 
 #' @export
 setReplaceMethod("phenoData", signature = "DataFrame",
     function(object, value) {
@@ -284,6 +388,11 @@ setReplaceMethod("phenoData", signature = "DataFrame",
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase protocolData
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' protocolData(testExp)
 #' 
 #' @export
 setMethod("protocolData", signature = "NanoStringExperiment",
@@ -299,6 +408,11 @@ setMethod("protocolData", signature = "NanoStringExperiment",
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase protocolData<-
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' protocolData(testExp) <- protocolData(testExp)[, 1:2]
 #' 
 #' @export
 setReplaceMethod("protocolData", signature = "NanoStringExperiment",
@@ -316,6 +430,11 @@ setReplaceMethod("protocolData", signature = "NanoStringExperiment",
 #' 
 #' @importMethodsFrom Biobase protocolData<-
 #' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' protocolData(testExp) <- protocolData(testExp)[, 1:2]
+#' 
 #' @export
 setReplaceMethod("protocolData", signature = "DataFrame",
     function(object, value) {
@@ -329,6 +448,11 @@ setReplaceMethod("protocolData", signature = "DataFrame",
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase pData
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' pData(testExp)
 #' 
 #' @export
 setMethod("pData", signature = "NanoStringExperiment",
@@ -345,6 +469,11 @@ setMethod("pData", signature = "NanoStringExperiment",
 #' 
 #' @importMethodsFrom Biobase pData
 #' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' pData(testExp)
+#' 
 #' @export
 setMethod("pData", signature = "DataFrame",
     function(object) object)
@@ -355,6 +484,11 @@ setMethod("pData", signature = "DataFrame",
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase pData<-
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' pData(testExp) <- pData(testExp)[, 1:2]
 #' 
 #' @export
 setReplaceMethod("pData", signature = "NanoStringExperiment",
@@ -372,6 +506,11 @@ setReplaceMethod("pData", signature = "NanoStringExperiment",
 #' 
 #' @importMethodsFrom Biobase pData<-
 #' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' pData(testExp) <- pData(testExp)[, 1:2]
+#' 
 #' @export
 setReplaceMethod("pData", signature = "DataFrame",
     function(object, value) {
@@ -385,6 +524,11 @@ setReplaceMethod("pData", signature = "DataFrame",
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase varLabels
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' varLabels(testExp)
 #' 
 #' @export
 setMethod("varLabels", signature = "NanoStringExperiment",
@@ -401,6 +545,11 @@ setMethod("varLabels", signature = "NanoStringExperiment",
 #' 
 #' @importMethodsFrom Biobase varLabels
 #' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' varLabels(colData(testExp))
+#' 
 #' @export
 setMethod("varLabels", signature = "DataFrame",
     function(object) colnames(object))
@@ -411,6 +560,11 @@ setMethod("varLabels", signature = "DataFrame",
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase varLabels<-
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' varLabels(testExp) <- paste0(varLabels(colData(testData)), "a")
 #' 
 #' @export
 setReplaceMethod("varLabels", signature = "NanoStringExperiment",
@@ -433,6 +587,11 @@ setReplaceMethod("varLabels", signature = "NanoStringExperiment",
 #' 
 #' @importMethodsFrom Biobase fData
 #' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' fData(testExp)
+#' 
 #' @export
 setMethod("fData", signature = "NanoStringExperiment",
     function(object) rowData(object))
@@ -443,6 +602,11 @@ setMethod("fData", signature = "NanoStringExperiment",
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase fData<-
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' fData(testExp) <- rowData(testExp)[, 1:2]
 #' 
 #' @export
 setReplaceMethod("fData", signature = "NanoStringExperiment",
@@ -458,6 +622,11 @@ setReplaceMethod("fData", signature = "NanoStringExperiment",
 #' 
 #' @importMethodsFrom Biobase fvarLabels
 #' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' fvarLabels(testExp)
+#' 
 #' @export
 setMethod("fvarLabels", signature = "NanoStringExperiment",
     function(object) colnames(rowData(object)))
@@ -468,6 +637,11 @@ setMethod("fvarLabels", signature = "NanoStringExperiment",
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase fvarLabels<-
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' fvarLabels(testExp) <- paste0(fvarLabels(testExp), "a")
 #' 
 #' @export
 setReplaceMethod("fvarLabels", signature = "NanoStringExperiment",
@@ -483,6 +657,11 @@ setReplaceMethod("fvarLabels", signature = "NanoStringExperiment",
 #' 
 #' @importMethodsFrom Biobase featureData
 #' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' featureData(testExp)
+#' 
 #' @export
 setMethod("featureData", signature = "NanoStringExperiment",
     function(object) rowData(object))
@@ -493,6 +672,11 @@ setMethod("featureData", signature = "NanoStringExperiment",
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase featureData<-
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' featureData(testExp) <- featureData(testExp)[, 1:2]
 #' 
 #' @export
 setReplaceMethod("featureData", signature = "NanoStringExperiment",
@@ -507,6 +691,11 @@ setReplaceMethod("featureData", signature = "NanoStringExperiment",
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase featureData<-
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' featureData(testExp) <- featureData(testExp)[, 1:2]
 #' 
 #' @export
 setReplaceMethod("featureData", signature = "DataFrame",
@@ -524,6 +713,11 @@ setReplaceMethod("featureData", signature = "DataFrame",
 #' 
 #' @importMethodsFrom Biobase experimentData
 #' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' experimentData(testExp)
+#' 
 #' @export
 setMethod("experimentData", signature = "NanoStringExperiment",
     function(object) metadata(object))
@@ -534,6 +728,12 @@ setMethod("experimentData", signature = "NanoStringExperiment",
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase experimentData<-
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' experimentData(testExp) <- 
+#'     c(experimentData(testExp), list(testName="myExp"))
 #' 
 #' @export
 setReplaceMethod("experimentData", signature = "NanoStringExperiment",
@@ -548,6 +748,11 @@ setReplaceMethod("experimentData", signature = "NanoStringExperiment",
 #' 
 #' @importMethodsFrom BiocGenerics annotation
 #' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' annotation(testExp)
+#' 
 #' @export
 setMethod("annotation", signature="NanoStringExperiment",
     function(object) object@annotation)
@@ -555,6 +760,11 @@ setMethod("annotation", signature="NanoStringExperiment",
 #' Access design formula
 #' 
 #' Access formula to be used for design in analyses
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' design(testExp)
 #' 
 #' @export
 setGeneric("design", signature = "object",
@@ -564,6 +774,11 @@ setGeneric("design", signature = "object",
 #' 
 #' Access formula to be used for design in analyses
 #' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' design(testExp)
+#' 
 #' @export
 setMethod("design", "NanoStringExperiment", 
     function(object) object@design)
@@ -571,6 +786,11 @@ setMethod("design", "NanoStringExperiment",
 #' Replace design formula
 #' 
 #' Replace or assign formula to be used for design in analyses
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' design(testExp) <- stats::as.formula(~ `cell_line`)
 #' 
 #' @export
 setReplaceMethod("design", c("NanoStringExperiment", "formula"),
@@ -583,6 +803,13 @@ setReplaceMethod("design", c("NanoStringExperiment", "formula"),
 #' 
 #' Replace or assign formula to be used for design in analyses
 #' 
+#' @importFrom stats as.formula
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' design(testExp) <- ~ `cell_line`
+#' 
 #' @export
 setReplaceMethod("design", c("NanoStringExperiment", "ANY"),
     function(object, value) {
@@ -593,6 +820,12 @@ setReplaceMethod("design", c("NanoStringExperiment", "ANY"),
 #' Replace design formula
 #' 
 #' Replace or assign formula to be used for design in analyses
+#' 
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' design(testExp) <- NULL
 #' 
 #' @export
 setReplaceMethod("design", c("NanoStringExperiment", "NULL"),

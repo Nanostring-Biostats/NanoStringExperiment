@@ -17,7 +17,8 @@ Depends:
     SummarizedExperiment
 Imports: 
     Biobase, 
-    BiocGenerics
+    BiocGenerics,
+    Stats
 Suggests: 
     knitr,
     rmarkdown

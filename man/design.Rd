@@ -9,3 +9,9 @@ design(object)
 \description{
 Access formula to be used for design in analyses
 }
+\examples{
+datadir <- system.file("data", package="NanoStringExperiment")
+testExp <- readRDS(file.path(datadir, "testExp.rds"))
+design(testExp)
+
+}

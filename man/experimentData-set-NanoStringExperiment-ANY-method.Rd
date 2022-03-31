@@ -10,3 +10,10 @@
 It is recommended to use the SummarizedExperiment metadata instead.
 This is a convenience method for backwards compatibility.
 }
+\examples{
+datadir <- system.file("data", package="NanoStringExperiment")
+testExp <- readRDS(file.path(datadir, "testExp.rds"))
+experimentData(testExp) <- 
+    c(experimentData(testExp), list(testName="myExp"))
+
+}

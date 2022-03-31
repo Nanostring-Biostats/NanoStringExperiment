@@ -10,3 +10,9 @@ assayDataElementNames(object)
 It is recommended to use the SummarizedExperiment assayNames instead.
 This is a convenience method for backwards compatibility.
 }
+\examples{
+datadir <- system.file("data", package="NanoStringExperiment")
+testExp <- readRDS(file.path(datadir, "testExp.rds"))
+assayDataElementNames(testExp)
+
+}

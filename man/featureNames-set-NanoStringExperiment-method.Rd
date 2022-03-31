@@ -9,3 +9,10 @@
 \description{
 Replace variables used for rownames in rowData.
 }
+\examples{
+datadir <- system.file("data", package="NanoStringExperiment")
+testExp <- readRDS(file.path(datadir, "testExp.rds"))
+rowData(testExp)[["testNames"]] <- paste0(dimnames(testExp)[[1]], "a")
+featureNames(testExp) <- rowData(testExp)[["testNames"]]
+
+}

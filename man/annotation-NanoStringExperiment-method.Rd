@@ -9,3 +9,9 @@
 \description{
 Access annotations associated with the experiment
 }
+\examples{
+datadir <- system.file("data", package="NanoStringExperiment")
+testExp <- readRDS(file.path(datadir, "testExp.rds"))
+annotation(testExp)
+
+}
