@@ -2,28 +2,48 @@ Package: NanoStringExperiment
 Type: Package
 Title: Base NanoString Experiment Class
 Version: 0.0.1
-Authors@R: c(person("Nicole", "Ortogero", email = "nortogero@nanostring.com", role = c("cre", "aut")))
-Description: Base class holding common NanoString Experiment functions and data structure
+Authors@R: 
+    c(person("Nicole", "Ortogero", email = "nortogero@nanostring.com", 
+        role = c("cre", "aut")))
+Description: 
+    Base experiment class holding common NanoString Experiment functions 
+    and data structure methods.Extends SummarizedExperiment for data produced 
+    with NanoString Technologies instruments.
 License: MIT
 Encoding: UTF-8
-LazyData: true
 RoxygenNote: 7.1.2
-Depends: SummarizedExperiment
-Imports: Biobase, 
-         BiocGenerics
-Collate: SignatureSet-class.R
-         NanoStringExperiment-class.R
-         SignatureSet-methods.R
-         NanoStringExperiment-accessors.R
-         NanoStringExperiment-subset.R
-         NanoStringExperiment-apply.R
-         NanoStringExperiment-summary.R
-         NanoStringExperiment-munge.R
-         NanoStringExperiment-normalize.R
-         NanoStringExperiment-qc.R
-biocViews: GeneExpression, Transcription, CellBasedAssays, DataImport, 
-           Transcriptomics, Proteomics, mRNAMicroarray, 
-           ProprietaryPlatforms, RNASeq, Sequencing, ExperimentalDesign, 
-           Normalization, Spatial
+Depends: 
+    SummarizedExperiment
+Imports: 
+    Biobase, 
+    BiocGenerics
+Suggests: 
+    knitr,
+    rmarkdown
+Collate: 
+    SignatureSet-class.R
+    NanoStringExperiment-class.R
+    SignatureSet-methods.R
+    NanoStringExperiment-accessors.R
+    NanoStringExperiment-subset.R
+    NanoStringExperiment-apply.R
+    NanoStringExperiment-summary.R
+    NanoStringExperiment-munge.R
+    NanoStringExperiment-normalize.R
+    NanoStringExperiment-qc.R
+biocViews: 
+    Spatial,
+    GeneExpression, 
+    Transcription, 
+    CellBasedAssays, 
+    DataImport, 
+    Transcriptomics, 
+    Proteomics, 
+    mRNAMicroarray, 
+    ProprietaryPlatforms, 
+    RNASeq, 
+    Sequencing, 
+    ExperimentalDesign, 
+    Normalization
 VignetteEngine: knitr::rmarkdown
 VignetteBuilder: knitr

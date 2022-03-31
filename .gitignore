@@ -40,3 +40,6 @@ vignettes/*.pdf
 
 # Visual Studio Files
 /.vs
+inst/doc
+vignettes/*.R
+vignettes/*.html
