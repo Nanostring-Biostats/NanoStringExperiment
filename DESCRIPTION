@@ -2,15 +2,15 @@ Package: NanoStringExperiment
 Type: Package
 Title: Base NanoString Experiment Class
 Version: 0.0.1
-Author: c(person("Nicole", "Ortogero", email = "nortogero@nanostring.com", role = c("cre", "aut")))
-Maintainer: Nicole Ortogero <nortogero@nanostring.com>
+Authors@R: c(person("Nicole", "Ortogero", email = "nortogero@nanostring.com", role = c("cre", "aut")))
 Description: Base class holding common NanoString Experiment functions and data structure
 License: MIT
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.2
 Depends: SummarizedExperiment
-Suggests: Biobase
+Imports: Biobase, 
+         BiocGenerics
 Collate: SignatureSet-class.R
          NanoStringExperiment-class.R
          SignatureSet-methods.R
@@ -21,3 +21,9 @@ Collate: SignatureSet-class.R
          NanoStringExperiment-munge.R
          NanoStringExperiment-normalize.R
          NanoStringExperiment-qc.R
+biocViews: GeneExpression, Transcription, CellBasedAssays, DataImport, 
+           Transcriptomics, Proteomics, mRNAMicroarray, 
+           ProprietaryPlatforms, RNASeq, Sequencing, ExperimentalDesign, 
+           Normalization, Spatial
+VignetteEngine: knitr::rmarkdown
+VignetteBuilder: knitr

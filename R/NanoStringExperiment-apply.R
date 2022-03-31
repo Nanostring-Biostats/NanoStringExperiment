@@ -63,7 +63,7 @@ setMethod("esBy", "NanoStringExperiment",
         }
         keys <- sort(unique(values), na.last = TRUE)
         names(keys) <- as.character(keys)
-        simplify2array(lapply(keys, function(k) {
+        byResult <- lapply(keys, function(k) {
             if (is.na(k)) {
                 keep <- which(is.na(values))
             } else {
@@ -74,5 +74,10 @@ setMethod("esBy", "NanoStringExperiment",
             } else {
                 FUN(X[, keep], ...)
             }
-        }))
+        })
+        if(simplify) {
+            return(simplify2array(byResult))
+        } else {
+            return(byResult)
+        }
     })
