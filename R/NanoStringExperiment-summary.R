@@ -1,3 +1,9 @@
+# Other 
+#with
+#summary
+#esBy
+
+
 .summaryMetadata <- list(
     log2 = data.frame(labelDescription = c("Geometric Mean", 
         "Geometric Mean Size Factor", "Mean Log2", "SD Log2"), 

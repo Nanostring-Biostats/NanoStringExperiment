@@ -1,8 +1,3 @@
-# Other 
-#munge
-#summary
-#esBy
-
 #' Apply across an assay
 #' 
 #' Apply function row (feature) or column (sample)-wise
@@ -38,3 +33,36 @@ setMethod("esApply", signature = "NanoStringExperiment",
         return(apply(exprsAssay, MARGIN, FUN, ...))
     })
 
+#' Apply across assay by groupings
+#' 
+#' Group samples or features by variable and apply a function
+#' 
+#' @export
+setGeneric("esBy", signature = "X", 
+    function(X, GROUP, FUN, ...) standardGeneric("esBy"))
+
+#' Apply across assay by groupings
+#' 
+#' Group samples or features by variable and apply a function
+#' 
+#' @export
+setMethod("esBy", "NanoStringExperiment", 
+    function(X, GROUP, FUN, ..., simplify = TRUE) {
+        featureNames <- colnames(rowData(X))
+        sampleNames <- colnames(colData(X))
+        choices <- c(structure(rep.int("featureData", length(featureNames)), names = featureNames), 
+            structure(rep.int("sampleData", length(sampleNames)), names = sampleNames))
+        GROUP <- choices[match.arg(GROUP, names(choices))]
+        values <- ifelse(GROUP == "sampleData", colData(X)[, names(GROUP)], rowData(X)[, names(GROUP)])
+        
+        keys <- sort(unique(values), na.last = TRUE)
+        names(keys) <- as.character(keys)
+        sapply(keys, function(k) {
+            if (is.na(k)) 
+                keep <- which(is.na(values))
+            else keep <- which(!is.na(values) & values == k)
+            if (GROUP == "featureData") 
+                FUN(X[keep, ], ...)
+            else FUN(X[, keep], ...)
+        }, simplify = simplify)
+    })
