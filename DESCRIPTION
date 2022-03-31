@@ -15,3 +15,7 @@ Collate: SignatureSet-class.R
          NanoStringExperiment-class.R
          SignatureSet-methods.R
          NanoStringExperiment-accessors.R
+         NanoStringExperiment-apply.R
+         NanoStringExperiment-summary.R
+         NanoStringExperiment-munge.R
+         NanoStringExperiment-qc.R
