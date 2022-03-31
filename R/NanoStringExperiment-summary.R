@@ -77,6 +77,8 @@ setMethod("summary", "NanoStringExperiment",
 #' 
 #' Create summary statistics from list
 #' 
+#' @ImportFrom BiocGenerics sd
+#' 
 .marginalSummary <- function(x, log2scale = TRUE) {
     if (anyNA(x)) 
         x <- x[!is.na(x)]

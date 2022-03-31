@@ -13,6 +13,7 @@ License: MIT
 Encoding: UTF-8
 RoxygenNote: 7.1.2
 Depends: 
+    R (>= 2.10),
     SummarizedExperiment
 Imports: 
     Biobase, 

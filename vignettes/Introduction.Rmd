@@ -1,19 +1,140 @@
 ---
 title: "Introduction"
+author: "Nicole Ortogero"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Introduction}
-  %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  chunk_output_type: console
 ---
 
-```{r, include = FALSE}
+```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  fig.width = 5,
+  fig.height = 4,
+  dpi=200
 )
 ```
 
-```{r setup}
+
+## Introduction
+
+The NanoStringExperiment class was inherited from the SummarizedExperiment 
+class. It was designed to encapsulate data and corresponding methods for data 
+generated from NanoString platforms. This class serves as an intermediary 
+class between SummarizedExperiment and NanoString platform-specific classes 
+such as the NanoStringGeoMxSet class from the the GeomxTools package. This 
+package is meant to congregate common structures and methods to be used for 
+extension to platform-specific packages.
+
+
+There are numerous functions that NanoStringExperiment inherited from the 
+SummarizedExperiment class. It is recommended to familiarize with the 
+Summarized Experiment class prior to working with NanoStringExperiment objects.
+You can find these in this link: 
+https://bioconductor.org/packages/release/bioc/html/SummarizedExperiment.html
+
+## Loading Packages
+
+Loading the NanoStringExperiment package gives access to 
+corresponding class and methods.
+
+```{r import}
 library(NanoStringExperiment)
+```
+
+## Building a NanoStringExperiment object from NanoString data 
+
+Create a new NanoStringExperiment object using an 
+expression matrix (assayData),
+phenoData (AnnotatedDataFrame containing sample phenotypic metadata), 
+protocolData (AnnotatedDataFrame containing sample protocol metadata), 
+featureData (AnnotatedDataFrame containing feature metadata), 
+experimentData (list or MIAME object containing experiment details), 
+annotation (list containing annotation file names used), 
+dimLabels (list of variables used as row and column keys in object).
+
+```{r define}
+datadir <- system.file("data", package="NanoStringExperiment")
+
+demoExperiment <- NanoStringExperiment(
+    assayData = readRDS(file.path(datadir, "testAssayData.rds")),
+    phenoData = readRDS(file.path(datadir, "testPhenoData.rds")),
+    protocolData = readRDS(file.path(datadir, "testProtocolData.rds")),
+    featureData = readRDS(file.path(datadir, "testFeatureData.rds")),
+    experimentData = readRDS(file.path(datadir, "testExperimentData.rds")),
+    annotation = readRDS(file.path(datadir, "testAnnotation.rds")),
+    dimLabels = readRDS(file.path(datadir, "testDimLabels.rds")))
+demoExperiment
+```
+
+## Slots and accessors
+
+The NanoStringExperiment class inherits the slots and accessors available
+with any SummarizedExperiment class. There are a few added slots for data 
+commonly used with NanoString experiments. Accessor and replacement methods 
+have been added for these new slots.
+
+```{r access}
+assays(demoExperiment)
+assay(demoExperiment, "exprs")
+assay(demoExperiment, "exprsShift") <- assay(demoExperiment, "exprs") + 1
+
+head(colData(demoExperiment))
+head(rowData(demoExperiment))
+
+#Version of package when object created
+classVersion(demoExperiment)
+
+annotation(demoExperiment)
+
+design(demoExperiment) <- ~ `cell_line`
+design(demoExperiment)
+```
+
+## Subsetting
+
+Bracket notation and the subset method are two methods for subsetting 
+NanoStringExperiment objects. This package also includes custom NanoString
+subset functions such as to subset be negative features.
+
+```{r subset}
+demoExperiment[1:5, ]
+demoExperiment[colData(demoExperiment)[["cell_line"]] == "HS578T", ]
+
+subset(demoExperiment, 
+    subset = CodeClass == "Negative", 
+    select = cell_line == "HS578T")
+
+negativeControlSubset(demoExperiment)
+endogenousSubset(demoExperiment)
+```
+
+
+## Apply and summarize
+
+As with a SummarizedExperiment object, you can apply functions across
+assay data matrices using the apply function. The NanoStringExperiment 
+package adds additional apply and summarize functions to facilitate working
+with the object.
+
+```{r applying}
+head(assayDataApply(demoExperiment, MARGIN = 2, FUN = mean))
+
+head(esBy(demoExperiment, 
+            GROUP = "cell_line", 
+            FUN = function(x) { 
+              assayDataApply(x, MARGIN = 1, FUN = mean, elt = "exprs") 
+            }))
+
+head(summary(demoExperiment, MARGIN = 2, GROUP = "cell_line"))
+```
+
+## About this session
+```{r session}
+sessionInfo()
 ```
