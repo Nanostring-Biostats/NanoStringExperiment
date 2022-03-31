@@ -515,7 +515,7 @@ setReplaceMethod("featureData", signature = "DataFrame",
     })
 
 
-# Experiment Metadata ---------------------------------------------------------
+# Experiment Data ---------------------------------------------------------
 #' Access experiment metadata
 #' 
 #' It is recommended to use the SummarizedExperiment metadata instead.
@@ -551,3 +551,51 @@ setReplaceMethod("experimentData", signature = "NanoStringExperiment",
 setMethod("annotation", signature="NanoStringExperiment",
     function(object) object@annotation)
 
+#' Access design formula
+#' 
+#' Access formula to be used for design in analyses
+#' 
+#' @export
+setGeneric("design", signature = "object",
+    function(object) standardGeneric("design"))
+
+#' Access design formula
+#' 
+#' Access formula to be used for design in analyses
+#' 
+#' @export
+setMethod("design", "NanoStringExperiment", 
+    function(object) object@design)
+
+#' Replace design formula
+#' 
+#' Replace or assign formula to be used for design in analyses
+#' 
+#' @export
+setReplaceMethod("design", c("NanoStringExperiment", "formula"),
+    function(object, value) {
+        object@design <- value
+        return(object)
+    })
+
+#' Replace design formula
+#' 
+#' Replace or assign formula to be used for design in analyses
+#' 
+#' @export
+setReplaceMethod("design", c("NanoStringExperiment", "ANY"),
+    function(object, value) {
+        object@design <- stats::as.formula(value)
+        return(object)
+    })
+
+#' Replace design formula
+#' 
+#' Replace or assign formula to be used for design in analyses
+#' 
+#' @export
+setReplaceMethod("design", c("NanoStringExperiment", "NULL"),
+    function(object, value) {
+        object@design <- NULL
+        return(object)
+    })

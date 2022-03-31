@@ -3,13 +3,16 @@
 #' Convert assay DataFrame into long format and append
 #' labels and meta to the new DataFrame
 #' 
-#' @importMethodsFrom Biobase esApply
-#' 
 #' @export
 setGeneric("munge", signature = "data", 
     function(data, ...) standardGeneric("munge"))
 
-
+#' Append metadata to assay in long format
+#' 
+#' Convert assay DataFrame into long format and append
+#' labels and meta to the new DataFrame
+#' 
+#' @export
 setMethod("munge", "NanoStringExperiment", 
     function(data, 
              mapping = update(design(data), exprs ~ .), 

@@ -19,4 +19,5 @@ Collate: SignatureSet-class.R
          NanoStringExperiment-apply.R
          NanoStringExperiment-summary.R
          NanoStringExperiment-munge.R
+         NanoStringExperiment-normalize.R
          NanoStringExperiment-qc.R

@@ -1,10 +1,5 @@
 setClassUnion("formulaOrNULL", c("formula", "NULL"))
 setClassUnion("matrixOrNULL", c("formula", "NULL"))
-#setClassUnion("SignatureSetOrNULL", c("SignatureSet", "NULL"))
-#setClassUnion("listOrSimpleList", c("list", "SimpleList"))
-#setClassUnion("RectangularishOrNULL", c("data.frame", "matrix", "AnnotatedDataFrame", "NULL"))
-#setClassUnion("MIAMEOrNULL", c("MIAME", "NULL"))
-#setClass("VersionedSummarizedExp", contains = c("VersionedBiobase", "SummarizedExperiment"))
 
 #' The NanoStringExperiment class
 #' 
