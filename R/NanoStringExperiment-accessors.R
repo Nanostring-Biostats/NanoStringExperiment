@@ -2,6 +2,8 @@
 #' 
 #' Access version of NanoStringExperiment package used to generate object
 #' 
+#' @return version of class used to generate object
+#' 
 #' @examples
 #' datadir <- system.file("data", package="NanoStringExperiment")
 #' testExp <- readRDS(file.path(datadir, "testExp.rds"))
@@ -17,6 +19,8 @@ setMethod("classVersion", signature = "NanoStringExperiment",
 #' 
 #' @importMethodsFrom Biobase dimLabels
 #' 
+#' @return variables used for dimension labels
+#' 
 #' @examples
 #' datadir <- system.file("data", package="NanoStringExperiment")
 #' testExp <- readRDS(file.path(datadir, "testExp.rds"))
@@ -31,6 +35,8 @@ setMethod("dimLabels", signature = "NanoStringExperiment",
 #' Replaces rownames in rowData and colData with specified variable columns.
 #' 
 #' @importMethodsFrom Biobase dimLabels<-
+#' 
+#' @return list of two strings with edited dimension labels
 #' 
 #' @examples
 #' datadir <- system.file("data", package="NanoStringExperiment")
@@ -49,9 +55,11 @@ setReplaceMethod("dimLabels", signature = "NanoStringExperiment",
 
 #' Access feature identifiers
 #' 
-#' Shows variables used for rownames in rowData.
+#' Shows identifiers used for features (rownames) in assay
 #' 
 #' @importMethodsFrom Biobase featureNames
+#' 
+#' @return string identifiers
 #' 
 #' @examples
 #' datadir <- system.file("data", package="NanoStringExperiment")

@@ -50,7 +50,8 @@ function(object) {
 setGeneric("NanoStringExperiment",
 function(assayData,
          phenoData = Biobase::annotatedDataFrameFrom(assayData, byrow = FALSE),
-         protocolData = Biobase::annotatedDataFrameFrom(assayData, byrow = FALSE),
+         protocolData = 
+             Biobase::annotatedDataFrameFrom(assayData, byrow = FALSE),
          featureData = Biobase::annotatedDataFrameFrom(assayData, byrow = TRUE),
          experimentData = Biobase::MIAME(),
          annotation=character(),
