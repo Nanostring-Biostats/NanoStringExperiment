@@ -6,6 +6,9 @@
 \usage{
 \S4method{esApply}{NanoStringExperiment}(X, MARGIN, FUN, ...)
 }
+\value{
+assay data matrix
+}
 \description{
 Apply function row (feature) or column (sample)-wise
 to the default "exprs" assay

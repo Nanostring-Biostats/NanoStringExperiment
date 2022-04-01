@@ -2,14 +2,32 @@
 % Please edit documentation in R/NanoStringExperiment-apply.R
 \name{esBy}
 \alias{esBy}
+\alias{esBy,NanoStringExperiment-method}
 \title{Apply across NanoStringExperiment object by groupings}
 \usage{
 esBy(X, GROUP, FUN, ...)
+
+\S4method{esBy}{NanoStringExperiment}(X, GROUP, FUN, ..., simplify = TRUE)
+}
+\value{
+list or matrix of results
+
+list or matrix of results
 }
 \description{
 Group samples or features by variable and apply a function
+
+Group samples or features by variable and apply a function
 }
 \examples{
+datadir <- system.file("data", package="NanoStringExperiment")
+testExp <- readRDS(file.path(datadir, "testExp.rds"))
+esBy(testExp, 
+    GROUP = "cell_line", 
+    FUN = function(x) { 
+        assayDataApply(x, MARGIN = 1, FUN = mean, elt = "exprs") 
+    })
+
 datadir <- system.file("data", package="NanoStringExperiment")
 testExp <- readRDS(file.path(datadir, "testExp.rds"))
 esBy(testExp, 

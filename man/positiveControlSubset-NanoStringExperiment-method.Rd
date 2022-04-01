@@ -6,6 +6,9 @@
 \usage{
 \S4method{positiveControlSubset}{NanoStringExperiment}(object)
 }
+\value{
+NanoStringExperiment object
+}
 \description{
 Method to subset to features with CodeClass Positive
 }

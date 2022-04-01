@@ -2,6 +2,8 @@
 #' 
 #' Method to subset to features with CodeClass Endogenous
 #' 
+#' @return NanoStringExperiment object
+#' 
 #' @examples
 #' datadir <- system.file("data", package="NanoStringExperiment")
 #' testExp <- readRDS(file.path(datadir, "testExp.rds"))
@@ -14,6 +16,8 @@ setGeneric("endogenousSubset", signature = "object",
 #' Subset to endogenous features
 #' 
 #' Method to subset to features with CodeClass Endogenous
+#' 
+#' @return NanoStringExperiment object
 #' 
 #' @examples
 #' datadir <- system.file("data", package="NanoStringExperiment")
@@ -28,6 +32,8 @@ setMethod("endogenousSubset", "NanoStringExperiment",
 #' 
 #' Method to subset to features with CodeClass Housekeeping
 #' 
+#' @return NanoStringExperiment object
+#' 
 #' @examples
 #' datadir <- system.file("data", package="NanoStringExperiment")
 #' testExp <- readRDS(file.path(datadir, "testExp.rds"))
@@ -40,6 +46,8 @@ setGeneric("housekeepingSubset", signature = "object",
 #' Subset to housekeeping features
 #' 
 #' Method to subset to features with CodeClass Housekeeping
+#' 
+#' @return NanoStringExperiment object
 #' 
 #' @examples
 #' datadir <- system.file("data", package="NanoStringExperiment")
@@ -54,6 +62,8 @@ setMethod("housekeepingSubset", "NanoStringExperiment",
 #' 
 #' Method to subset to features with CodeClass Negative
 #' 
+#' @return NanoStringExperiment object
+#' 
 #' @examples
 #' datadir <- system.file("data", package="NanoStringExperiment")
 #' testExp <- readRDS(file.path(datadir, "testExp.rds"))
@@ -66,6 +76,8 @@ setGeneric("negativeControlSubset", signature = "object",
 #' Subset to negative control features
 #' 
 #' Method to subset to features with CodeClass Negative
+#' 
+#' @return NanoStringExperiment object
 #' 
 #' @examples
 #' datadir <- system.file("data", package="NanoStringExperiment")
@@ -80,6 +92,8 @@ setMethod("negativeControlSubset", "NanoStringExperiment",
 #' 
 #' Method to subset to features with CodeClass Positive
 #' 
+#' @return NanoStringExperiment object
+#' 
 #' @examples
 #' datadir <- system.file("data", package="NanoStringExperiment")
 #' testExp <- readRDS(file.path(datadir, "testExp.rds"))
@@ -92,6 +106,8 @@ setGeneric("positiveControlSubset", signature = "object",
 #' Subset to positive control features
 #' 
 #' Method to subset to features with CodeClass Positive
+#' 
+#' @return NanoStringExperiment object
 #' 
 #' @examples
 #' datadir <- system.file("data", package="NanoStringExperiment")
@@ -106,6 +122,8 @@ setMethod("positiveControlSubset", "NanoStringExperiment",
 #' 
 #' Method to subset to features with CodeClass IsControl
 #' 
+#' @return NanoStringExperiment object
+#' 
 #' @examples
 #' datadir <- system.file("data", package="NanoStringExperiment")
 #' testExp <- readRDS(file.path(datadir, "testExp.rds"))
@@ -118,6 +136,8 @@ setGeneric("controlSubset", signature = "object",
 #' Subset to IsControl features
 #' 
 #' Method to subset to features with CodeClass IsControl
+#' 
+#' @return NanoStringExperiment object
 #' 
 #' @examples
 #' datadir <- system.file("data", package="NanoStringExperiment")
@@ -132,6 +152,8 @@ setMethod("controlSubset", "NanoStringExperiment",
 #' 
 #' Method to subset to features not CodeClass IsControl
 #' 
+#' @return NanoStringExperiment object
+#' 
 #' @examples
 #' datadir <- system.file("data", package="NanoStringExperiment")
 #' testExp <- readRDS(file.path(datadir, "testExp.rds"))
@@ -144,6 +166,8 @@ setGeneric("nonControlSubset", signature = "object",
 #' Subset to non-IsControl features
 #' 
 #' Method to subset to features not CodeClass IsControl
+#' 
+#' @return NanoStringExperiment object
 #' 
 #' @examples
 #' datadir <- system.file("data", package="NanoStringExperiment")
@@ -158,6 +182,8 @@ setMethod("nonControlSubset", "NanoStringExperiment",
 #' 
 #' Method to subset to features in signatures slot
 #' 
+#' @return NanoStringExperiment object
+#' 
 #' @examples
 #' datadir <- system.file("data", package="NanoStringExperiment")
 #' testExp <- readRDS(file.path(datadir, "testExp.rds"))
@@ -170,6 +196,8 @@ setGeneric("signatureSubset", signature = "object",
 #' Subset to signature features
 #' 
 #' Method to subset to features in signatures slot
+#' 
+#' @return NanoStringExperiment object
 #' 
 #' @examples
 #' datadir <- system.file("data", package="NanoStringExperiment")

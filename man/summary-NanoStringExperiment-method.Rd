@@ -14,6 +14,9 @@
   ...
 )
 }
+\value{
+summary table of aggregated results
+}
 \description{
 Get chosen summary statistics for a selected assay
 }

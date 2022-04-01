@@ -2,16 +2,31 @@
 % Please edit documentation in R/NanoStringExperiment-accessors.R
 \name{sampleNames,NanoStringExperiment-method}
 \alias{sampleNames,NanoStringExperiment-method}
+\alias{sampleNames<-,NanoStringExperiment,ANY-method}
 \title{Access sample identifiers}
 \usage{
 \S4method{sampleNames}{NanoStringExperiment}(object)
+
+\S4method{sampleNames}{NanoStringExperiment,ANY}(object) <- value
+}
+\value{
+list of string sample (column) identifiers
+
+NanoStringExperiment object
 }
 \description{
 Shows variables used for rownames in colData.
+
+Replace variables used for rownames in colData.
 }
 \examples{
 datadir <- system.file("data", package="NanoStringExperiment")
 testExp <- readRDS(file.path(datadir, "testExp.rds"))
 sampleNames(testExp)
+
+datadir <- system.file("data", package="NanoStringExperiment")
+testExp <- readRDS(file.path(datadir, "testExp.rds"))
+colData(testExp)[["testNames"]] <- paste0(dimnames(testExp)[[2]], "a")
+sampleNames(testExp) <- colData(testExp)[["testNames"]]
 
 }

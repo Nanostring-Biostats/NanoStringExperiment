@@ -6,6 +6,9 @@
 \usage{
 \S4method{annotation}{NanoStringExperiment}(object)
 }
+\value{
+list of annotations used with experiment
+}
 \description{
 Access annotations associated with the experiment
 }

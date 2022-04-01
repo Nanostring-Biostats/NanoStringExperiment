@@ -4,7 +4,114 @@
 \name{NanoStringExperiment-class}
 \alias{NanoStringExperiment-class}
 \alias{.NanoStringExperiment}
+\alias{show,NanoStringExperiment-method}
+\alias{NanoStringExperiment}
+\alias{NanoStringExperiment,missing-method}
+\alias{NanoStringExperiment,matrix-method}
 \title{The NanoStringExperiment class}
+\usage{
+\S4method{show}{NanoStringExperiment}(object)
+
+NanoStringExperiment(
+  assayData,
+  phenoData = Biobase::annotatedDataFrameFrom(assayData, byrow = FALSE),
+  protocolData = Biobase::annotatedDataFrameFrom(assayData, byrow = FALSE),
+  featureData = Biobase::annotatedDataFrameFrom(assayData, byrow = TRUE),
+  experimentData = Biobase::MIAME(),
+  annotation = character(),
+  dimLabels = character(),
+  signatures = NULL,
+  design = NULL,
+  ...
+)
+
+\S4method{NanoStringExperiment}{missing}(
+  assayData,
+  phenoData = Biobase::annotatedDataFrameFrom(assayData, byrow = FALSE),
+  protocolData = Biobase::annotatedDataFrameFrom(assayData, byrow = FALSE),
+  featureData = Biobase::annotatedDataFrameFrom(assayData, byrow = TRUE),
+  experimentData = Biobase::MIAME(),
+  annotation = character(),
+  dimLabels = character(),
+  signatures = NULL,
+  design = NULL,
+  ...
+)
+
+\S4method{NanoStringExperiment}{matrix}(
+  assayData,
+  phenoData = Biobase::annotatedDataFrameFrom(assayData, byrow = FALSE),
+  protocolData = Biobase::annotatedDataFrameFrom(assayData, byrow = FALSE),
+  featureData = Biobase::annotatedDataFrameFrom(assayData, byrow = TRUE),
+  experimentData = Biobase::MIAME(),
+  annotation = character(),
+  dimLabels = character(),
+  signatures = NULL,
+  design = NULL,
+  ...
+)
+}
+\value{
+NanoStringExperiment object
+
+summary of NanoStringExperiment object
+
+NanoStringExperiment object
+
+NanoStringExperiment object
+
+NanoStringExperiment object
+}
 \description{
 Class definition for the base NanoString experiment
+
+Show method for NanoStringExperiment
+
+Constructs NanoStringExperiment object based on assay data signature
+
+Constructs NanoStringExperiment object if assay data missing
+
+Constructs NanoStringExperiment object if assay data is a matrix
+}
+\section{Slots}{
+
+\describe{
+\item{\code{\code{assayData}}}{expression matrix or NULL}
+
+\item{\code{\code{annotation}}}{character list of annotations used}
+
+\item{\code{\code{dimLabels}}}{character list of dimension labels}
+
+\item{\code{\code{signatures}}}{optional SignatureSet object or NULL}
+
+\item{\code{\code{design}}}{formula or NULL}
+}}
+
+\examples{
+datadir <- system.file("data", package="NanoStringExperiment")
+testExp <- readRDS(file.path(datadir, "testExp.rds"))
+show(testExp)
+
+datadir <- system.file("data", package="NanoStringExperiment")
+NanoStringExperiment(
+    assayData = readRDS(file.path(datadir, "testAssayData.rds")),
+    phenoData = readRDS(file.path(datadir, "testPhenoData.rds")),
+    protocolData = readRDS(file.path(datadir, "testProtocolData.rds")),
+    featureData = readRDS(file.path(datadir, "testFeatureData.rds")),
+    experimentData = readRDS(file.path(datadir, "testExperimentData.rds")),
+    annotation = readRDS(file.path(datadir, "testAnnotation.rds")),
+    dimLabels = readRDS(file.path(datadir, "testDimLabels.rds")))
+
+NanoStringExperiment()
+
+datadir <- system.file("data", package="NanoStringExperiment")
+NanoStringExperiment(
+    assayData = readRDS(file.path(datadir, "testAssayData.rds")),
+    phenoData = readRDS(file.path(datadir, "testPhenoData.rds")),
+    protocolData = readRDS(file.path(datadir, "testProtocolData.rds")),
+    featureData = readRDS(file.path(datadir, "testFeatureData.rds")),
+    experimentData = readRDS(file.path(datadir, "testExperimentData.rds")),
+    annotation = readRDS(file.path(datadir, "testAnnotation.rds")),
+    dimLabels = readRDS(file.path(datadir, "testDimLabels.rds")))
+
 }

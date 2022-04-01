@@ -8,6 +8,8 @@ setAs("NanoStringExperiment", "list",
 #' 
 #' Coercion method for NanoStringExperiment in list format
 #' 
+#' @return list version of NanoStringExperiment object
+#' 
 #' @examples
 #' datadir <- system.file("data", package="NanoStringExperiment")
 #' testExp <- readRDS(file.path(datadir, "testExp.rds"))
@@ -20,6 +22,8 @@ setMethod("as.list", "NanoStringExperiment",
 #' Evaluate expression on NanoStringExperiment list
 #' 
 #' Performs expression within NanoStringExperiment list
+#' 
+#' @return results of evaluation
 #' 
 #' @examples
 #' datadir <- system.file("data", package="NanoStringExperiment")
@@ -34,6 +38,8 @@ setMethod("with", "NanoStringExperiment",
 #' Summarize assay data
 #' 
 #' Get chosen summary statistics for a selected assay
+#' 
+#' @return summary table of aggregated results
 #' 
 #' @examples
 #' datadir <- system.file("data", package="NanoStringExperiment")
@@ -71,6 +77,7 @@ setMethod("summary", "NanoStringExperiment",
 #' 
 #' Lists of useful summary statistics
 #' 
+#' @noRd
 .summaryMetadata <- list(
     log2 = data.frame(labelDescription = c("Geometric Mean", 
         "Geometric Mean Size Factor", "Mean Log2", "SD Log2"), 
@@ -90,6 +97,7 @@ setMethod("summary", "NanoStringExperiment",
 #' @importFrom BiocGenerics sd
 #' @importFrom stats quantile
 #' 
+#' @noRd
 .marginalSummary <- function(x, log2scale = TRUE) {
     if (anyNA(x)) 
         x <- x[!is.na(x)]
@@ -108,6 +116,7 @@ setMethod("summary", "NanoStringExperiment",
 }
 
 #' Calculate skewness
+#' @noRd
 skewness <- function(x, na.rm = FALSE) {
     if (anyNA(x)) {
         if (na.rm) 
@@ -122,6 +131,7 @@ skewness <- function(x, na.rm = FALSE) {
 }
 
 #' Calculate kurtosis
+#' @noRd
 kurtosis <- function(x, na.rm = FALSE) {
     if (anyNA(x)) {
         if (na.rm) 
@@ -135,6 +145,9 @@ kurtosis <- function(x, na.rm = FALSE) {
     ((n + 1L) * (n - 1L) * ((sum(x^4)/n)/(sum(x^2)/n)^2 - (3 * (n - 1L))/(n + 1L)))/((n - 
         2L) * (n - 3L))
 }
+
+#' Calculate geometric mean
+#' @noRd
 geomMean <- function(x, na.rm = FALSE) {
     if (anyNA(x)) {
         if (na.rm) 
@@ -148,6 +161,7 @@ geomMean <- function(x, na.rm = FALSE) {
 }
 
 #' Calculate log base 2
+#' @noRd
 log2t <- function(x, thresh = 0.5) {
     if (min(x, na.rm = TRUE) < thresh) {
         x[!is.na(x) & x >= 0 & x < thresh] <- thresh
@@ -156,6 +170,7 @@ log2t <- function(x, thresh = 0.5) {
 }
 
 #' Calculate log with chosen base
+#' @noRd
 logt <- function(x, thresh = 0.5) {
     if (min(x, na.rm = TRUE) < thresh) {
         x[!is.na(x) & x >= 0 & x < thresh] <- thresh

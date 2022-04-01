@@ -6,6 +6,9 @@
 \usage{
 \S4method{with}{NanoStringExperiment}(data, expr, ...)
 }
+\value{
+results of evaluation
+}
 \description{
 Performs expression within NanoStringExperiment list
 }

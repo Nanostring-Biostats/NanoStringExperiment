@@ -6,6 +6,9 @@
 \usage{
 \S4method{nonControlSubset}{NanoStringExperiment}(object)
 }
+\value{
+NanoStringExperiment object
+}
 \description{
 Method to subset to features not CodeClass IsControl
 }

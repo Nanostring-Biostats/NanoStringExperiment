@@ -6,6 +6,9 @@
 \usage{
 \S4method{classVersion}{NanoStringExperiment}(object)
 }
+\value{
+version of class used to generate object
+}
 \description{
 Access version of NanoStringExperiment package used to generate object
 }

@@ -6,6 +6,9 @@
 \usage{
 controlSubset(object)
 }
+\value{
+NanoStringExperiment object
+}
 \description{
 Method to subset to features with CodeClass IsControl
 }

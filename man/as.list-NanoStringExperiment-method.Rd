@@ -6,6 +6,9 @@
 \usage{
 \S4method{as.list}{NanoStringExperiment}(x, ...)
 }
+\value{
+list version of NanoStringExperiment object
+}
 \description{
 Coercion method for NanoStringExperiment in list format
 }

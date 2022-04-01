@@ -3,10 +3,14 @@
 #' Apply function row (feature) or column (sample)-wise
 #' to selected assay
 #' 
+#' @return assay data matrix
+#' 
 #' @examples
 #' datadir <- system.file("data", package="NanoStringExperiment")
 #' testExp <- readRDS(file.path(datadir, "testExp.rds"))
 #' assayDataApply(testExp, 1, mean)
+#' 
+#' @rdname assayDataApply
 #' 
 #' @export
 setGeneric("assayDataApply", signature = "X", 
@@ -17,10 +21,14 @@ setGeneric("assayDataApply", signature = "X",
 #' Apply function row (feature) or column (sample)-wise
 #' to selected assay
 #' 
+#' @return assay data matrix
+#' 
 #' @examples
 #' datadir <- system.file("data", package="NanoStringExperiment")
 #' testExp <- readRDS(file.path(datadir, "testExp.rds"))
 #' assayDataApply(testExp, 1, mean, elt="exprs")
+#' 
+#' @rdname assayDataApply
 #' 
 #' @export
 setGeneric("assayDataApply", signature = "X", 
@@ -36,10 +44,14 @@ setGeneric("assayDataApply", signature = "X",
 #' 
 #' @importMethodsFrom Biobase esApply
 #' 
+#' @return assay data matrix
+#' 
 #' @examples
 #' datadir <- system.file("data", package="NanoStringExperiment")
 #' testExp <- readRDS(file.path(datadir, "testExp.rds"))
 #' esApply(testExp, 1, mean)
+#' 
+#' @rdname esApply
 #' 
 #' @export
 setMethod("esApply", signature = "NanoStringExperiment",
@@ -52,6 +64,8 @@ setMethod("esApply", signature = "NanoStringExperiment",
 #' 
 #' Group samples or features by variable and apply a function
 #' 
+#' @return list or matrix of results
+#' 
 #' @examples
 #' datadir <- system.file("data", package="NanoStringExperiment")
 #' testExp <- readRDS(file.path(datadir, "testExp.rds"))
@@ -61,6 +75,8 @@ setMethod("esApply", signature = "NanoStringExperiment",
 #'         assayDataApply(x, MARGIN = 1, FUN = mean, elt = "exprs") 
 #'     })
 #' 
+#' @rdname esBy
+#' 
 #' @export
 setGeneric("esBy", signature = "X", 
     function(X, GROUP, FUN, ...) standardGeneric("esBy"))
@@ -69,11 +85,18 @@ setGeneric("esBy", signature = "X",
 #' 
 #' Group samples or features by variable and apply a function
 #' 
+#' @return list or matrix of results
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
 #' esBy(testExp, 
 #'     GROUP = "cell_line", 
 #'     FUN = function(x) { 
 #'         assayDataApply(x, MARGIN = 1, FUN = mean, elt = "exprs") 
 #'     })
+#' 
+#' @rdname esBy
 #' 
 #' @export
 setMethod("esBy", "NanoStringExperiment", 

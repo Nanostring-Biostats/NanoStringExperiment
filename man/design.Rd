@@ -2,16 +2,63 @@
 % Please edit documentation in R/NanoStringExperiment-accessors.R
 \name{design}
 \alias{design}
+\alias{design,NanoStringExperiment-method}
+\alias{design<-,NanoStringExperiment,formula-method}
+\alias{design<-,NanoStringExperiment,ANY-method}
+\alias{design<-,NanoStringExperiment,NULL-method}
 \title{Access design formula}
 \usage{
 design(object)
+
+\S4method{design}{NanoStringExperiment}(object)
+
+\S4method{design}{NanoStringExperiment,formula}(object) <- value
+
+\S4method{design}{NanoStringExperiment,ANY}(object) <- value
+
+\S4method{design}{NanoStringExperiment,`NULL`}(object) <- value
+}
+\value{
+formula used for design (model) matrix
+
+formula used for design (model) matrix
+
+NanoStringExperiment object
+
+NanoStringExperiment object
+
+NanoStringExperiment object
 }
 \description{
 Access formula to be used for design in analyses
+
+Access formula to be used for design in analyses
+
+Replace or assign formula to be used for design in analyses
+
+Replace or assign formula to be used for design in analyses
+
+Replace or assign formula to be used for design in analyses
 }
 \examples{
 datadir <- system.file("data", package="NanoStringExperiment")
 testExp <- readRDS(file.path(datadir, "testExp.rds"))
 design(testExp)
+
+datadir <- system.file("data", package="NanoStringExperiment")
+testExp <- readRDS(file.path(datadir, "testExp.rds"))
+design(testExp)
+
+datadir <- system.file("data", package="NanoStringExperiment")
+testExp <- readRDS(file.path(datadir, "testExp.rds"))
+design(testExp) <- stats::as.formula(~ `cell_line`)
+
+datadir <- system.file("data", package="NanoStringExperiment")
+testExp <- readRDS(file.path(datadir, "testExp.rds"))
+design(testExp) <- ~ `cell_line`
+
+datadir <- system.file("data", package="NanoStringExperiment")
+testExp <- readRDS(file.path(datadir, "testExp.rds"))
+design(testExp) <- NULL
 
 }

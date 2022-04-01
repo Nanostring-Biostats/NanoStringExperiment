@@ -8,6 +8,11 @@ assayDataApply(X, MARGIN, FUN, ..., elt = "exprs")
 
 assayDataApply(X, MARGIN, FUN, ..., elt = "exprs")
 }
+\value{
+assay data matrix
+
+assay data matrix
+}
 \description{
 Apply function row (feature) or column (sample)-wise
 to selected assay

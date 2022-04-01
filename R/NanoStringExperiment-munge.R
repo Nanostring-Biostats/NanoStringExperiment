@@ -3,6 +3,8 @@
 #' Convert assay DataFrame into long format and append
 #' labels and meta to the new DataFrame
 #' 
+#' @return matrix of results in long format
+#' 
 #' @examples
 #' datadir <- system.file("data", package="NanoStringExperiment")
 #' testExp <- readRDS(file.path(datadir, "testExp.rds"))
@@ -16,6 +18,8 @@ setGeneric("munge", signature = "data",
 #' 
 #' Convert assay DataFrame into long format and append
 #' labels and meta to the new DataFrame
+#' 
+#' @return matrix of results in long format
 #' 
 #' @examples
 #' datadir <- system.file("data", package="NanoStringExperiment")
@@ -221,6 +225,12 @@ setMethod("munge", "NanoStringExperiment",
         df
 })
 
+#' Copy row names
+#' 
+#' Non-exported helper function.
+#' Adds keys to data frame.
+#' 
+#' @noRd
 copyRowNames <- function(df, key) {
     rn <- DataFrame(rownames(df))
     colnames(rn) <- key

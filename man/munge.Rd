@@ -6,6 +6,9 @@
 \usage{
 munge(data, ...)
 }
+\value{
+matrix of results in long format
+}
 \description{
 Convert assay DataFrame into long format and append
 labels and meta to the new DataFrame

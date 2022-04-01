@@ -6,6 +6,9 @@
 \usage{
 negativeControlSubset(object)
 }
+\value{
+NanoStringExperiment object
+}
 \description{
 Method to subset to features with CodeClass Negative
 }

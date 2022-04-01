@@ -6,6 +6,9 @@
 \usage{
 nonControlSubset(object)
 }
+\value{
+NanoStringExperiment object
+}
 \description{
 Method to subset to features not CodeClass IsControl
 }

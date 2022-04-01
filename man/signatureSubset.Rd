@@ -6,6 +6,9 @@
 \usage{
 signatureSubset(object)
 }
+\value{
+NanoStringExperiment object
+}
 \description{
 Method to subset to features in signatures slot
 }

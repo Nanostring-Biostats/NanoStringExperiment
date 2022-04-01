@@ -6,6 +6,9 @@
 \usage{
 normalize(object, ...)
 }
+\value{
+NanoStringExperiment object
+}
 \description{
 Normalize assay data based on chosen method
 }

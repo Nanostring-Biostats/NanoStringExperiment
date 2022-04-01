@@ -6,6 +6,9 @@
 \usage{
 setQCFlags(object, ...)
 }
+\value{
+NanoStringExperiment object
+}
 \description{
 Flag samples or features that fail quality control checks
 }
