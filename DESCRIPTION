@@ -29,8 +29,8 @@ Suggests:
     rmarkdown
 Collate: 
     SignatureSet-class.R
-    NanoStringExperiment-class.R
     SignatureSet-methods.R
+    NanoStringExperiment-class.R
     NanoStringExperiment-accessors.R
     NanoStringExperiment-subset.R
     NanoStringExperiment-apply.R

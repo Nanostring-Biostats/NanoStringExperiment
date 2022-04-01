@@ -1020,3 +1020,71 @@ setReplaceMethod("design", c("NanoStringExperiment", "NULL"),
         object@design <- NULL
         return(object)
     })
+
+#' Access signatures slot
+#' 
+#' Access signatures slot to get \code{SignatureSet} object
+#' 
+#' @return formula used for design (model) matrix
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' signatures(testExp)
+#' 
+#' @export
+setGeneric("signatures", signature = "object", 
+    function(object) standardGeneric("signatures"))
+
+#' Access signatures slot
+#' 
+#' Access signatures slot to get \code{SignatureSet} object
+#' 
+#' @return formula used for design (model) matrix
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' signatures(testExp)
+#' 
+#' @export
+setMethod("signatures", "NanoStringExperiment", 
+    function(object) object@signatures)
+
+#' Replace signatures
+#' 
+#' Replace signatures slot with updated \code{SignatureSet}
+#' 
+#' @return NanoStringExperiment object
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' signatures(testExp) <- SignatureSet()
+#' 
+#' @rdname signatures
+#' 
+#' @export
+setGeneric("signatures<-", signature = c("object", "value"), 
+    function(object, value) standardGeneric("signatures<-"))
+
+#' Replace signatures
+#' 
+#' Replace signatures slot with updated \code{SignatureSet}
+#' 
+#' @return NanoStringExperiment object
+#' 
+#' @examples
+#' datadir <- system.file("data", package="NanoStringExperiment")
+#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' signatures(testExp) <- SignatureSet()
+#' 
+#' @rdname signatures
+#' 
+#' @export
+setReplaceMethod("signatures", c("NanoStringExperiment", "SignatureSet"), 
+    function(object, value) {
+        object@signatures <- value
+        return(object)
+    })
+

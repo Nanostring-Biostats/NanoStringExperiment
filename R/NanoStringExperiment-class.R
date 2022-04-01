@@ -25,7 +25,7 @@ setClassUnion("matrixOrNULL", c("formula", "NULL"))
         assayData = "matrixOrNULL",
         annotation = "character",
         dimLabels = "character",
-        signatures = "ANY",
+        signatures = "SignatureSet",
         design = "formulaOrNULL",
         .__classVersion__ = "character"),
     prototype = prototype(
