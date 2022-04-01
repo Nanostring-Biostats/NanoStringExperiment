@@ -197,6 +197,8 @@ setGeneric("signatureSubset", signature = "object",
 #' 
 #' Method to subset to features in signatures slot
 #' 
+#' @importFrom NanoStringNCTools weights
+#' 
 #' @return NanoStringExperiment object
 #' 
 #' @examples

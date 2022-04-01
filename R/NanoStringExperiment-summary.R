@@ -39,6 +39,8 @@ setMethod("with", "NanoStringExperiment",
 #' 
 #' Get chosen summary statistics for a selected assay
 #' 
+#' @importFrom NanoStringNCTools signatureScoresApply
+#' 
 #' @return summary table of aggregated results
 #' 
 #' @examples

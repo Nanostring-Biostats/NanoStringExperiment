@@ -1055,6 +1055,8 @@ setMethod("signatures", "NanoStringExperiment",
 #' 
 #' Replace signatures slot with updated \code{SignatureSet}
 #' 
+#' @importClassesFrom NanoStringNCTools SignatureSet
+#' 
 #' @return NanoStringExperiment object
 #' 
 #' @examples

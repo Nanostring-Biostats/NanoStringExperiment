@@ -19,6 +19,8 @@ setGeneric("munge", signature = "data",
 #' Convert assay DataFrame into long format and append
 #' labels and meta to the new DataFrame
 #' 
+#' @importFrom NanoStringNCTools signatureScores
+#' 
 #' @return matrix of results in long format
 #' 
 #' @examples

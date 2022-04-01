@@ -7,6 +7,7 @@ setClassUnion("matrixOrNULL", c("formula", "NULL"))
 #' 
 #' @import SummarizedExperiment
 #' @importFrom Biobase AnnotatedDataFrame MIAME
+#' @importClassesFrom NanoStringNCTools SignatureSet
 #' 
 #' @slot \code{assayData} expression matrix or NULL
 #' @slot \code{annotation} character list of annotations used
