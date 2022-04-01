@@ -42,7 +42,8 @@ setMethod("munge", "NanoStringExperiment",
         if (inherits(mapping, "formula")) {
             vars <- all.vars(mapping)
         } else if (is.list(mapping)) {
-            vars <- unique(unlist(lapply(mapping, all.vars), use.names = FALSE))
+            vars <- unique(unlist(lapply(mapping, all.vars), 
+                use.names = FALSE))
         }
         hasGeneMatrix <- "GeneMatrix" %in% vars
         hasSignatureMatrix <- "SignatureMatrix" %in% vars
@@ -129,7 +130,8 @@ setMethod("munge", "NanoStringExperiment",
                     SignatureName = 
                         rep.int(names(signatures(data)), ncol(data)), 
                     SampleName = 
-                        rep(sampleNames(data), each = length(signatures(data))), 
+                        rep(sampleNames(data), 
+                            each = length(signatures(data))), 
                     df, check.names = FALSE)
             }
             else {

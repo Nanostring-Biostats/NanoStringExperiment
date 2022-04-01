@@ -18,18 +18,17 @@ License: MIT
 Encoding: UTF-8
 RoxygenNote: 7.1.2
 Depends: 
-    R (>= 2.10),
+    R (>= 3.6),
     SummarizedExperiment
 Imports: 
     Biobase, 
     BiocGenerics,
+    NanoStringNCTools,
     stats
 Suggests: 
     knitr,
     rmarkdown
 Collate: 
-    SignatureSet-class.R
-    SignatureSet-methods.R
     NanoStringExperiment-class.R
     NanoStringExperiment-accessors.R
     NanoStringExperiment-subset.R

@@ -1,6 +1,7 @@
 setAs("NanoStringExperiment", "list", 
     function(from) {
-        c(as.list(assays(from)), as.list(rowData(from)), as.list(colData(from)), 
+        c(as.list(assays(from)), as.list(rowData(from)), 
+            as.list(colData(from)), 
         list(signatures = signatures(from), design = design(from)))
     })
 
@@ -144,8 +145,8 @@ kurtosis <- function(x, na.rm = FALSE) {
     if (n < 4L) 
         return(NA_real_)
     x <- x - mean(x)
-    ((n + 1L) * (n - 1L) * ((sum(x^4)/n)/(sum(x^2)/n)^2 - (3 * (n - 1L))/(n + 1L)))/((n - 
-        2L) * (n - 3L))
+    ((n + 1L) * (n - 1L) * ((sum(x^4) / n) / (sum(x^2) / n)^2 - (3 * 
+        (n - 1L)) / (n + 1L)))/((n - 2L) * (n - 3L))
 }
 
 #' Calculate geometric mean
