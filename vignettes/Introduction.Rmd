@@ -33,8 +33,8 @@ extension to NanoString platform-specific packages.
 
 
 There are numerous functions that NanoStringExperiment inherited from the 
-SummarizedExperiment class. It is recommended to familiarize with the 
-Summarized Experiment class prior to working with NanoStringExperiment objects.
+SummarizedExperiment class. It is recommended to learn the 
+SummarizedExperiment class prior to working with NanoStringExperiment objects.
 You can find these in this link: 
 https://bioconductor.org/packages/release/bioc/html/SummarizedExperiment.html
 
@@ -43,7 +43,7 @@ https://bioconductor.org/packages/release/bioc/html/SummarizedExperiment.html
 Loading the NanoStringExperiment package gives access to 
 corresponding class and methods.
 
-```{r import}
+```{r import, eval=FALSE}
 library(NanoStringExperiment)
 ```
 
@@ -81,11 +81,12 @@ have been added for these new slots.
 
 ```{r access}
 assays(demoExperiment)
-assay(demoExperiment, "exprs")[1:5, 1:5]
+assay(demoExperiment, "exprs")[1:2, 1:2]
 assay(demoExperiment, "exprsShift") <- assay(demoExperiment, "exprs") + 1
+assay(demoExperiment, "exprsShift")[1:2, 1:2]
 
-head(colData(demoExperiment))
-head(rowData(demoExperiment))
+head(colData(demoExperiment))[1:2, ]
+head(rowData(demoExperiment))[1:2, ]
 
 #Version of package when object created
 classVersion(demoExperiment)
