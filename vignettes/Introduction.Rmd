@@ -43,7 +43,7 @@ https://bioconductor.org/packages/release/bioc/html/SummarizedExperiment.html
 Loading the NanoStringExperiment package gives access to 
 corresponding class and methods.
 
-```{r import, eval=FALSE}
+```{r import, message=FALSE}
 library(NanoStringExperiment)
 ```
 
