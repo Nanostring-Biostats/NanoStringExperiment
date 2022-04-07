@@ -12,7 +12,7 @@ setClassUnion("matrixOrNULL", c("formula", "NULL"))
 #' @slot \code{assayData} expression matrix or NULL
 #' @slot \code{annotation} character list of annotations used
 #' @slot \code{dimLabels} character list of dimension labels
-#' @slot \code{signatures} optional SignatureSet object or NULL
+#' @slot \code{signatures} optional SignatureSet object
 #' @slot \code{design} formula or NULL
 #' 
 #' @return NanoStringExperiment object
@@ -33,7 +33,7 @@ setClassUnion("matrixOrNULL", c("formula", "NULL"))
         new("SummarizedExperiment"),
         .__classVersion__ = 
             paste(packageVersion("NanoStringExperiment"), collapse="."),
-        signatures = NULL,
+        signatures = NanoStringNCTools::SignatureSet(),
         design = NULL)
 )
 
@@ -99,7 +99,7 @@ function(assayData,
          experimentData = Biobase::MIAME(),
          annotation=character(),
          dimLabels = character(),
-         signatures = NULL,
+         signatures = NanoStringNCTools::SignatureSet(),
          design = NULL,
          ...) {
     standardGeneric("NanoStringExperiment")
@@ -133,7 +133,7 @@ function(assayData,
          experimentData = Biobase::MIAME(),
          annotation = character(),
          dimLabels = character(),
-         signatures = NULL,
+         signatures = NanoStringNCTools::SignatureSet(),
          design = NULL,
          ...) {
     se <- SummarizedExperiment()
@@ -178,7 +178,7 @@ function(assayData,
          experimentData = Biobase::MIAME(),
          annotation = character(),
          dimLabels = character(),
-         signatures = NULL,
+         signatures = NanoStringNCTools::SignatureSet(),
          design = NULL,
          ...) {
     allColData <- cbind(phenoData@data, protocolData@data)

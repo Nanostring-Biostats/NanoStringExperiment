@@ -20,7 +20,7 @@ NanoStringExperiment(
   experimentData = Biobase::MIAME(),
   annotation = character(),
   dimLabels = character(),
-  signatures = NULL,
+  signatures = NanoStringNCTools::SignatureSet(),
   design = NULL,
   ...
 )
@@ -33,7 +33,7 @@ NanoStringExperiment(
   experimentData = Biobase::MIAME(),
   annotation = character(),
   dimLabels = character(),
-  signatures = NULL,
+  signatures = NanoStringNCTools::SignatureSet(),
   design = NULL,
   ...
 )
@@ -46,7 +46,7 @@ NanoStringExperiment(
   experimentData = Biobase::MIAME(),
   annotation = character(),
   dimLabels = character(),
-  signatures = NULL,
+  signatures = NanoStringNCTools::SignatureSet(),
   design = NULL,
   ...
 )
@@ -82,7 +82,7 @@ Constructs NanoStringExperiment object if assay data is a matrix
 
 \item{\code{\code{dimLabels}}}{character list of dimension labels}
 
-\item{\code{\code{signatures}}}{optional SignatureSet object or NULL}
+\item{\code{\code{signatures}}}{optional SignatureSet object}
 
 \item{\code{\code{design}}}{formula or NULL}
 }}
