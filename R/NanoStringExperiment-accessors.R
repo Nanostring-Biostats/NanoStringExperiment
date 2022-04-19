@@ -815,53 +815,6 @@ setReplaceMethod("varLabels", signature = "NanoStringExperiment",
         return(object)
     })
 
-#' @importMethodsFrom Biobase varLabels<-
-#' 
-#' @return DataFrame with updated column names
-#' 
-#' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
-#' varLabels(colData(testExp)) <- paste0(varLabels(colData(testExp)), "a")
-#' 
-#' @rdname sampleMetadata
-#' 
-#' @export
-setReplaceMethod("varLabels", signature = "DataFrame",
-    function(object, value) {
-        if (length(colnames(object)) == length(value)) {
-            colnames(object) <- value
-        } else {
-            stop("number of items to replace does ",
-                "not equal replacement length")
-        }
-        return(object)
-    })
-
-#' @importMethodsFrom Biobase varLabels<-
-#' 
-#' @return DataFrame with updated column names
-#' 
-#' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
-#' varLabels(colData(testExp)[1:2]) <- 
-#'     paste0(varLabels(colData(testExp)[1:2]), "a")
-#' 
-#' @rdname sampleMetadata
-#' 
-#' @export
-setReplaceMethod("varLabels", signature = "vector",
-    function(object, value) {
-        if (length(object) == length(value)) {
-            object <- value
-        } else {
-            stop("number of items to replace does ",
-                "not equal replacement length")
-        }
-        return(object)
-    })
-
 # Row Metadata (Formerly Feature Data) ----------------------------------------
 
 #' Access feature metadata

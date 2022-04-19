@@ -21,7 +21,6 @@
 \alias{varLabels,NanoStringExperiment-method}
 \alias{varLabels,DataFrame-method}
 \alias{varLabels<-,NanoStringExperiment-method}
-\alias{varLabels<-,vector-method}
 \title{Access sample metadata}
 \usage{
 sData(object)
@@ -63,8 +62,6 @@ svarLabels(object)
 \S4method{varLabels}{DataFrame}(object)
 
 \S4method{varLabels}{NanoStringExperiment}(object) <- value
-
-\S4method{varLabels}{vector}(object) <- value
 }
 \value{
 matrix of sample (column) metadata
@@ -106,8 +103,6 @@ list of sample phenotypic metadata variables
 list of metadata variables
 
 NanoStringExperiment object
-
-DataFrame with updated column names
 }
 \description{
 It is recommended to use the SummarizedExperiment colData instead.
@@ -250,10 +245,5 @@ varLabels(colData(testExp))
 datadir <- system.file("data", package="NanoStringExperiment")
 testExp <- readRDS(file.path(datadir, "testExp.rds"))
 varLabels(testExp) <- paste0(varLabels(testExp), "a")
-
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
-varLabels(colData(testExp)[1:2]) <- 
-    paste0(varLabels(colData(testExp)[1:2]), "a")
 
 }
