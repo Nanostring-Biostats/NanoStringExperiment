@@ -13,7 +13,7 @@ signatures(object) <- value
 \S4method{signatures}{NanoStringExperiment,SignatureSet}(object) <- value
 }
 \value{
-formula used for design (model) matrix
+SignatureSet object
 
 NanoStringExperiment object
 

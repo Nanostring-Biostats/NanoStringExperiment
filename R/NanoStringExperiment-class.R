@@ -48,6 +48,8 @@ setClassUnion("matrixOrNULL", c("formula", "NULL"))
 #' testExp <- readRDS(file.path(datadir, "testExp.rds"))
 #' show(testExp)
 #' 
+#' @importFrom methods callNextMethod
+#' 
 #' @rdname NanoStringExperiment-class
 #' 
 #' @export

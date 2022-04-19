@@ -1,3 +1,5 @@
  # NanoString Experiment 0.99.0
-
 * Initial dev version
+
+ # NanoString Experiment 0.99.1
+* Replacement fixes

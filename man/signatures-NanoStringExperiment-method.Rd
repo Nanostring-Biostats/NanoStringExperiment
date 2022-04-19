@@ -7,7 +7,7 @@
 \S4method{signatures}{NanoStringExperiment}(object)
 }
 \value{
-formula used for design (model) matrix
+SignatureSet object
 }
 \description{
 Access signatures slot to get \code{SignatureSet} object

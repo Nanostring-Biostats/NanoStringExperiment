@@ -7,7 +7,6 @@
 \alias{fvarLabels<-,NanoStringExperiment-method}
 \alias{featureData,NanoStringExperiment-method}
 \alias{featureData<-,NanoStringExperiment,ANY-method}
-\alias{featureData<-,DataFrame,ANY-method}
 \title{Access feature metadata}
 \usage{
 \S4method{fData}{NanoStringExperiment}(object)
@@ -21,8 +20,6 @@
 \S4method{featureData}{NanoStringExperiment}(object)
 
 \S4method{featureData}{NanoStringExperiment,ANY}(object) <- value
-
-\S4method{featureData}{DataFrame,ANY}(object) <- value
 }
 \value{
 matrix of feature (column) metadata
@@ -36,13 +33,8 @@ NanoStringExperiment object
 matrix of feature (row) metadata
 
 NanoStringExperiment object
-
-DataFrame of feature metadata
 }
 \description{
-It is recommended to use the SummarizedExperiment rowData instead.
-This is a convenience method for backwards compatibility.
-
 It is recommended to use the SummarizedExperiment rowData instead.
 This is a convenience method for backwards compatibility.
 
@@ -81,10 +73,6 @@ fvarLabels(testExp) <- paste0(fvarLabels(testExp), "a")
 datadir <- system.file("data", package="NanoStringExperiment")
 testExp <- readRDS(file.path(datadir, "testExp.rds"))
 featureData(testExp)
-
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
-featureData(testExp) <- featureData(testExp)[, 1:2]
 
 datadir <- system.file("data", package="NanoStringExperiment")
 testExp <- readRDS(file.path(datadir, "testExp.rds"))
