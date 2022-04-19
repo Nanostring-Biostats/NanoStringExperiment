@@ -1151,7 +1151,7 @@ setMethod("signatures", "NanoStringExperiment",
 #' @examples
 #' datadir <- system.file("data", package="NanoStringExperiment")
 #' testExp <- readRDS(file.path(datadir, "testExp.rds"))
-#' signatures(testExp) <- SignatureSet()
+#' signatures(testExp) <- NanoStringNCTools::SignatureSet()
 #' 
 #' @rdname signatures
 #' 
@@ -1163,12 +1163,14 @@ setGeneric("signatures<-", signature = c("object", "value"),
 #' 
 #' Replace signatures slot with updated \code{SignatureSet}
 #' 
+#' @importClassesFrom NanoStringNCTools SignatureSet
+#' 
 #' @return NanoStringExperiment object
 #' 
 #' @examples
 #' datadir <- system.file("data", package="NanoStringExperiment")
 #' testExp <- readRDS(file.path(datadir, "testExp.rds"))
-#' signatures(testExp) <- SignatureSet()
+#' signatures(testExp) <- NanoStringNCTools::SignatureSet()
 #' 
 #' @rdname signatures
 #' 

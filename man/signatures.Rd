@@ -33,10 +33,10 @@ signatures(testExp)
 
 datadir <- system.file("data", package="NanoStringExperiment")
 testExp <- readRDS(file.path(datadir, "testExp.rds"))
-signatures(testExp) <- SignatureSet()
+signatures(testExp) <- NanoStringNCTools::SignatureSet()
 
 datadir <- system.file("data", package="NanoStringExperiment")
 testExp <- readRDS(file.path(datadir, "testExp.rds"))
-signatures(testExp) <- SignatureSet()
+signatures(testExp) <- NanoStringNCTools::SignatureSet()
 
 }
