@@ -6,3 +6,6 @@
 
  # NanoString Experiment 0.99.2
 * Documentation fixes
+
+ # NanoString Experiment 0.99.3
+* Data compression
