@@ -38,6 +38,7 @@ Collate:
     NanoStringExperiment-munge.R
     NanoStringExperiment-normalize.R
     NanoStringExperiment-qc.R
+    data.R
 biocViews: 
     Spatial,
     GeneExpression, 
