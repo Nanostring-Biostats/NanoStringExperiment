@@ -7,6 +7,7 @@ setClassUnion("matrixOrNULL", c("formula", "NULL"))
 #' 
 #' @import SummarizedExperiment
 #' @importFrom Biobase AnnotatedDataFrame MIAME
+#' @importFrom methods new
 #' @importClassesFrom NanoStringNCTools SignatureSet
 #' 
 #' @slot assayData expression matrix or NULL
