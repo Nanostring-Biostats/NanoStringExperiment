@@ -1,7 +1,7 @@
 Package: NanoStringExperiment
 Type: Package
 Title: Base NanoString Experiment Class
-Version: 0.99.3
+Version: 0.99.4
 Authors@R: 
     c(person("Nicole", "Ortogero", email = "nortogero@nanostring.com", 
         role = c("cre", "aut")))

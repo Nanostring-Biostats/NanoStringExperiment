@@ -9,3 +9,6 @@
 
  # NanoString Experiment 0.99.3
 * Data compression
+
+ # NanoString Experiment 0.99.4
+* No updates
