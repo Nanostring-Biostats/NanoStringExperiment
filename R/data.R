@@ -4,7 +4,8 @@
 #' 
 #' @source NanoString Technologies
 #' @docType data
-#' @name "testAnnotation"
+#' @name testAnnotation
+NULL
 
 #' NanoString expression data
 #' 
@@ -12,7 +13,8 @@
 #' 
 #' @source NanoString Technologies
 #' @docType data
-#' @name "testAssayData"
+#' @name testAssayData
+NULL
 
 #' NanoString dimension labels
 #' 
@@ -20,7 +22,8 @@
 #' 
 #' @source NanoString Technologies
 #' @docType data
-#' @name "testDimLabels"
+#' @name testDimLabels
+NULL
 
 #' Example NanoStringExperiment object
 #' 
@@ -28,7 +31,8 @@
 #' 
 #' @source NanoString Technologies
 #' @docType data
-#' @name "testExp"
+#' @name testExp
+NULL
 
 #' NanoString experiment data
 #' 
@@ -36,7 +40,8 @@
 #' 
 #' @source NanoString Technologies
 #' @docType data
-#' @name "testExperimentData"
+#' @name testExperimentData
+NULL
 
 #' NanoString feature metadata
 #' 
@@ -44,7 +49,8 @@
 #' 
 #' @source NanoString Technologies
 #' @docType data
-#' @name "testFeatureData"
+#' @name testFeatureData
+NULL
 
 #' NanoString sample phenotypic metadata
 #' 
@@ -52,7 +58,8 @@
 #' 
 #' @source NanoString Technologies
 #' @docType data
-#' @name "testPhenoData"
+#' @name testPhenoData
+NULL
 
 #' NanoString sample protocol metadata
 #' 
@@ -60,4 +67,5 @@
 #' 
 #' @source NanoString Technologies
 #' @docType data
-#' @name "testProtocolData"
+#' @name testProtocolData
+NULL
