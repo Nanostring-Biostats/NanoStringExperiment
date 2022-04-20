@@ -13,8 +13,7 @@ results of evaluation
 Performs expression within NanoStringExperiment list
 }
 \examples{
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
+data(exampleNSEData)
 with(testExp, table(CodeClass))
 
 }

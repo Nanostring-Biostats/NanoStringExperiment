@@ -20,12 +20,10 @@ Shows identifiers used for features (rownames) in assay
 Replace variables used for rownames in rowData.
 }
 \examples{
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
+data(exampleNSEData)
 featureNames(testExp)
 
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
+data(exampleNSEData)
 rowData(testExp)[["testNames"]] <- paste0(dimnames(testExp)[[1]], "a")
 featureNames(testExp) <- rowData(testExp)[["testNames"]]
 

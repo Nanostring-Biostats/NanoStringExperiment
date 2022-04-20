@@ -76,42 +76,41 @@ Constructs NanoStringExperiment object if assay data is a matrix
 \section{Slots}{
 
 \describe{
-\item{\code{\code{assayData}}}{expression matrix or NULL}
+\item{\code{assayData}}{expression matrix or NULL}
 
-\item{\code{\code{annotation}}}{character list of annotations used}
+\item{\code{annotation}}{character list of annotations used}
 
-\item{\code{\code{dimLabels}}}{character list of dimension labels}
+\item{\code{dimLabels}}{character list of dimension labels}
 
-\item{\code{\code{signatures}}}{optional SignatureSet object}
+\item{\code{signatures}}{optional SignatureSet object}
 
-\item{\code{\code{design}}}{formula or NULL}
+\item{\code{design}}{formula or NULL}
 }}
 
 \examples{
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
+data(exampleNSEData)
 show(testExp)
 
-datadir <- system.file("data", package="NanoStringExperiment")
+data(exampleNSEData)
 NanoStringExperiment(
-    assayData = readRDS(file.path(datadir, "testAssayData.rds")),
-    phenoData = readRDS(file.path(datadir, "testPhenoData.rds")),
-    protocolData = readRDS(file.path(datadir, "testProtocolData.rds")),
-    featureData = readRDS(file.path(datadir, "testFeatureData.rds")),
-    experimentData = readRDS(file.path(datadir, "testExperimentData.rds")),
-    annotation = readRDS(file.path(datadir, "testAnnotation.rds")),
-    dimLabels = readRDS(file.path(datadir, "testDimLabels.rds")))
+    assayData = testAssayData,
+    phenoData = testPhenoData,
+    protocolData = testProtocolData,
+    featureData = testFeatureData,
+    experimentData = testExperimentData,
+    annotation = testAnnotation,
+    dimLabels = testDimLabels)
 
 NanoStringExperiment()
 
-datadir <- system.file("data", package="NanoStringExperiment")
+data(exampleNSEData)
 NanoStringExperiment(
-    assayData = readRDS(file.path(datadir, "testAssayData.rds")),
-    phenoData = readRDS(file.path(datadir, "testPhenoData.rds")),
-    protocolData = readRDS(file.path(datadir, "testProtocolData.rds")),
-    featureData = readRDS(file.path(datadir, "testFeatureData.rds")),
-    experimentData = readRDS(file.path(datadir, "testExperimentData.rds")),
-    annotation = readRDS(file.path(datadir, "testAnnotation.rds")),
-    dimLabels = readRDS(file.path(datadir, "testDimLabels.rds")))
+    assayData = testAssayData,
+    phenoData = testPhenoData,
+    protocolData = testProtocolData,
+    featureData = testFeatureData,
+    experimentData = testExperimentData,
+    annotation = testAnnotation,
+    dimLabels = testDimLabels)
 
 }

@@ -5,8 +5,7 @@
 #' @return NanoStringExperiment object
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' endogenousSubset(testExp)
 #' 
 #' @export
@@ -20,8 +19,7 @@ setGeneric("endogenousSubset", signature = "object",
 #' @return NanoStringExperiment object
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' endogenousSubset(testExp)
 #' 
 #' @export
@@ -35,8 +33,7 @@ setMethod("endogenousSubset", "NanoStringExperiment",
 #' @return NanoStringExperiment object
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' housekeepingSubset(testExp)
 #' 
 #' @export
@@ -50,8 +47,7 @@ setGeneric("housekeepingSubset", signature = "object",
 #' @return NanoStringExperiment object
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' housekeepingSubset(testExp)
 #' 
 #' @export
@@ -65,8 +61,7 @@ setMethod("housekeepingSubset", "NanoStringExperiment",
 #' @return NanoStringExperiment object
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' negativeControlSubset(testExp)
 #' 
 #' @export
@@ -80,8 +75,7 @@ setGeneric("negativeControlSubset", signature = "object",
 #' @return NanoStringExperiment object
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' negativeControlSubset(testExp)
 #' 
 #' @export
@@ -95,8 +89,8 @@ setMethod("negativeControlSubset", "NanoStringExperiment",
 #' @return NanoStringExperiment object
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
+
 #' positiveControlSubset(testExp)
 #' 
 #' @export
@@ -110,8 +104,7 @@ setGeneric("positiveControlSubset", signature = "object",
 #' @return NanoStringExperiment object
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' positiveControlSubset(testExp)
 #' 
 #' @export
@@ -125,8 +118,7 @@ setMethod("positiveControlSubset", "NanoStringExperiment",
 #' @return NanoStringExperiment object
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' controlSubset(testExp)
 #' 
 #' @export
@@ -140,8 +132,7 @@ setGeneric("controlSubset", signature = "object",
 #' @return NanoStringExperiment object
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' controlSubset(testExp)
 #' 
 #' @export
@@ -155,8 +146,7 @@ setMethod("controlSubset", "NanoStringExperiment",
 #' @return NanoStringExperiment object
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' nonControlSubset(testExp)
 #' 
 #' @export
@@ -170,8 +160,7 @@ setGeneric("nonControlSubset", signature = "object",
 #' @return NanoStringExperiment object
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' nonControlSubset(testExp)
 #' 
 #' @export
@@ -185,8 +174,7 @@ setMethod("nonControlSubset", "NanoStringExperiment",
 #' @return NanoStringExperiment object
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' signatureSubset(testExp)
 #' 
 #' @export
@@ -202,8 +190,7 @@ setGeneric("signatureSubset", signature = "object",
 #' @return NanoStringExperiment object
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' signatureSubset(testExp)
 #' 
 #' @export

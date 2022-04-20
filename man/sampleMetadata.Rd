@@ -7,17 +7,11 @@
 \alias{svarLabels,NanoStringExperiment-method}
 \alias{phenoData,NanoStringExperiment-method}
 \alias{phenoData<-,NanoStringExperiment,ANY-method}
-\alias{phenoData<-,DataFrame,ANY-method}
-\alias{phenoData<-,vector,ANY-method}
 \alias{protocolData,NanoStringExperiment-method}
 \alias{protocolData<-,NanoStringExperiment,ANY-method}
-\alias{protocolData<-,DataFrame,ANY-method}
-\alias{protocolData<-,vector,ANY-method}
 \alias{pData,NanoStringExperiment-method}
 \alias{pData,DataFrame-method}
 \alias{pData<-,NanoStringExperiment,ANY-method}
-\alias{pData<-,DataFrame,ANY-method}
-\alias{pData<-,vector,ANY-method}
 \alias{varLabels,NanoStringExperiment-method}
 \alias{varLabels,DataFrame-method}
 \alias{varLabels<-,NanoStringExperiment-method}
@@ -35,27 +29,15 @@ svarLabels(object)
 
 \S4method{phenoData}{NanoStringExperiment,ANY}(object) <- value
 
-\S4method{phenoData}{DataFrame,ANY}(object) <- value
-
-\S4method{phenoData}{vector,ANY}(object) <- value
-
 \S4method{protocolData}{NanoStringExperiment}(object)
 
 \S4method{protocolData}{NanoStringExperiment,ANY}(object) <- value
-
-\S4method{protocolData}{DataFrame,ANY}(object) <- value
-
-\S4method{protocolData}{vector,ANY}(object) <- value
 
 \S4method{pData}{NanoStringExperiment}(object)
 
 \S4method{pData}{DataFrame}(object)
 
 \S4method{pData}{NanoStringExperiment,ANY}(object) <- value
-
-\S4method{pData}{DataFrame,ANY}(object) <- value
-
-\S4method{pData}{vector,ANY}(object) <- value
 
 \S4method{varLabels}{NanoStringExperiment}(object)
 
@@ -76,27 +58,15 @@ matrix of sample phenotypic metadata
 
 NanoStringExperiment object
 
-DataFrame of sample phenotypic metadata
-
-DataFrame of sample phenotypic metadata
-
 matrix of sample protocol metadata
 
 NanoStringExperiment object
-
-DataFrame of sample protocol metadata
-
-DataFrame of sample protocol metadata
 
 matrix of sample phenotypic metadata
 
 DataFrame of sample phenotypic metadata
 
 NanoStringExperiment object
-
-DataFrame of sample phenotypic metadata
-
-DataFrame of sample phenotypic metadata
 
 list of sample phenotypic metadata variables
 
@@ -146,104 +116,48 @@ This is a convenience method for backwards compatibility.
 
 It is recommended to use the SummarizedExperiment colData instead.
 This is a convenience method for backwards compatibility.
-
-It is recommended to use the SummarizedExperiment colData instead.
-This is a convenience method for backwards compatibility.
-
-It is recommended to use the SummarizedExperiment colData instead.
-This is a convenience method for backwards compatibility.
-
-It is recommended to use the SummarizedExperiment colData instead.
-This is a convenience method for backwards compatibility.
-
-It is recommended to use the SummarizedExperiment colData instead.
-This is a convenience method for backwards compatibility.
-
-It is recommended to use the SummarizedExperiment colData instead.
-This is a convenience method for backwards compatibility.
-
-It is recommended to use the SummarizedExperiment colData instead.
-This is a convenience method for backwards compatibility.
 }
 \examples{
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
+data(exampleNSEData)
 sData(testExp)
 
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
+data(exampleNSEData)
 sData(testExp)
 
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
+data(exampleNSEData)
 svarLabels(testExp)
 
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
+data(exampleNSEData)
 svarLabels(testExp)
 
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
+data(exampleNSEData)
 phenoData(testExp)
 
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
+data(exampleNSEData)
 phenoData(testExp) <- phenoData(testExp)[, 1:2]
 
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
-phenoData(testExp) <- phenoData(testExp)[, 1:2]
-
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
-phenoData(testExp) <- phenoData(testExp)[, 1:2]
-
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
+data(exampleNSEData)
 protocolData(testExp)
 
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
+data(exampleNSEData)
 protocolData(testExp) <- protocolData(testExp)[, 1:2]
 
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
-protocolData(testExp) <- protocolData(testExp)[, 1:2]
-
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
-protocolData(testExp) <- protocolData(testExp)[, 1:2]
-
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
+data(exampleNSEData)
 pData(testExp)
 
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
+data(exampleNSEData)
 pData(testExp)
 
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
+data(exampleNSEData)
 pData(testExp) <- pData(testExp)[, 1:2]
 
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
-pData(testExp) <- pData(testExp)[, 1:2]
-
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
-pData(testExp) <- pData(testExp)[, 1:2]
-
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
+data(exampleNSEData)
 varLabels(testExp)
 
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
-varLabels(colData(testExp))
+data(exampleNSEData)
+varLabels(phenoData(testExp))
 
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
+data(exampleNSEData)
 varLabels(testExp) <- paste0(varLabels(testExp), "a")
 
 }

@@ -14,8 +14,7 @@ Apply function row (feature) or column (sample)-wise
 to the default "exprs" assay
 }
 \examples{
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
+data(exampleNSEData)
 esApply(testExp, 1, mean)
 
 }

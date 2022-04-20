@@ -13,8 +13,7 @@ NanoStringExperiment object
 Method to subset to features with CodeClass IsControl
 }
 \examples{
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
+data(exampleNSEData)
 controlSubset(testExp)
 
 }

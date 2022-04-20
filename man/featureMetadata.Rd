@@ -54,28 +54,22 @@ It is recommended to use the SummarizedExperiment rowData instead.
 This is a convenience method for backwards compatibility.
 }
 \examples{
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
+data(exampleNSEData)
 fData(testExp)
 
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
+data(exampleNSEData)
 fData(testExp) <- rowData(testExp)[, 1:2]
 
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
+data(exampleNSEData)
 fvarLabels(testExp)
 
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
+data(exampleNSEData)
 fvarLabels(testExp) <- paste0(fvarLabels(testExp), "a")
 
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
+data(exampleNSEData)
 featureData(testExp)
 
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
+data(exampleNSEData)
 featureData(testExp) <- featureData(testExp)[, 1:2]
 
 }

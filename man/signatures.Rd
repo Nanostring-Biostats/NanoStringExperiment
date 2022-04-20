@@ -27,16 +27,13 @@ Replace signatures slot with updated \code{SignatureSet}
 Replace signatures slot with updated \code{SignatureSet}
 }
 \examples{
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
+data(exampleNSEData)
 signatures(testExp)
 
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
+data(exampleNSEData)
 signatures(testExp) <- NanoStringNCTools::SignatureSet()
 
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
+data(exampleNSEData)
 signatures(testExp) <- NanoStringNCTools::SignatureSet()
 
 }

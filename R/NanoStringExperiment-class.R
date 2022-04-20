@@ -9,11 +9,11 @@ setClassUnion("matrixOrNULL", c("formula", "NULL"))
 #' @importFrom Biobase AnnotatedDataFrame MIAME
 #' @importClassesFrom NanoStringNCTools SignatureSet
 #' 
-#' @slot \code{assayData} expression matrix or NULL
-#' @slot \code{annotation} character list of annotations used
-#' @slot \code{dimLabels} character list of dimension labels
-#' @slot \code{signatures} optional SignatureSet object
-#' @slot \code{design} formula or NULL
+#' @slot assayData expression matrix or NULL
+#' @slot annotation character list of annotations used
+#' @slot dimLabels character list of dimension labels
+#' @slot signatures optional SignatureSet object
+#' @slot design formula or NULL
 #' 
 #' @return NanoStringExperiment object
 #' 
@@ -44,8 +44,7 @@ setClassUnion("matrixOrNULL", c("formula", "NULL"))
 #' @return summary of NanoStringExperiment object
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' show(testExp)
 #' 
 #' @importFrom methods callNextMethod
@@ -57,7 +56,7 @@ setMethod("show", signature = "NanoStringExperiment",
 function(object) {
     methods::callNextMethod(object)
     cat("dimLabels: ")
-    cat(object[["dimLabels"]])
+    cat(object@dimLabels)
     cat("\nclassVersion: ")
     cat(classVersion(object))
     cat("\nsignature: ")
@@ -78,15 +77,15 @@ function(object) {
 #' @return NanoStringExperiment object
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
+#' data(exampleNSEData)
 #' NanoStringExperiment(
-#'     assayData = readRDS(file.path(datadir, "testAssayData.rds")),
-#'     phenoData = readRDS(file.path(datadir, "testPhenoData.rds")),
-#'     protocolData = readRDS(file.path(datadir, "testProtocolData.rds")),
-#'     featureData = readRDS(file.path(datadir, "testFeatureData.rds")),
-#'     experimentData = readRDS(file.path(datadir, "testExperimentData.rds")),
-#'     annotation = readRDS(file.path(datadir, "testAnnotation.rds")),
-#'     dimLabels = readRDS(file.path(datadir, "testDimLabels.rds")))
+#'     assayData = testAssayData,
+#'     phenoData = testPhenoData,
+#'     protocolData = testProtocolData,
+#'     featureData = testFeatureData,
+#'     experimentData = testExperimentData,
+#'     annotation = testAnnotation,
+#'     dimLabels = testDimLabels)
 #' 
 #' @rdname NanoStringExperiment-class
 #' 
@@ -156,15 +155,15 @@ function(assayData,
 #' @return NanoStringExperiment object
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
+#' data(exampleNSEData)
 #' NanoStringExperiment(
-#'     assayData = readRDS(file.path(datadir, "testAssayData.rds")),
-#'     phenoData = readRDS(file.path(datadir, "testPhenoData.rds")),
-#'     protocolData = readRDS(file.path(datadir, "testProtocolData.rds")),
-#'     featureData = readRDS(file.path(datadir, "testFeatureData.rds")),
-#'     experimentData = readRDS(file.path(datadir, "testExperimentData.rds")),
-#'     annotation = readRDS(file.path(datadir, "testAnnotation.rds")),
-#'     dimLabels = readRDS(file.path(datadir, "testDimLabels.rds")))
+#'     assayData = testAssayData,
+#'     phenoData = testPhenoData,
+#'     protocolData = testProtocolData,
+#'     featureData = testFeatureData,
+#'     experimentData = testExperimentData,
+#'     annotation = testAnnotation,
+#'     dimLabels = testDimLabels)
 #' 
 #' @rdname NanoStringExperiment-class
 #' 
@@ -194,7 +193,7 @@ function(assayData,
         assays = list(exprs = assayData),
         colData = allColData,
         rowData = featureData@data,
-        metadata = experimentData@other)
+        metadata = c(expinfo(experimentData), otherInfo(experimentData)))
     .NanoStringExperiment(se,
         annotation = annotation,
         dimLabels = dimLabels,

@@ -6,8 +6,7 @@
 #' @return matrix of results in long format
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' head(munge(testExp, mapping = ~`cell_line` + exprs))
 #' 
 #' @export
@@ -24,8 +23,7 @@ setGeneric("munge", signature = "data",
 #' @return matrix of results in long format
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' head(munge(testExp, mapping = ~`cell_line` + exprs))
 #' 
 #' @export

@@ -2,13 +2,12 @@
 #' 
 #' Access version of NanoStringExperiment package used to generate object
 #' 
-#' @return version of class used to generate object
-#' 
 #' @importMethodsFrom Biobase classVersion
 #' 
+#' @return version of class used to generate object
+#' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' classVersion(testExp)
 #' 
 #' @rdname classVersion
@@ -26,8 +25,7 @@ setMethod("classVersion", signature = "NanoStringExperiment",
 #' @return list of variables used for dimension labels
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' dimLabels(testExp)
 #' 
 #' @rdname dimLabels
@@ -45,8 +43,7 @@ setMethod("dimLabels", signature = "NanoStringExperiment",
 #' @return NanoStringExperiment object
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' colData(testExp)[["testNames"]] <- paste0(dimnames(testExp)[[2]], "a")
 #' dimLabels(testExp) <- c(dimLabels(testExp)[[1]], "testNames")
 #' 
@@ -70,8 +67,7 @@ setReplaceMethod("dimLabels", signature = "NanoStringExperiment",
 #' @return list of string feature (row) identifiers
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' featureNames(testExp)
 #' 
 #' @rdname featureNames
@@ -89,8 +85,7 @@ setMethod("featureNames", signature = "NanoStringExperiment",
 #' @return NanoStringExperiment object
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' rowData(testExp)[["testNames"]] <- paste0(dimnames(testExp)[[1]], "a")
 #' featureNames(testExp) <- rowData(testExp)[["testNames"]]
 #' 
@@ -99,8 +94,12 @@ setMethod("featureNames", signature = "NanoStringExperiment",
 #' @export
 setReplaceMethod("featureNames", signature = "NanoStringExperiment",
     function(object, value) {
-        print(dim(object))
-        dimnames(object)[[1L]] <- value
+        if (length(dimnames(object)[[1L]]) == length(value)) {
+            dimnames(object)[[1L]] <- value
+        } else {
+            stop("number of items to replace does ",
+                "not equal replacement length")
+        }
         return(object)
     })
 
@@ -113,8 +112,7 @@ setReplaceMethod("featureNames", signature = "NanoStringExperiment",
 #' @return list of string sample (column) identifiers
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' sampleNames(testExp)
 #' 
 #' @rdname sampleNames
@@ -132,8 +130,7 @@ setMethod("sampleNames", signature = "NanoStringExperiment",
 #' @return NanoStringExperiment object
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' colData(testExp)[["testNames"]] <- paste0(dimnames(testExp)[[2]], "a")
 #' sampleNames(testExp) <- colData(testExp)[["testNames"]]
 #' 
@@ -142,7 +139,12 @@ setMethod("sampleNames", signature = "NanoStringExperiment",
 #' @export
 setReplaceMethod("sampleNames", signature = "NanoStringExperiment",
     function(object, value) {
-        dimnames(object)[[2L]] <- value
+        if (length(dimnames(object)[[2L]]) == length(value)) {
+            dimnames(object)[[2L]] <- value
+        } else {
+            stop("number of items to replace does ",
+                "not equal replacement length")
+        }
         return(object)
     })
 
@@ -158,8 +160,7 @@ setReplaceMethod("sampleNames", signature = "NanoStringExperiment",
 #' @return summary of assays in object
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' assayData(testExp)
 #' 
 #' @rdname assayData
@@ -176,8 +177,7 @@ setMethod("assayData", signature = "NanoStringExperiment",
 #' @return expression matrix for assay element
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' assayDataElement(testExp, "exprs")
 #' 
 #' @rdname assayData
@@ -194,8 +194,7 @@ setGeneric("assayDataElement", signature = "object",
 #' @return expression matrix for assay element
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' assayDataElement(testExp, "exprs")
 #' 
 #' @rdname assayData
@@ -218,8 +217,7 @@ setMethod("assayDataElement", signature = "NanoStringExperiment",
 #' @return NanoStringExperiment object
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' assayDataElement(testExp, "exprsShift") <- 
 #'     assayDataElement(testExp, "exprs") + 1
 #' 
@@ -238,8 +236,7 @@ setGeneric("assayDataElement<-",
 #' @return NanoStringExperiment object
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' assayDataElement(testExp, "exprsShift") <- 
 #'     assayDataElement(testExp, "exprs") + 1
 #' 
@@ -261,8 +258,7 @@ setReplaceMethod("assayDataElement",
 #' @return list of assay elements in object
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' assayDataElementNames(testExp)
 #' 
 #' @rdname assayData
@@ -279,8 +275,7 @@ setGeneric("assayDataElementNames", signature = "object",
 #' @return list of assay elements in object
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' assayDataElementNames(testExp)
 #' 
 #' @rdname assayData
@@ -297,8 +292,7 @@ setMethod("assayDataElementNames", signature = "NanoStringExperiment",
 #' @importMethodsFrom Biobase exprs
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' exprs(testExp)
 #' 
 #' @rdname assayData
@@ -317,8 +311,7 @@ setMethod("exprs", signature = "NanoStringExperiment",
 #' @return expression matrix for assay element \code{"exprs"}
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' exprs(testExp) <- exprs(testExp) + 1
 #' 
 #' @rdname assayData
@@ -339,8 +332,7 @@ setReplaceMethod("exprs", signature = "NanoStringExperiment",
 #' @return matrix of sample (column) metadata
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' sData(testExp)
 #' 
 #' @rdname sampleMetadata
@@ -357,8 +349,7 @@ setGeneric("sData", signature = "object",
 #' @return matrix of sample (column) metadata
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' sData(testExp)
 #' 
 #' @rdname sampleMetadata
@@ -375,8 +366,7 @@ setMethod("sData", signature = "NanoStringExperiment",
 #' @return list of sample (column) metadata variables
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' svarLabels(testExp)
 #' 
 #' @rdname sampleMetadata
@@ -393,8 +383,7 @@ setGeneric("svarLabels", signature = "object",
 #' @return list of sample (column) metadata variables
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' svarLabels(testExp)
 #' 
 #' @rdname sampleMetadata
@@ -413,8 +402,7 @@ setMethod("svarLabels", signature = "NanoStringExperiment",
 #' @return matrix of sample phenotypic metadata
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' phenoData(testExp)
 #' 
 #' @rdname sampleMetadata
@@ -424,7 +412,7 @@ setMethod("phenoData", signature = "NanoStringExperiment",
     function(object) {
         ifelse(!"phenotypeCols" %in% names(metadata(object)),
             return(colData(object)),
-            return(colData(object)[, metadata(object)$phenotypeCols]))
+            return(colData(object)[, metadata(object)[["phenotypeCols"]]]))
     })
 
 #' Replace sample phenotypic metadata
@@ -437,8 +425,7 @@ setMethod("phenoData", signature = "NanoStringExperiment",
 #' @return NanoStringExperiment object
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' phenoData(testExp) <- phenoData(testExp)[, 1:2]
 #' 
 #' @rdname sampleMetadata
@@ -449,58 +436,14 @@ setReplaceMethod("phenoData", signature = "NanoStringExperiment",
         if(!"phenotypeCols" %in% names(metadata(object))) {
             colData(object) <- value
         } else {
-            colData(object) <- value
-            metadata(object)$phenotypeCols <- colnames(value)
-            metadata(object)$protocolCols <- 
-                metadata(object)$protocolCols[!metadata(object)$protocolCols 
-                    %in% metadata(object)$phenotypeCols]
+            metadata(object)[["protocolCols"]] <- 
+                metadata(object)[["protocolCols"]][
+                    which(!metadata(object)[["protocolCols"]] %in% 
+                        colnames(value))]
+            colData(object) <- cbind(value, 
+                colData(object)[, metadata(object)[["protocolCols"]]])
+            metadata(object)[["phenotypeCols"]] <- colnames(value)
         }
-        return(object)
-    })
-
-#' Replace sample phenotypic metadata
-#' 
-#' It is recommended to use the SummarizedExperiment colData instead.
-#' This is a convenience method for backwards compatibility.
-#' 
-#' @importMethodsFrom Biobase phenoData<-
-#' 
-#' @return DataFrame of sample phenotypic metadata
-#' 
-#' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
-#' phenoData(testExp) <- phenoData(testExp)[, 1:2]
-#' 
-#' @rdname sampleMetadata
-#' 
-#' @export
-setReplaceMethod("phenoData", signature = "DataFrame",
-    function(object, value) {
-        object <- value
-        return(object)
-    })
-
-#' Replace sample phenotypic metadata
-#' 
-#' It is recommended to use the SummarizedExperiment colData instead.
-#' This is a convenience method for backwards compatibility.
-#' 
-#' @importMethodsFrom Biobase phenoData<-
-#' 
-#' @return DataFrame of sample phenotypic metadata
-#' 
-#' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
-#' phenoData(testExp) <- phenoData(testExp)[, 1:2]
-#' 
-#' @rdname sampleMetadata
-#' 
-#' @export
-setReplaceMethod("phenoData", signature = "vector",
-    function(object, value) {
-        object <- value
         return(object)
     })
 
@@ -515,8 +458,7 @@ setReplaceMethod("phenoData", signature = "vector",
 #' @return matrix of sample protocol metadata
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' protocolData(testExp)
 #' 
 #' @rdname sampleMetadata
@@ -526,7 +468,7 @@ setMethod("protocolData", signature = "NanoStringExperiment",
     function(object) {
         ifelse(!"protocolCols" %in% names(metadata(object)),
             return(colData(object)),
-            return(colData(object)[, metadata(object)$protocolCols]))
+            return(colData(object)[, metadata(object)[["protocolCols"]]]))
     })
 
 #' Replace sample protocol metadata
@@ -539,8 +481,7 @@ setMethod("protocolData", signature = "NanoStringExperiment",
 #' @return NanoStringExperiment object
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' protocolData(testExp) <- protocolData(testExp)[, 1:2]
 #' 
 #' @rdname sampleMetadata
@@ -551,58 +492,15 @@ setReplaceMethod("protocolData", signature = "NanoStringExperiment",
         if(!"protocolCols" %in% names(metadata(object))) {
             colData(object) <- value
         } else {
-            colData(object) <- value
-            metadata(object)$protocolCols <- colnames(value)
-            metadata(object)$phenotypeCols <- 
-                metadata(object)$phenotypeCols[!metadata(object)$phenotypeCols 
-                    %in% metadata(object)$protocolCols]
+            metadata(object)[["phenotypeCols"]] <- 
+                metadata(object)[["phenotypeCols"]][
+                    which(!metadata(object)[["phenotypeCols"]] %in% 
+                        colnames(value))]
+            colData(object) <- 
+                cbind(colData(object)[, metadata(object)[["phenotypeCols"]]], 
+                    value)
+            metadata(object)[["protocolCols"]] <- colnames(value)
         }
-        return(object)
-    })
-
-#' Replace sample protocol metadata
-#' 
-#' It is recommended to use the SummarizedExperiment colData instead.
-#' This is a convenience method for backwards compatibility.
-#' 
-#' @importMethodsFrom Biobase protocolData<-
-#' 
-#' @return DataFrame of sample protocol metadata
-#' 
-#' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
-#' protocolData(testExp) <- protocolData(testExp)[, 1:2]
-#' 
-#' @rdname sampleMetadata
-#' 
-#' @export
-setReplaceMethod("protocolData", signature = "DataFrame",
-    function(object, value) {
-        object <- value
-        return(object)
-    })
-
-#' Replace sample protocol metadata
-#' 
-#' It is recommended to use the SummarizedExperiment colData instead.
-#' This is a convenience method for backwards compatibility.
-#' 
-#' @importMethodsFrom Biobase protocolData<-
-#' 
-#' @return DataFrame of sample protocol metadata
-#' 
-#' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
-#' protocolData(testExp) <- protocolData(testExp)[, 1:2]
-#' 
-#' @rdname sampleMetadata
-#' 
-#' @export
-setReplaceMethod("protocolData", signature = "vector",
-    function(object, value) {
-        object <- value
         return(object)
     })
 
@@ -616,8 +514,7 @@ setReplaceMethod("protocolData", signature = "vector",
 #' @return matrix of sample phenotypic metadata
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' pData(testExp)
 #' 
 #' @rdname sampleMetadata
@@ -625,9 +522,7 @@ setReplaceMethod("protocolData", signature = "vector",
 #' @export
 setMethod("pData", signature = "NanoStringExperiment",
     function(object) {
-        ifelse(!"phenotypeCols" %in% names(metadata(object)),
-            return(colData(object)),
-            return(colData(object)[, metadata(object)$phenotypeCols]))
+        phenoData(object)
     })
 
 #' Access sample phenotypic metadata
@@ -640,8 +535,7 @@ setMethod("pData", signature = "NanoStringExperiment",
 #' @return DataFrame of sample phenotypic metadata
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' pData(testExp)
 #' 
 #' @rdname sampleMetadata
@@ -660,8 +554,7 @@ setMethod("pData", signature = "DataFrame",
 #' @return NanoStringExperiment object
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' pData(testExp) <- pData(testExp)[, 1:2]
 #' 
 #' @rdname sampleMetadata
@@ -669,62 +562,7 @@ setMethod("pData", signature = "DataFrame",
 #' @export
 setReplaceMethod("pData", signature = "NanoStringExperiment",
     function(object, value) {
-        if (!"phenotypeCols" %in% names(metadata(object))) {
-            colData(object) <- value
-        } else {
-            colData(object) <- value
-            metadata(object)$phenotypeCols <- colnames(value)
-            metadata(object)$protocolCols <- 
-                metadata(object)$protocolCols[!metadata(object)$protocolCols 
-                    %in% metadata(object)$phenotypeCols]
-        }
-        return(object)
-    })
-
-#' Replace sample phenotypic metadata
-#' 
-#' It is recommended to use the SummarizedExperiment colData instead.
-#' This is a convenience method for backwards compatibility.
-#' 
-#' @importMethodsFrom Biobase pData<-
-#' 
-#' @return DataFrame of sample phenotypic metadata
-#' 
-#' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
-#' pData(testExp) <- pData(testExp)[, 1:2]
-#' 
-#' @rdname sampleMetadata
-#' 
-#' @export
-setReplaceMethod("pData", signature = "DataFrame",
-    function(object, value) {
-        object <- value
-        return(object)
-    })
-
-#' Replace sample phenotypic metadata
-#' 
-#' It is recommended to use the SummarizedExperiment colData instead.
-#' This is a convenience method for backwards compatibility.
-#' 
-#' @importMethodsFrom Biobase pData<-
-#' 
-#' @return DataFrame of sample phenotypic metadata
-#' 
-#' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
-#' pData(testExp) <- pData(testExp)[, 1:2]
-#' 
-#' @rdname sampleMetadata
-#' 
-#' @export
-setReplaceMethod("pData", signature = "vector",
-    function(object, value) {
-        object <- value
-        return(object)
+        phenoData(object) <- value
     })
 
 #' Access sample phenotypic metadata variables
@@ -737,8 +575,7 @@ setReplaceMethod("pData", signature = "vector",
 #' @return list of sample phenotypic metadata variables
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' varLabels(testExp)
 #' 
 #' @rdname sampleMetadata
@@ -761,9 +598,8 @@ setMethod("varLabels", signature = "NanoStringExperiment",
 #' @return list of metadata variables
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
-#' varLabels(colData(testExp))
+#' data(exampleNSEData)
+#' varLabels(phenoData(testExp))
 #' 
 #' @rdname sampleMetadata
 #' 
@@ -781,8 +617,7 @@ setMethod("varLabels", signature = "DataFrame",
 #' @return NanoStringExperiment object
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' varLabels(testExp) <- paste0(varLabels(testExp), "a")
 #' 
 #' @rdname sampleMetadata
@@ -791,27 +626,18 @@ setMethod("varLabels", signature = "DataFrame",
 setReplaceMethod("varLabels", signature = "NanoStringExperiment",
     function(object, value) {
         if(is.null(metadata(object)[["phenotypeCols"]])) {
-            if (length(colnames(colData(object))) == length(value)) {
-                colnames(colData(object)) <- value
-            } else {
-                stop("number of items to replace does ",
-                    "not equal replacement length")
-            }
+            phenotypes <- colData(object)
         } else {
-            if (length(colnames(colData(object))[colnames(colData(object)) %in%
-                metadata(object)$phenotypeCols]) == length(value)) {
-                colnames(colData(object))[colnames(colData(object)) %in% 
-                    metadata(object)$phenotypeCols] <- value
-                metadata(object)$phenotypeCols <- value
-                metadata(object)$protocolCols <- 
-                    metadata(object)$protocolCols[
-                        !metadata(object)$protocolCols %in% 
-                            metadata(object)$phenotypeCols]
-            } else {
-                stop("number of items to replace does ",
-                    "not equal replacement length")
-            }
+            phenotypes <- 
+                colData(object)[, metadata(object)[["phenotypeCols"]]]
         }
+        if (dim(phenotypes)[2L] == length(value)) {
+            colnames(phenotypes) <- value
+        } else {
+            stop("number of items to replace does ",
+                "not equal replacement length")
+        }
+        phenoData(object) <- phenotypes
         return(object)
     })
 
@@ -827,8 +653,7 @@ setReplaceMethod("varLabels", signature = "NanoStringExperiment",
 #' @return matrix of feature (column) metadata
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' fData(testExp)
 #' 
 #' @rdname featureMetadata
@@ -847,8 +672,7 @@ setMethod("fData", signature = "NanoStringExperiment",
 #' @return NanoStringExperiment object
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' fData(testExp) <- rowData(testExp)[, 1:2]
 #' 
 #' @rdname featureMetadata
@@ -870,8 +694,7 @@ setReplaceMethod("fData", signature = "NanoStringExperiment",
 #' @return list of feature metadata variables
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' fvarLabels(testExp)
 #' 
 #' @rdname featureMetadata
@@ -890,8 +713,7 @@ setMethod("fvarLabels", signature = "NanoStringExperiment",
 #' @return NanoStringExperiment object
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' fvarLabels(testExp) <- paste0(fvarLabels(testExp), "a")
 #' 
 #' @rdname featureMetadata
@@ -913,8 +735,7 @@ setReplaceMethod("fvarLabels", signature = "NanoStringExperiment",
 #' @return matrix of feature (row) metadata
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' featureData(testExp)
 #' 
 #' @rdname featureMetadata
@@ -933,8 +754,7 @@ setMethod("featureData", signature = "NanoStringExperiment",
 #' @return NanoStringExperiment object
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' featureData(testExp) <- featureData(testExp)[, 1:2]
 #' 
 #' @rdname featureMetadata
@@ -957,8 +777,7 @@ setReplaceMethod("featureData", signature = "NanoStringExperiment",
 #' @return list of experiment metadata
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' experimentData(testExp)
 #' 
 #' @rdname experimentMetadata
@@ -977,8 +796,7 @@ setMethod("experimentData", signature = "NanoStringExperiment",
 #' @return NanoStringExperiment object
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' experimentData(testExp) <- 
 #'     c(experimentData(testExp), list(testName="myExp"))
 #' 
@@ -991,6 +809,44 @@ setReplaceMethod("experimentData", signature = "NanoStringExperiment",
         return(object)
     })
 
+#' Access experiment metadata
+#' 
+#' It is recommended to use the SummarizedExperiment metadata instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @importMethodsFrom Biobase expinfo
+#' 
+#' @return list of experiment metadata
+#' 
+#' @examples
+#' data(exampleNSEData)
+#' expinfo(experimentData(testExp))
+#' 
+#' @rdname experimentMetadata
+#' 
+#' @export
+setMethod("expinfo", signature = "list",
+    function(object) object)
+
+#' Access experiment metadata
+#' 
+#' It is recommended to use the SummarizedExperiment metadata instead.
+#' This is a convenience method for backwards compatibility.
+#' 
+#' @importMethodsFrom Biobase otherInfo
+#' 
+#' @return list of experiment metadata
+#' 
+#' @examples
+#' data(exampleNSEData)
+#' otherInfo(experimentData(testExp))
+#' 
+#' @rdname experimentMetadata
+#' 
+#' @export
+setMethod("otherInfo", signature = "list",
+    function(object) object)
+
 #' Access experiment annotations
 #' 
 #' Access annotations associated with the experiment
@@ -1000,8 +856,7 @@ setReplaceMethod("experimentData", signature = "NanoStringExperiment",
 #' @return list of annotations used with experiment
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' annotation(testExp)
 #' 
 #' @rdname annotation
@@ -1017,8 +872,7 @@ setMethod("annotation", signature="NanoStringExperiment",
 #' @return formula used for design (model) matrix
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' design(testExp)
 #' 
 #' @export
@@ -1032,8 +886,7 @@ setGeneric("design", signature = "object",
 #' @return formula used for design (model) matrix
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' design(testExp)
 #' 
 #' @rdname design
@@ -1051,8 +904,7 @@ setMethod("design", "NanoStringExperiment",
 #' @importMethodsFrom BiocGenerics design<-
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' design(testExp) <- stats::as.formula(~ `cell_line`)
 #' 
 #' @rdname design
@@ -1075,8 +927,7 @@ setReplaceMethod("design", c("NanoStringExperiment", "formula"),
 #' @importMethodsFrom BiocGenerics design<-
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' design(testExp) <- ~ `cell_line`
 #' 
 #' @rdname design
@@ -1097,8 +948,7 @@ setReplaceMethod("design", c("NanoStringExperiment", "ANY"),
 #' @importMethodsFrom BiocGenerics design<-
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' design(testExp) <- NULL
 #' 
 #' @rdname design
@@ -1117,8 +967,7 @@ setReplaceMethod("design", c("NanoStringExperiment", "NULL"),
 #' @return SignatureSet object
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' signatures(testExp)
 #' 
 #' @export
@@ -1132,8 +981,7 @@ setGeneric("signatures", signature = "object",
 #' @return SignatureSet object
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' signatures(testExp)
 #' 
 #' @export
@@ -1149,8 +997,7 @@ setMethod("signatures", "NanoStringExperiment",
 #' @return NanoStringExperiment object
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' signatures(testExp) <- NanoStringNCTools::SignatureSet()
 #' 
 #' @rdname signatures
@@ -1168,8 +1015,7 @@ setGeneric("signatures<-", signature = c("object", "value"),
 #' @return NanoStringExperiment object
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' signatures(testExp) <- NanoStringNCTools::SignatureSet()
 #' 
 #' @rdname signatures

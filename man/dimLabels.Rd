@@ -20,12 +20,10 @@ Shows variables used for rownames in rowData and colData.
 Replaces rownames in rowData and colData with specified variable columns.
 }
 \examples{
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
+data(exampleNSEData)
 dimLabels(testExp)
 
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
+data(exampleNSEData)
 colData(testExp)[["testNames"]] <- paste0(dimnames(testExp)[[2]], "a")
 dimLabels(testExp) <- c(dimLabels(testExp)[[1]], "testNames")
 

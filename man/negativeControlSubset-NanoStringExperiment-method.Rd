@@ -13,8 +13,7 @@ NanoStringExperiment object
 Method to subset to features with CodeClass Negative
 }
 \examples{
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
+data(exampleNSEData)
 negativeControlSubset(testExp)
 
 }

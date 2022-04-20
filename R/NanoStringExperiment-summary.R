@@ -12,8 +12,7 @@ setAs("NanoStringExperiment", "list",
 #' @return list version of NanoStringExperiment object
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' as.list(testExp)
 #' 
 #' @export
@@ -27,8 +26,7 @@ setMethod("as.list", "NanoStringExperiment",
 #' @return results of evaluation
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' with(testExp, table(CodeClass))
 #' 
 #' @export
@@ -45,8 +43,7 @@ setMethod("with", "NanoStringExperiment",
 #' @return summary table of aggregated results
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' summary(testExp)
 #' 
 #' @export

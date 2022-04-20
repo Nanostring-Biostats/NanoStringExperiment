@@ -13,8 +13,7 @@ SignatureSet object
 Access signatures slot to get \code{SignatureSet} object
 }
 \examples{
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
+data(exampleNSEData)
 signatures(testExp)
 
 }

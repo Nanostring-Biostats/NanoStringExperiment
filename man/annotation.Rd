@@ -13,8 +13,7 @@ list of annotations used with experiment
 Access annotations associated with the experiment
 }
 \examples{
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
+data(exampleNSEData)
 annotation(testExp)
 
 }

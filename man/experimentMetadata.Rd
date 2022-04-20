@@ -3,16 +3,26 @@
 \name{experimentData,NanoStringExperiment-method}
 \alias{experimentData,NanoStringExperiment-method}
 \alias{experimentData<-,NanoStringExperiment,ANY-method}
+\alias{expinfo,list-method}
+\alias{otherInfo,list-method}
 \title{Access experiment metadata}
 \usage{
 \S4method{experimentData}{NanoStringExperiment}(object)
 
 \S4method{experimentData}{NanoStringExperiment,ANY}(object) <- value
+
+\S4method{expinfo}{list}(object)
+
+\S4method{otherInfo}{list}(object)
 }
 \value{
 list of experiment metadata
 
 NanoStringExperiment object
+
+list of experiment metadata
+
+list of experiment metadata
 }
 \description{
 It is recommended to use the SummarizedExperiment metadata instead.
@@ -20,15 +30,25 @@ This is a convenience method for backwards compatibility.
 
 It is recommended to use the SummarizedExperiment metadata instead.
 This is a convenience method for backwards compatibility.
+
+It is recommended to use the SummarizedExperiment metadata instead.
+This is a convenience method for backwards compatibility.
+
+It is recommended to use the SummarizedExperiment metadata instead.
+This is a convenience method for backwards compatibility.
 }
 \examples{
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
+data(exampleNSEData)
 experimentData(testExp)
 
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
+data(exampleNSEData)
 experimentData(testExp) <- 
     c(experimentData(testExp), list(testName="myExp"))
+
+data(exampleNSEData)
+expinfo(experimentData(testExp))
+
+data(exampleNSEData)
+otherInfo(experimentData(testExp))
 
 }

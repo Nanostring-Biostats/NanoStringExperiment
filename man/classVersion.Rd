@@ -13,8 +13,7 @@ version of class used to generate object
 Access version of NanoStringExperiment package used to generate object
 }
 \examples{
-datadir <- system.file("data", package="NanoStringExperiment")
-testExp <- readRDS(file.path(datadir, "testExp.rds"))
+data(exampleNSEData)
 classVersion(testExp)
 
 }

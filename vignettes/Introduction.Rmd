@@ -59,16 +59,15 @@ annotation (list containing annotation file names used),
 dimLabels (list of variables used as row and column keys in object).
 
 ```{r define}
-datadir <- system.file("data", package="NanoStringExperiment")
-
+data(exampleNSEData)
 demoExperiment <- NanoStringExperiment(
-    assayData = readRDS(file.path(datadir, "testAssayData.rds")),
-    phenoData = readRDS(file.path(datadir, "testPhenoData.rds")),
-    protocolData = readRDS(file.path(datadir, "testProtocolData.rds")),
-    featureData = readRDS(file.path(datadir, "testFeatureData.rds")),
-    experimentData = readRDS(file.path(datadir, "testExperimentData.rds")),
-    annotation = readRDS(file.path(datadir, "testAnnotation.rds")),
-    dimLabels = readRDS(file.path(datadir, "testDimLabels.rds")))
+    assayData = testAssayData,
+    phenoData = testPhenoData,
+    protocolData = testProtocolData,
+    featureData = testFeatureData,
+    experimentData = testExperimentData,
+    annotation = testAnnotation,
+    dimLabels = testDimLabels)
 demoExperiment
 ```
 

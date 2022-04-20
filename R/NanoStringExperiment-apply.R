@@ -6,8 +6,7 @@
 #' @return assay data matrix
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' assayDataApply(testExp, 1, mean)
 #' 
 #' @rdname assayDataApply
@@ -24,8 +23,7 @@ setGeneric("assayDataApply", signature = "X",
 #' @return assay data matrix
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' assayDataApply(testExp, 1, mean, elt="exprs")
 #' 
 #' @rdname assayDataApply
@@ -47,8 +45,7 @@ setGeneric("assayDataApply", signature = "X",
 #' @return assay data matrix
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' esApply(testExp, 1, mean)
 #' 
 #' @rdname esApply
@@ -67,8 +64,7 @@ setMethod("esApply", signature = "NanoStringExperiment",
 #' @return list or matrix of results
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' esBy(testExp, 
 #'     GROUP = "cell_line", 
 #'     FUN = function(x) { 
@@ -88,8 +84,7 @@ setGeneric("esBy", signature = "X",
 #' @return list or matrix of results
 #' 
 #' @examples
-#' datadir <- system.file("data", package="NanoStringExperiment")
-#' testExp <- readRDS(file.path(datadir, "testExp.rds"))
+#' data(exampleNSEData)
 #' esBy(testExp, 
 #'     GROUP = "cell_line", 
 #'     FUN = function(x) { 
