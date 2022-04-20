@@ -6,6 +6,9 @@
 \usage{
 \S4method{classVersion}{NanoStringExperiment}(object)
 }
+\arguments{
+\item{object}{NanoStringExperiment object}
+}
 \value{
 version of class used to generate object
 }

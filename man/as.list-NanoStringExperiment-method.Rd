@@ -6,6 +6,11 @@
 \usage{
 \S4method{as.list}{NanoStringExperiment}(x, ...)
 }
+\arguments{
+\item{x}{NanoStringExperiment object}
+
+\item{...}{additional parameters for \code{list}}
+}
 \value{
 list version of NanoStringExperiment object
 }

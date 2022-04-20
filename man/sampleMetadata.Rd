@@ -45,6 +45,11 @@ svarLabels(object)
 
 \S4method{varLabels}{NanoStringExperiment}(object) <- value
 }
+\arguments{
+\item{object}{NanoStringExperiment object}
+
+\item{value}{replacement variable labels}
+}
 \value{
 matrix of sample (column) metadata
 

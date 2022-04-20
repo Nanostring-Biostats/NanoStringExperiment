@@ -9,6 +9,11 @@
 
 \S4method{sampleNames}{NanoStringExperiment,ANY}(object) <- value
 }
+\arguments{
+\item{object}{NanoStringExperiment object}
+
+\item{value}{list sample names}
+}
 \value{
 list of string sample (column) identifiers
 

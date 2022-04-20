@@ -6,6 +6,13 @@
 \usage{
 \S4method{with}{NanoStringExperiment}(data, expr, ...)
 }
+\arguments{
+\item{data}{NanoStringExperiment object}
+
+\item{expr}{expression to evaluate with on}
+
+\item{...}{additional parameters for \code{with}}
+}
 \value{
 results of evaluation
 }

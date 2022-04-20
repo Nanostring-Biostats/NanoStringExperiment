@@ -6,6 +6,9 @@
 \usage{
 \S4method{signatures}{NanoStringExperiment}(object)
 }
+\arguments{
+\item{object}{NanoStringExperiment object}
+}
 \value{
 SignatureSet object
 }

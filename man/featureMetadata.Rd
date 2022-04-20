@@ -21,6 +21,11 @@
 
 \S4method{featureData}{NanoStringExperiment,ANY}(object) <- value
 }
+\arguments{
+\item{object}{NanoStringExperiment object}
+
+\item{value}{replacement feature metadata}
+}
 \value{
 matrix of feature (column) metadata
 

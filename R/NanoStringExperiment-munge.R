@@ -3,6 +3,9 @@
 #' Convert assay DataFrame into long format and append
 #' labels and meta to the new DataFrame
 #' 
+#' @param data NanoStringExperiment object
+#' @param ... additional parameters
+#' 
 #' @return matrix of results in long format
 #' 
 #' @examples
@@ -17,6 +20,12 @@ setGeneric("munge", signature = "data",
 #' 
 #' Convert assay DataFrame into long format and append
 #' labels and meta to the new DataFrame
+#' 
+#' @param data NanoStringExperiment object
+#' @param mapping formula to map data by
+#' @param extradata additional data to append
+#' @param ... additional parameters
+#' @param elt expression matrix for assay element \code{"exprs"}
 #' 
 #' @importFrom NanoStringNCTools signatureScores
 #' 

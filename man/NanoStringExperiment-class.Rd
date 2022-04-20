@@ -51,6 +51,29 @@ NanoStringExperiment(
   ...
 )
 }
+\arguments{
+\item{object}{NanoStringExperiment object}
+
+\item{assayData}{matrix of expression values}
+
+\item{phenoData}{AnnotatedDataFrame with phenotype metadata}
+
+\item{protocolData}{AnnotatedDataFrame with protocol metadata}
+
+\item{featureData}{AnnotatedDataFrame with feature metadata}
+
+\item{experimentData}{MIAME object}
+
+\item{annotation}{list of annotations used}
+
+\item{dimLabels}{list of key headers for row and column metadata}
+
+\item{signatures}{SignatureSet object}
+
+\item{design}{formula or NULL}
+
+\item{...}{parameters to pass}
+}
 \value{
 NanoStringExperiment object
 
@@ -76,6 +99,8 @@ Constructs NanoStringExperiment object if assay data is a matrix
 \section{Slots}{
 
 \describe{
+\item{\code{.__classVersion__}}{version of class}
+
 \item{\code{assayData}}{expression matrix or NULL}
 
 \item{\code{annotation}}{character list of annotations used}

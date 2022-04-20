@@ -6,6 +6,11 @@
 \usage{
 munge(data, ...)
 }
+\arguments{
+\item{data}{NanoStringExperiment object}
+
+\item{...}{additional parameters}
+}
 \value{
 matrix of results in long format
 }

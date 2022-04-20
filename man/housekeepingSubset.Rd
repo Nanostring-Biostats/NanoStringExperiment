@@ -6,6 +6,9 @@
 \usage{
 housekeepingSubset(object)
 }
+\arguments{
+\item{object}{NanoStringExperiment object}
+}
 \value{
 NanoStringExperiment object
 }

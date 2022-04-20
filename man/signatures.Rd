@@ -12,6 +12,11 @@ signatures(object) <- value
 
 \S4method{signatures}{NanoStringExperiment,SignatureSet}(object) <- value
 }
+\arguments{
+\item{object}{NanoStringExperiment object}
+
+\item{value}{SignatureSet object}
+}
 \value{
 SignatureSet object
 

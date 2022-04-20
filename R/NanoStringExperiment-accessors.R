@@ -4,6 +4,8 @@
 #' 
 #' @importMethodsFrom Biobase classVersion
 #' 
+#' @param object NanoStringExperiment object
+#' 
 #' @return version of class used to generate object
 #' 
 #' @examples
@@ -22,6 +24,8 @@ setMethod("classVersion", signature = "NanoStringExperiment",
 #' 
 #' @importMethodsFrom Biobase dimLabels
 #' 
+#' @param object NanoStringExperiment object
+#' 
 #' @return list of variables used for dimension labels
 #' 
 #' @examples
@@ -39,6 +43,9 @@ setMethod("dimLabels", signature = "NanoStringExperiment",
 #' Replaces rownames in rowData and colData with specified variable columns.
 #' 
 #' @importMethodsFrom Biobase dimLabels<-
+#' 
+#' @param object NanoStringExperiment object
+#' @param value list of key headers to use for sample and feature names
 #' 
 #' @return NanoStringExperiment object
 #' 
@@ -64,6 +71,8 @@ setReplaceMethod("dimLabels", signature = "NanoStringExperiment",
 #' 
 #' @importMethodsFrom Biobase featureNames
 #' 
+#' @param object NanoStringExperiment object
+#' 
 #' @return list of string feature (row) identifiers
 #' 
 #' @examples
@@ -81,6 +90,9 @@ setMethod("featureNames", signature = "NanoStringExperiment",
 #' Replace variables used for rownames in rowData.
 #' 
 #' @importMethodsFrom Biobase featureNames<-
+#' 
+#' @param object NanoStringExperiment object
+#' @param value list feature names
 #' 
 #' @return NanoStringExperiment object
 #' 
@@ -109,6 +121,8 @@ setReplaceMethod("featureNames", signature = "NanoStringExperiment",
 #' 
 #' @importMethodsFrom Biobase sampleNames
 #' 
+#' @param object NanoStringExperiment object
+#' 
 #' @return list of string sample (column) identifiers
 #' 
 #' @examples
@@ -126,6 +140,9 @@ setMethod("sampleNames", signature = "NanoStringExperiment",
 #' Replace variables used for rownames in colData.
 #' 
 #' @importMethodsFrom Biobase sampleNames<-
+#' 
+#' @param object NanoStringExperiment object
+#' @param value list sample names
 #' 
 #' @return NanoStringExperiment object
 #' 
@@ -157,6 +174,8 @@ setReplaceMethod("sampleNames", signature = "NanoStringExperiment",
 #' 
 #' @importMethodsFrom Biobase assayData
 #' 
+#' @param object NanoStringExperiment object
+#' 
 #' @return summary of assays in object
 #' 
 #' @examples
@@ -174,6 +193,9 @@ setMethod("assayData", signature = "NanoStringExperiment",
 #' It is recommended to use the SummarizedExperiment assays instead.
 #' This is a convenience method for backwards compatibility.
 #' 
+#' @param object NanoStringExperiment object
+#' @param elt name of assay
+#' 
 #' @return expression matrix for assay element
 #' 
 #' @examples
@@ -190,6 +212,9 @@ setGeneric("assayDataElement", signature = "object",
 #' 
 #' It is recommended to use the SummarizedExperiment assays instead.
 #' This is a convenience method for backwards compatibility.
+#' 
+#' @param object NanoStringExperiment object
+#' @param elt name of assay
 #' 
 #' @return expression matrix for assay element
 #' 
@@ -214,6 +239,11 @@ setMethod("assayDataElement", signature = "NanoStringExperiment",
 #' It is recommended to use the SummarizedExperiment assays instead.
 #' This is a convenience method for backwards compatibility.
 #' 
+#' @param object NanoStringExperiment object
+#' @param elt name of assay
+#' @param ... additional parameters to pass to assayDataElement
+#' @param value expression matrix
+#' 
 #' @return NanoStringExperiment object
 #' 
 #' @examples
@@ -232,6 +262,11 @@ setGeneric("assayDataElement<-",
 #' 
 #' It is recommended to use the SummarizedExperiment assays instead.
 #' This is a convenience method for backwards compatibility.
+#' 
+#' @param object NanoStringExperiment object
+#' @param elt name of assay
+#' @param ... additional parameters to pass to assayDataElement
+#' @param value expression matrix
 #' 
 #' @return NanoStringExperiment object
 #' 
@@ -255,6 +290,10 @@ setReplaceMethod("assayDataElement",
 #' It is recommended to use the SummarizedExperiment assayNames instead.
 #' This is a convenience method for backwards compatibility.
 #' 
+#' @param object NanoStringExperiment object
+#' @param elt name of assay
+#' @param value expression matrix
+#' 
 #' @return list of assay elements in object
 #' 
 #' @examples
@@ -271,6 +310,8 @@ setGeneric("assayDataElementNames", signature = "object",
 #' 
 #' It is recommended to use the SummarizedExperiment assayNames instead.
 #' This is a convenience method for backwards compatibility.
+#' 
+#' @param object NanoStringExperiment object
 #' 
 #' @return list of assay elements in object
 #' 
@@ -291,6 +332,10 @@ setMethod("assayDataElementNames", signature = "NanoStringExperiment",
 #' 
 #' @importMethodsFrom Biobase exprs
 #' 
+#' @param object NanoStringExperiment object
+#' 
+#' @return expression matrix for assay element \code{"exprs"}
+#' 
 #' @examples
 #' data(exampleNSEData)
 #' exprs(testExp)
@@ -307,6 +352,8 @@ setMethod("exprs", signature = "NanoStringExperiment",
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase exprs<-
+#' 
+#' @param object NanoStringExperiment object
 #' 
 #' @return expression matrix for assay element \code{"exprs"}
 #' 
@@ -329,6 +376,8 @@ setReplaceMethod("exprs", signature = "NanoStringExperiment",
 #' It is recommended to use the SummarizedExperiment colData instead.
 #' This is a convenience method for backwards compatibility.
 #' 
+#' @param object NanoStringExperiment object
+#' 
 #' @return matrix of sample (column) metadata
 #' 
 #' @examples
@@ -345,6 +394,8 @@ setGeneric("sData", signature = "object",
 #' 
 #' It is recommended to use the SummarizedExperiment colData instead.
 #' This is a convenience method for backwards compatibility.
+#' 
+#' @param object NanoStringExperiment object
 #' 
 #' @return matrix of sample (column) metadata
 #' 
@@ -363,6 +414,8 @@ setMethod("sData", signature = "NanoStringExperiment",
 #' It is recommended to use the SummarizedExperiment colData instead.
 #' This is a convenience method for backwards compatibility.
 #' 
+#' @param object NanoStringExperiment object
+#' 
 #' @return list of sample (column) metadata variables
 #' 
 #' @examples
@@ -379,6 +432,8 @@ setGeneric("svarLabels", signature = "object",
 #' 
 #' It is recommended to use the SummarizedExperiment colData instead.
 #' This is a convenience method for backwards compatibility.
+#' 
+#' @param object NanoStringExperiment object
 #' 
 #' @return list of sample (column) metadata variables
 #' 
@@ -398,6 +453,8 @@ setMethod("svarLabels", signature = "NanoStringExperiment",
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase phenoData
+#' 
+#' @param object NanoStringExperiment object
 #' 
 #' @return matrix of sample phenotypic metadata
 #' 
@@ -421,6 +478,9 @@ setMethod("phenoData", signature = "NanoStringExperiment",
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase phenoData<-
+#' 
+#' @param object NanoStringExperiment object
+#' @param value phenotype metadata DataFrame
 #' 
 #' @return NanoStringExperiment object
 #' 
@@ -455,6 +515,8 @@ setReplaceMethod("phenoData", signature = "NanoStringExperiment",
 #' 
 #' @importMethodsFrom Biobase protocolData
 #' 
+#' @param object NanoStringExperiment object
+#' 
 #' @return matrix of sample protocol metadata
 #' 
 #' @examples
@@ -477,6 +539,9 @@ setMethod("protocolData", signature = "NanoStringExperiment",
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase protocolData<-
+#' 
+#' @param object NanoStringExperiment object
+#' @param value protocol metadata DataFrame
 #' 
 #' @return NanoStringExperiment object
 #' 
@@ -511,6 +576,8 @@ setReplaceMethod("protocolData", signature = "NanoStringExperiment",
 #' 
 #' @importMethodsFrom Biobase pData
 #' 
+#' @param object NanoStringExperiment object
+#' 
 #' @return matrix of sample phenotypic metadata
 #' 
 #' @examples
@@ -532,6 +599,8 @@ setMethod("pData", signature = "NanoStringExperiment",
 #' 
 #' @importMethodsFrom Biobase pData
 #' 
+#' @param object metadata DataFrame
+#' 
 #' @return DataFrame of sample phenotypic metadata
 #' 
 #' @examples
@@ -550,6 +619,9 @@ setMethod("pData", signature = "DataFrame",
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase pData<-
+#' 
+#' @param object NanoStringExperiment object
+#' @param value phenotype metadata DataFrame
 #' 
 #' @return NanoStringExperiment object
 #' 
@@ -571,6 +643,8 @@ setReplaceMethod("pData", signature = "NanoStringExperiment",
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase varLabels
+#' 
+#' @param object NanoStringExperiment object
 #' 
 #' @return list of sample phenotypic metadata variables
 #' 
@@ -595,6 +669,8 @@ setMethod("varLabels", signature = "NanoStringExperiment",
 #' 
 #' @importMethodsFrom Biobase varLabels
 #' 
+#' @param object metadata DataFrame
+#' 
 #' @return list of metadata variables
 #' 
 #' @examples
@@ -613,6 +689,9 @@ setMethod("varLabels", signature = "DataFrame",
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase varLabels<-
+#' 
+#' @param object NanoStringExperiment object
+#' @param value replacement variable labels
 #' 
 #' @return NanoStringExperiment object
 #' 
@@ -650,6 +729,8 @@ setReplaceMethod("varLabels", signature = "NanoStringExperiment",
 #' 
 #' @importMethodsFrom Biobase fData
 #' 
+#' @param object NanoStringExperiment object
+#' 
 #' @return matrix of feature (column) metadata
 #' 
 #' @examples
@@ -668,6 +749,9 @@ setMethod("fData", signature = "NanoStringExperiment",
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase fData<-
+#' 
+#' @param object NanoStringExperiment object
+#' @param value feature metadata
 #' 
 #' @return NanoStringExperiment object
 #' 
@@ -691,6 +775,8 @@ setReplaceMethod("fData", signature = "NanoStringExperiment",
 #' 
 #' @importMethodsFrom Biobase fvarLabels
 #' 
+#' @param object NanoStringExperiment object
+#' 
 #' @return list of feature metadata variables
 #' 
 #' @examples
@@ -709,6 +795,9 @@ setMethod("fvarLabels", signature = "NanoStringExperiment",
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase fvarLabels<-
+#' 
+#' @param object NanoStringExperiment object
+#' @param value replacement feature metadata variables
 #' 
 #' @return NanoStringExperiment object
 #' 
@@ -732,6 +821,8 @@ setReplaceMethod("fvarLabels", signature = "NanoStringExperiment",
 #' 
 #' @importMethodsFrom Biobase featureData
 #' 
+#' @param object NanoStringExperiment object
+#' 
 #' @return matrix of feature (row) metadata
 #' 
 #' @examples
@@ -750,6 +841,9 @@ setMethod("featureData", signature = "NanoStringExperiment",
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase featureData<-
+#' 
+#' @param object NanoStringExperiment object
+#' @param value replacement feature metadata
 #' 
 #' @return NanoStringExperiment object
 #' 
@@ -774,6 +868,8 @@ setReplaceMethod("featureData", signature = "NanoStringExperiment",
 #' 
 #' @importMethodsFrom Biobase experimentData
 #' 
+#' @param object NanoStringExperiment object
+#' 
 #' @return list of experiment metadata
 #' 
 #' @examples
@@ -792,6 +888,9 @@ setMethod("experimentData", signature = "NanoStringExperiment",
 #' This is a convenience method for backwards compatibility.
 #' 
 #' @importMethodsFrom Biobase experimentData<-
+#' 
+#' @param object NanoStringExperiment object
+#' @param value list of experiment parameters
 #' 
 #' @return NanoStringExperiment object
 #' 
@@ -816,6 +915,8 @@ setReplaceMethod("experimentData", signature = "NanoStringExperiment",
 #' 
 #' @importMethodsFrom Biobase expinfo
 #' 
+#' @param object list of experiment data
+#' 
 #' @return list of experiment metadata
 #' 
 #' @examples
@@ -835,6 +936,8 @@ setMethod("expinfo", signature = "list",
 #' 
 #' @importMethodsFrom Biobase otherInfo
 #' 
+#' @param object list of experiment data
+#' 
 #' @return list of experiment metadata
 #' 
 #' @examples
@@ -853,6 +956,8 @@ setMethod("otherInfo", signature = "list",
 #' 
 #' @importMethodsFrom BiocGenerics annotation
 #' 
+#' @param object NanoStringExperiment object
+#' 
 #' @return list of annotations used with experiment
 #' 
 #' @examples
@@ -869,6 +974,8 @@ setMethod("annotation", signature="NanoStringExperiment",
 #' 
 #' Access formula to be used for design in analyses
 #' 
+#' @param object NanoStringExperiment object
+#' 
 #' @return formula used for design (model) matrix
 #' 
 #' @examples
@@ -882,6 +989,8 @@ setGeneric("design", signature = "object",
 #' Access design formula
 #' 
 #' Access formula to be used for design in analyses
+#' 
+#' @param object NanoStringExperiment object
 #' 
 #' @return formula used for design (model) matrix
 #' 
@@ -898,6 +1007,9 @@ setMethod("design", "NanoStringExperiment",
 #' Replace design formula
 #' 
 #' Replace or assign formula to be used for design in analyses
+#' 
+#' @param object NanoStringExperiment object
+#' @param value formula for design matrix or NULL
 #' 
 #' @return NanoStringExperiment object
 #' 
@@ -922,6 +1034,9 @@ setReplaceMethod("design", c("NanoStringExperiment", "formula"),
 #' 
 #' @importFrom stats as.formula
 #' 
+#' @param object NanoStringExperiment object
+#' @param value formula for design matrix or NULL
+#' 
 #' @return NanoStringExperiment object
 #' 
 #' @importMethodsFrom BiocGenerics design<-
@@ -942,6 +1057,9 @@ setReplaceMethod("design", c("NanoStringExperiment", "ANY"),
 #' Replace design formula
 #' 
 #' Replace or assign formula to be used for design in analyses
+#' 
+#' @param object NanoStringExperiment object
+#' @param value formula for design matrix or NULL
 #' 
 #' @return NanoStringExperiment object
 #' 
@@ -964,6 +1082,8 @@ setReplaceMethod("design", c("NanoStringExperiment", "NULL"),
 #' 
 #' Access signatures slot to get \code{SignatureSet} object
 #' 
+#' @param object NanoStringExperiment object
+#' 
 #' @return SignatureSet object
 #' 
 #' @examples
@@ -977,6 +1097,8 @@ setGeneric("signatures", signature = "object",
 #' Access signatures slot
 #' 
 #' Access signatures slot to get \code{SignatureSet} object
+#' 
+#' @param object NanoStringExperiment object
 #' 
 #' @return SignatureSet object
 #' 
@@ -993,6 +1115,9 @@ setMethod("signatures", "NanoStringExperiment",
 #' Replace signatures slot with updated \code{SignatureSet}
 #' 
 #' @importClassesFrom NanoStringNCTools SignatureSet
+#' 
+#' @param object NanoStringExperiment object
+#' @param value SignatureSet object
 #' 
 #' @return NanoStringExperiment object
 #' 
@@ -1011,6 +1136,9 @@ setGeneric("signatures<-", signature = c("object", "value"),
 #' Replace signatures slot with updated \code{SignatureSet}
 #' 
 #' @importClassesFrom NanoStringNCTools SignatureSet
+#' 
+#' @param object NanoStringExperiment object
+#' @param value SignatureSet object
 #' 
 #' @return NanoStringExperiment object
 #' 

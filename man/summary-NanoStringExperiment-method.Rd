@@ -14,6 +14,21 @@
   ...
 )
 }
+\arguments{
+\item{object}{NanoStringExperiment object}
+
+\item{MARGIN}{integer to apply across row or column}
+
+\item{GROUP}{colData header to group by}
+
+\item{log2scale}{boolean indicating to use log2 values}
+
+\item{elt}{assay data matrix name}
+
+\item{signatureScores}{boolean to use signature scores}
+
+\item{...}{parameters to pass to summary}
+}
 \value{
 summary table of aggregated results
 }

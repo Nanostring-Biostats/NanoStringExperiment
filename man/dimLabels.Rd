@@ -9,6 +9,11 @@
 
 \S4method{dimLabels}{NanoStringExperiment,ANY}(object) <- value
 }
+\arguments{
+\item{object}{NanoStringExperiment object}
+
+\item{value}{list of key headers to use for sample and feature names}
+}
 \value{
 list of variables used for dimension labels
 

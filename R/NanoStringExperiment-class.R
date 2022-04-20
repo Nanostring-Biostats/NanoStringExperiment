@@ -10,6 +10,7 @@ setClassUnion("matrixOrNULL", c("formula", "NULL"))
 #' @importFrom methods new
 #' @importClassesFrom NanoStringNCTools SignatureSet
 #' 
+#' @slot .__classVersion__ version of class
 #' @slot assayData expression matrix or NULL
 #' @slot annotation character list of annotations used
 #' @slot dimLabels character list of dimension labels
@@ -41,6 +42,8 @@ setClassUnion("matrixOrNULL", c("formula", "NULL"))
 #' Show method
 #' 
 #' Show method for NanoStringExperiment
+#' 
+#' @param object NanoStringExperiment object
 #' 
 #' @return summary of NanoStringExperiment object
 #' 
@@ -74,6 +77,16 @@ function(object) {
 #' 
 #' @importFrom Biobase annotatedDataFrameFrom
 #' @importFrom Biobase MIAME
+#' 
+#' @param assayData matrix of expression values
+#' @param phenoData AnnotatedDataFrame with phenotype metadata
+#' @param protocolData AnnotatedDataFrame with protocol metadata
+#' @param featureData AnnotatedDataFrame with feature metadata
+#' @param experimentData MIAME object
+#' @param annotation list of annotations used
+#' @param dimLabels list of key headers for row and column metadata
+#' @param signatures SignatureSet object
+#' @param design formula or NULL
 #' 
 #' @return NanoStringExperiment object
 #' 
@@ -116,6 +129,17 @@ signature = "assayData"
 #' @importFrom Biobase annotatedDataFrameFrom
 #' @importFrom Biobase MIAME
 #' 
+#' @param assayData matrix of expression values
+#' @param phenoData AnnotatedDataFrame with phenotype metadata
+#' @param protocolData AnnotatedDataFrame with protocol metadata
+#' @param featureData AnnotatedDataFrame with feature metadata
+#' @param experimentData MIAME object
+#' @param annotation list of annotations used
+#' @param dimLabels list of key headers for row and column metadata
+#' @param signatures SignatureSet object
+#' @param design formula or NULL
+#' @param ... parameters to pass
+#' 
 #' @return NanoStringExperiment object
 #' 
 #' @examples
@@ -152,6 +176,17 @@ function(assayData,
 #' 
 #' @importFrom Biobase annotatedDataFrameFrom
 #' @importFrom Biobase MIAME
+#' 
+#' @param assayData matrix of expression values
+#' @param phenoData AnnotatedDataFrame with phenotype metadata
+#' @param protocolData AnnotatedDataFrame with protocol metadata
+#' @param featureData AnnotatedDataFrame with feature metadata
+#' @param experimentData MIAME object
+#' @param annotation list of annotations used
+#' @param dimLabels list of key headers for row and column metadata
+#' @param signatures SignatureSet object
+#' @param design formula or NULL
+#' @param ... parameters to pass
 #' 
 #' @return NanoStringExperiment object
 #' 

@@ -6,6 +6,9 @@
 \usage{
 \S4method{annotation}{NanoStringExperiment}(object)
 }
+\arguments{
+\item{object}{NanoStringExperiment object}
+}
 \value{
 list of annotations used with experiment
 }

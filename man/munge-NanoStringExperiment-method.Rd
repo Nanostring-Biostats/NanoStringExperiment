@@ -12,6 +12,17 @@
   ...
 )
 }
+\arguments{
+\item{data}{NanoStringExperiment object}
+
+\item{mapping}{formula to map data by}
+
+\item{extradata}{additional data to append}
+
+\item{elt}{expression matrix for assay element \code{"exprs"}}
+
+\item{...}{additional parameters}
+}
 \value{
 matrix of results in long format
 }

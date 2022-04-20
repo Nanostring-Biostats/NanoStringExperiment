@@ -6,6 +6,11 @@
 \usage{
 setQCFlags(object, ...)
 }
+\arguments{
+\item{object}{NanoStringExperiment object}
+
+\item{...}{additional parameters to pass to methods}
+}
 \value{
 NanoStringExperiment object
 }

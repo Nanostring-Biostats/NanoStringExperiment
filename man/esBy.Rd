@@ -9,6 +9,17 @@ esBy(X, GROUP, FUN, ...)
 
 \S4method{esBy}{NanoStringExperiment}(X, GROUP, FUN, ..., simplify = TRUE)
 }
+\arguments{
+\item{X}{NanoStringExperiment object}
+
+\item{GROUP}{colData header to group by}
+
+\item{FUN}{function to apply}
+
+\item{...}{parameters to pass to FUN}
+
+\item{simplify}{boolean indicating whether to simplify output}
+}
 \value{
 list or matrix of results
 

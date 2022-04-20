@@ -6,6 +6,9 @@
 \usage{
 controlSubset(object)
 }
+\arguments{
+\item{object}{NanoStringExperiment object}
+}
 \value{
 NanoStringExperiment object
 }

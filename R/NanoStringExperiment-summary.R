@@ -9,6 +9,9 @@ setAs("NanoStringExperiment", "list",
 #' 
 #' Coercion method for NanoStringExperiment in list format
 #' 
+#' @param x NanoStringExperiment object
+#' @param ... additional parameters for \code{list}
+#' 
 #' @return list version of NanoStringExperiment object
 #' 
 #' @examples
@@ -22,6 +25,10 @@ setMethod("as.list", "NanoStringExperiment",
 #' Evaluate expression on NanoStringExperiment list
 #' 
 #' Performs expression within NanoStringExperiment list
+#' 
+#' @param data NanoStringExperiment object
+#' @param expr expression to evaluate with on
+#' @param ... additional parameters for \code{with}
 #' 
 #' @return results of evaluation
 #' 
@@ -39,6 +46,14 @@ setMethod("with", "NanoStringExperiment",
 #' Get chosen summary statistics for a selected assay
 #' 
 #' @importFrom NanoStringNCTools signatureScoresApply
+#' 
+#' @param object NanoStringExperiment object
+#' @param MARGIN integer to apply across row or column
+#' @param GROUP colData header to group by
+#' @param log2scale boolean indicating to use log2 values
+#' @param elt assay data matrix name
+#' @param signatureScores boolean to use signature scores
+#' @param ... parameters to pass to summary
 #' 
 #' @return summary table of aggregated results
 #' 

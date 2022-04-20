@@ -6,6 +6,9 @@
 \usage{
 endogenousSubset(object)
 }
+\arguments{
+\item{object}{NanoStringExperiment object}
+}
 \value{
 NanoStringExperiment object
 }

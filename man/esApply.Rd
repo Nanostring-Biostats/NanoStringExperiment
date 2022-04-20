@@ -6,6 +6,15 @@
 \usage{
 \S4method{esApply}{NanoStringExperiment}(X, MARGIN, FUN, ...)
 }
+\arguments{
+\item{X}{NanoStringExperiment object}
+
+\item{MARGIN}{integer to apply across row or column}
+
+\item{FUN}{function to apply}
+
+\item{...}{parameters to pass to FUN}
+}
 \value{
 assay data matrix
 }

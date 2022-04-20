@@ -6,6 +6,9 @@
 \usage{
 \S4method{endogenousSubset}{NanoStringExperiment}(object)
 }
+\arguments{
+\item{object}{NanoStringExperiment object}
+}
 \value{
 NanoStringExperiment object
 }

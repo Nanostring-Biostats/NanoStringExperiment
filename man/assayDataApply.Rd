@@ -8,6 +8,17 @@ assayDataApply(X, MARGIN, FUN, ..., elt = "exprs")
 
 assayDataApply(X, MARGIN, FUN, ..., elt = "exprs")
 }
+\arguments{
+\item{X}{NanoStringExperiment object}
+
+\item{MARGIN}{integer to apply across row or column}
+
+\item{FUN}{function to apply}
+
+\item{...}{parameters to pass to FUN}
+
+\item{elt}{expression matrix for assay element \code{"exprs"}}
+}
 \value{
 assay data matrix
 

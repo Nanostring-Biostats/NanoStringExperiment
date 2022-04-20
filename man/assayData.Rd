@@ -30,6 +30,15 @@ assayDataElementNames(object)
 
 \S4method{exprs}{NanoStringExperiment,ANY}(object) <- value
 }
+\arguments{
+\item{object}{NanoStringExperiment object}
+
+\item{elt}{name of assay}
+
+\item{...}{additional parameters to pass to assayDataElement}
+
+\item{value}{expression matrix}
+}
 \value{
 summary of assays in object
 
@@ -44,6 +53,8 @@ NanoStringExperiment object
 list of assay elements in object
 
 list of assay elements in object
+
+expression matrix for assay element \code{"exprs"}
 
 expression matrix for assay element \code{"exprs"}
 }

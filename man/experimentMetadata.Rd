@@ -15,6 +15,11 @@
 
 \S4method{otherInfo}{list}(object)
 }
+\arguments{
+\item{object}{list of experiment data}
+
+\item{value}{list of experiment parameters}
+}
 \value{
 list of experiment metadata
 

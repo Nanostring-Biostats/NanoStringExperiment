@@ -18,6 +18,11 @@ design(object)
 
 \S4method{design}{NanoStringExperiment,`NULL`}(object) <- value
 }
+\arguments{
+\item{object}{NanoStringExperiment object}
+
+\item{value}{formula for design matrix or NULL}
+}
 \value{
 formula used for design (model) matrix
 

@@ -3,6 +3,11 @@
 #' Apply function row (feature) or column (sample)-wise
 #' to selected assay
 #' 
+#' @param X NanoStringExperiment object
+#' @param MARGIN integer to apply across row or column
+#' @param FUN function to apply
+#' @param ... parameters to pass to FUN
+#' 
 #' @return assay data matrix
 #' 
 #' @examples
@@ -19,6 +24,12 @@ setGeneric("assayDataApply", signature = "X",
 #' 
 #' Apply function row (feature) or column (sample)-wise
 #' to selected assay
+#' 
+#' @param X NanoStringExperiment object
+#' @param MARGIN integer to apply across row or column
+#' @param FUN function to apply
+#' @param ... parameters to pass to FUN
+#' @param elt expression matrix for assay element \code{"exprs"}
 #' 
 #' @return assay data matrix
 #' 
@@ -42,6 +53,11 @@ setGeneric("assayDataApply", signature = "X",
 #' 
 #' @importMethodsFrom Biobase esApply
 #' 
+#' @param X NanoStringExperiment object
+#' @param MARGIN integer to apply across row or column
+#' @param FUN function to apply
+#' @param ... parameters to pass to FUN
+#' 
 #' @return assay data matrix
 #' 
 #' @examples
@@ -60,6 +76,11 @@ setMethod("esApply", signature = "NanoStringExperiment",
 #' Apply across NanoStringExperiment object by groupings
 #' 
 #' Group samples or features by variable and apply a function
+#' 
+#' @param X NanoStringExperiment object
+#' @param GROUP colData header to group by
+#' @param FUN function to apply
+#' @param ... parameters to pass to FUN
 #' 
 #' @return list or matrix of results
 #' 
@@ -80,6 +101,12 @@ setGeneric("esBy", signature = "X",
 #' Apply across NanoStringExperiment object by groupings
 #' 
 #' Group samples or features by variable and apply a function
+#' 
+#' @param X NanoStringExperiment object
+#' @param GROUP colData header to group by
+#' @param FUN function to apply
+#' @param ... parameters to pass to FUN
+#' @param simplify boolean indicating whether to simplify output
 #' 
 #' @return list or matrix of results
 #' 

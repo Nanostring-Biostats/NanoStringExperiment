@@ -2,6 +2,8 @@
 #' 
 #' Method to subset to features with CodeClass Endogenous
 #' 
+#' @param object NanoStringExperiment object
+#' 
 #' @return NanoStringExperiment object
 #' 
 #' @examples
@@ -15,6 +17,8 @@ setGeneric("endogenousSubset", signature = "object",
 #' Subset to endogenous features
 #' 
 #' Method to subset to features with CodeClass Endogenous
+#' 
+#' @param object NanoStringExperiment object
 #' 
 #' @return NanoStringExperiment object
 #' 
@@ -30,6 +34,8 @@ setMethod("endogenousSubset", "NanoStringExperiment",
 #' 
 #' Method to subset to features with CodeClass Housekeeping
 #' 
+#' @param object NanoStringExperiment object
+#' 
 #' @return NanoStringExperiment object
 #' 
 #' @examples
@@ -43,6 +49,8 @@ setGeneric("housekeepingSubset", signature = "object",
 #' Subset to housekeeping features
 #' 
 #' Method to subset to features with CodeClass Housekeeping
+#' 
+#' @param object NanoStringExperiment object
 #' 
 #' @return NanoStringExperiment object
 #' 
@@ -58,6 +66,8 @@ setMethod("housekeepingSubset", "NanoStringExperiment",
 #' 
 #' Method to subset to features with CodeClass Negative
 #' 
+#' @param object NanoStringExperiment object
+#' 
 #' @return NanoStringExperiment object
 #' 
 #' @examples
@@ -72,6 +82,8 @@ setGeneric("negativeControlSubset", signature = "object",
 #' 
 #' Method to subset to features with CodeClass Negative
 #' 
+#' @param object NanoStringExperiment object
+#' 
 #' @return NanoStringExperiment object
 #' 
 #' @examples
@@ -85,6 +97,8 @@ setMethod("negativeControlSubset", "NanoStringExperiment",
 #' Subset to positive control features
 #' 
 #' Method to subset to features with CodeClass Positive
+#' 
+#' @param object NanoStringExperiment object
 #' 
 #' @return NanoStringExperiment object
 #' 
@@ -101,6 +115,8 @@ setGeneric("positiveControlSubset", signature = "object",
 #' 
 #' Method to subset to features with CodeClass Positive
 #' 
+#' @param object NanoStringExperiment object
+#' 
 #' @return NanoStringExperiment object
 #' 
 #' @examples
@@ -114,6 +130,8 @@ setMethod("positiveControlSubset", "NanoStringExperiment",
 #' Subset to control features
 #' 
 #' Method to subset to features with CodeClass IsControl
+#' 
+#' @param object NanoStringExperiment object
 #' 
 #' @return NanoStringExperiment object
 #' 
@@ -129,6 +147,8 @@ setGeneric("controlSubset", signature = "object",
 #' 
 #' Method to subset to features with CodeClass IsControl
 #' 
+#' @param object NanoStringExperiment object
+#' 
 #' @return NanoStringExperiment object
 #' 
 #' @examples
@@ -142,6 +162,8 @@ setMethod("controlSubset", "NanoStringExperiment",
 #' Subset to non-IsControl features
 #' 
 #' Method to subset to features not CodeClass IsControl
+#' 
+#' @param object NanoStringExperiment object
 #' 
 #' @return NanoStringExperiment object
 #' 
@@ -157,6 +179,8 @@ setGeneric("nonControlSubset", signature = "object",
 #' 
 #' Method to subset to features not CodeClass IsControl
 #' 
+#' @param object NanoStringExperiment object
+#' 
 #' @return NanoStringExperiment object
 #' 
 #' @examples
@@ -170,6 +194,8 @@ setMethod("nonControlSubset", "NanoStringExperiment",
 #' Subset to signature features
 #' 
 #' Method to subset to features in signatures slot
+#' 
+#' @param object NanoStringExperiment object
 #' 
 #' @return NanoStringExperiment object
 #' 
@@ -186,6 +212,8 @@ setGeneric("signatureSubset", signature = "object",
 #' Method to subset to features in signatures slot
 #' 
 #' @importFrom NanoStringNCTools weights
+#' 
+#' @param object NanoStringExperiment object
 #' 
 #' @return NanoStringExperiment object
 #' 

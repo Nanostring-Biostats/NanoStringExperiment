@@ -9,6 +9,11 @@
 
 \S4method{featureNames}{NanoStringExperiment}(object) <- value
 }
+\arguments{
+\item{object}{NanoStringExperiment object}
+
+\item{value}{list feature names}
+}
 \value{
 list of string feature (row) identifiers
 
